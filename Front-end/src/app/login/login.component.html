@@ -1,0 +1,32 @@
+<mat-card class="login-card" [ngStyle.xs]="{'width.%': 80}" style ="margin-top: 5%; margin-bottom: 50%;">
+    <h2 style = "text-align:center;">Entrar</h2>
+    <form class="login-container" name="form" (ngSubmit)="formData.form.valid && login(formData)" #formData='ngForm' novalidate>
+        <!--<span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>-->
+        <mat-form-field>
+
+            <input matInput type="text" placeholder="Correu electrònic" name="email" [(ngModel)]="email"  required />
+
+        </mat-form-field>
+
+
+        <mat-form-field>
+            <input matInput type="password" placeholder="Contrassenya" name="password" [(ngModel)]="password"  required />
+        </mat-form-field>
+        <div fxLayout="row" style ="width: 100%!important;">
+            <span class ="spacer"></span>
+            <button mat-raised-button style = "background-color:#CD0030!important; color: white!important;margin-right:5%;" [disabled]="!formData.valid">Entrar</button>
+             <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+        </div>
+      <!--  <a routerLink="/register" class="alc">No tens compte?</a>-->
+    </form>
+</mat-card>
+
+
+<!--<div *ngIf="afAuth.authState | async; let user; else showLogin">
+      <h1>Hello {{ user.displayName }}!</h1>
+      <button (click)="logout()">Logout</button>
+    </div>
+    <ng-template #showLogin>
+      <p>Please login.</p>
+      <button (click)="loginGoogle()">Login with Google</button>
+    </ng-template>-->

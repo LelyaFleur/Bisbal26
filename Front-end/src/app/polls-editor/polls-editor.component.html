@@ -1,0 +1,121 @@
+<mat-toolbar>
+  <mat-toolbar-row ngClass.xl = "third-toolbar-lg" ngClass.lg = "third-toolbar-lg" ngClass.md = "third-toolbar-tablet" ngClass.sm = "third-toolbar-tablet-sm" ngClass.xs = "third-toolbar-xs">
+ 
+    <div ngClass.xl = "third-toolbar-content-lg" ngClass.lg = "third-toolbar-content-lg" ngClass.md = "third-toolbar-content-tablet" ngClass.sm = "third-toolbar-content-tablet-sm" ngClass.xs = "third-toolbar-content-xs" fxLayout="row" fxLayoutAlign="space-between">
+       <div >
+         <p>Editor de la consulta</p>
+         <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg">{{query?.title}}</p>
+       </div>
+      <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+        <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-md" ngClass.sm= "back-button-sm" ngClass.xs= "back-button-xs" (click) = "navigateBack()" style ="cursor: pointer!important;"><  Tornar enrere</a>
+      </div>
+    </div> 
+   </mat-toolbar-row>
+</mat-toolbar>
+  <div ngClass.xs = "content-xs" style ="height:300px; padding-top: 100px;" fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+    <p ngClass.xs = "text-xs">Editor no està disponible per als dispositius mòbils</p>
+  </div>
+  <div style ="padding-top: 30px;" ngClass.xl ="wrapper-xl" ngClass.lg ="wrapper-lg" ngClass.md ="wrapper-md" ngClass.sm ="wrapper-sm" ngClass.xs ="wrapper-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+    
+    <div fxLayout="column" ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs" >
+      <div fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column"  style ="width:100%;" fxLayoutAlign ="space-between start">
+        <!-- <div ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs">
+            <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">{{query?.title}}
+              </p>
+          </div>--> 
+         <div ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs">
+            <div style ="padding: 10px;border: 1px #989234 dashed;" ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs" *ngIf = "!editQueryInfoMode">
+              <span ngClass.xl="material-icons edit-icon-message-xl" ngClass.lg ="material-icons edit-icon-message-xl" ngClass.md ="material-icons edit-icon-message-xl" ngClass.sm ="material-icons edit-icon-message-xl" (click) = "editQueryInfo()" >
+                create
+              </span>
+              <p style = "margin:0px;"><b>Títol de la consulta:</b></p>
+              <div ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">{{queryInfo?.title}}</div>
+              <p style = "margin:0px;"><b>Maximum propostes que es pot votar:</b></p>
+              <div ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">{{queryInfo?.maxSelection}}</div>
+              <p style = "margin:0px;"><b>Missatge de confirmació de vot:</b></p>
+              <div [innerHTML]="queryInfo?.message1 | safe" class = "text-cursive"> </div>
+              <p style = "margin:0px;"><b>Missatge d'error de la data de naixement:</b></p>
+              <div [innerHTML]="queryInfo?.message2 | safe" class = "text-cursive"> </div>
+              <p style = "margin:0px;"><b>Missatge d'intent de votar 2 cops:</b></p>
+              <div [innerHTML]="queryInfo?.message3 | safe" class = "text-cursive"> </div>
+              <p style = "margin:0px;"><b>Missatge d'usuari no existent:</b></p>
+              <div [innerHTML]="queryInfo?.message4 | safe" class = "text-cursive"> </div>
+        
+            </div>  
+           
+            <form  #f="ngForm" (ngSubmit)="saveQueryInfo(f);" *ngIf = "editQueryInfoMode"> 
+              <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs"><b>Maximum propostes que es pot votar:</b></p>
+                        <input type="number" ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Maximum propostes que es pot votar" [(ngModel)]="queryInfo.maxSelection" name = "maxSelection" required>
+                </div>
+            </div>  
+            
+           
+            <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;margin-bottom: 60px;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs"><b>Títol:</b></p>
+                        <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la consulta" [(ngModel)]="queryInfo.title" name = "title" required>
+                </div>
+            </div> 
+              <p style = "font-size: 16px!important; margin:40px 0 20px 0;"><b>Missatge de confirmació de vot:</b></p>
+              <ckeditor [(ngModel)]="queryInfo.message1" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" name = "message1" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+              <p style = "font-size: 16px!important; margin:40px 0 20px 0;"><b>Missatge d'error de la data de naixement:</b></p>
+              <ckeditor [(ngModel)]="queryInfo.message2" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" name = "message2" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+              <p style = "font-size: 16px!important; margin:40px 0 20px 0;"><b>Missatge d'intent de votar 2 cops:</b></p>
+              <ckeditor [(ngModel)]="queryInfo.message3" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" name = "message3" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+              <p style = "font-size: 16px!important; margin:40px 0 20px 0;"><b>Missatge d'usuari no existent:</b></p>
+              <ckeditor [(ngModel)]="queryInfo.message4" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" name = "message4" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+              <div fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true">
+                <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar</button> 
+                <button type="button" style ="background-color: gainsboro!important; color:black!important;margin-left:15px;" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm" (click) = "cancelEditQueryInfo()">Cancel·lar</button> 
+              </div>  
+            </form>
+          </div>
+          <div fxLayout.xs ="row" fxLayout.md ="row" fxLayout.sm ="row" ngClass.xl = "button-group-xl" ngClass.lg = "button-group-xl" ngClass.md = "button-group-tablet" ngClass.sm = "button-group-tablet-sm" ngClass.xs = "button-group-xs" >
+            <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-FAQ-xl" ngClass.md = "faq-button-tablet" ngClass.sm = "faq-button-tablet-sm" ngClass.xs = "faq-button-xs" [routerLink] = "['/editar-faqs', queryId]" >FAQs</button>
+            <span class="spacer"></span>
+            <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-lg" ngClass.md = "instrucions-button-tablet" ngClass.sm = "instrucions-button-tablet-sm"  ngClass.xs = "instrucions-button-xs" [routerLink] = "['/editar-instruccions', queryId]" >Instruccions per votar</button>
+          </div>
+        </div>
+      
+      
+      
+      <div style ="margin: 0 auto!important;margin-bottom: 52px!important;">
+     <!--   <button mat-fab color="warn">
+          <mat-icon >add</mat-icon>
+        </button>-->
+        <button style ="border: none; padding: 15px;cursor:pointer;" [routerLink] = "['/afegir-proposta', queryId]">
+          <mat-icon style ="font-size:50px;height: 50px; width: 50px;">add</mat-icon>
+        </button>
+        
+       </div>
+    
+      <div ngClass.xl = "grid-wrapper-xl" ngClass.lg = "grid-wrapper-xl" ngClass.md = "grid-wrapper-tablet" ngClass.sm = "grid-wrapper-tablet-sm" ngClass.xs = "grid-wrapper-xs">
+          <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px">
+            
+            <mat-grid-tile style ="background-color: #F3F3F3; cursor:pointer;" *ngFor="let item of proposalItems; let i = index">
+              <div fxLayout="column" style ="width:100%!important;">
+                  <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  >
+                    <img [src]="item.images[0].name"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, true)" *ngIf="item.images[0] !== undefined;else no_image">
+                    <ng-template #no_image>
+                      <img src="assets/images/image-icon.jpg"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, true)">
+                    </ng-template>
+                    <span ngClass.xl="material-icons clear-icon-xl" ngClass.lg ="material-icons clear-icon-xl" ngClass.md ="material-icons clear-icon-xl" ngClass.sm ="material-icons clear-icon-xl" (click) = "openConfirmDialog(item._id)">
+                      clear
+                      </span>
+                      <span ngClass.xl="material-icons edit-icon-xl" ngClass.lg ="material-icons edit-icon-xl" ngClass.md ="material-icons edit-icon-xl" ngClass.sm ="material-icons edit-icon-xl" [routerLink] = "['/editar-proposta', queryId, item._id]" [routerLink] = "['/editar-proposta', queryId, item._id]">
+                        create
+                        </span>
+                       
+                 </div>
+                 <div ngClass.xl = "tile-bottom-xl" ngClass.lg = "tile-bottom-lg" ngClass.md = "tile-bottom-tablet" ngClass.sm = "tile-bottom-tablet-sm" ngClass.xs = "tile-bottom-xs" (click) = "openDialog(item, i+1, true)"> <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs" [ngStyle]="{'color':item.checked === true ? 'white' : 'black' }" >{{item?.title}}&nbsp;<span *ngIf ="item.title !== 'Vot en blanc'">({{item.cost.quantity}})</span></p></div>
+                 </div>
+            </mat-grid-tile>
+          </mat-grid-list>
+         
+      </div>  
+    </div>
+  </div>
+   
+  

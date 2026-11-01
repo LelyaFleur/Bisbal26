@@ -1,0 +1,86 @@
+<mat-toolbar style ="min-height: 160px!important;padding:20px; justify-content: center;background-color: #3A892D;" class ="header-toolbar" [ngStyle.xs]="{'min-height.px': 80}" [ngStyle.sm]="{'min-height.px': 100}"  [ngStyle.md]="{'min-height.px': 100}" [ngStyle.lg]="{'min-height.px': 100}" [ngStyle.xl]="{'min-height.px': 100}">
+ 
+  <span fxShow  class="menu-spacer"></span>
+  <div style = "font-size: 24px;color:white!important;" [ngStyle.xs]="{'font-size.px': 16}" [ngStyle.sm]="{'font-size.px': 18}"  [ngStyle.md]="{'font-size.px': 20}" [ngStyle.lg]="{'font-size.px': 24}" [ngStyle.xl]="{'font-size.px': 24}">PRESSUPOST PARTICIPATIU 2018-2019</div>
+  <span fxShow [fxShow.xs]="false" class="menu-spacer"></span>
+  
+</mat-toolbar>
+
+<div style ="background-color: white;" ng-cloak>
+  <!-- <div *ngIf = "phase?.process === 'gathering'">
+     <proposals [process] = "phase?.process"></proposals>
+   </div>
+   <div *ngIf = "phase?.process === 'selection'">
+     <proposals [process] = "phase?.process"></proposals>
+   </div>
+   <div *ngIf = "phase?.process === 'voting'">
+     <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">VOTACIÓ FINAL</h2>
+     <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">SELECCIONA UN MÀXIM DE 3 PROPOSTES (les que vulguis) I VOTA.</h2>
+     <h3 style ="text-align: center; font-family:'Roboto';margin-bottom: 40px;">50.000€ A LES TEVES MANS!</h3>
+     <div fxLayout="row" style ="width: 100%!important;margin-bottom:25px;">
+         <span class="spacer" fxShow></span>
+         <button mat-raised-button color="warn" [ngStyle.xs]="{'font-size.px': 11}" (click) ="openInstructions()">    
+           INSTRUCCIONS PER VOTAR
+         </button>        
+         <button mat-raised-button color="warn" [ngStyle.xs]="{'font-size.px': 11}" style = "margin-left: 10px;" (click) ="openFAQS()">    
+           PREGUNTES FREQÜENTS
+       </button>
+         <span class="spacer" fxShow></span>
+     </div>
+     
+     
+     <mat-grid-list  [cols]="columnNum" rowHeight="320px" gutterSize ="40px" ng-cloak>                  
+       <mat-grid-tile *ngFor="let item of proposalItems; let i = index">
+       
+         <mat-grid-tile-header (click) = "openDialog(item, i+1, false)" style ="min-height: 60px!important;font-size: 16px!important;cursor:pointer; background: rgba(116, 115, 115, 1)!important;">
+           <b>{{item.title}}&nbsp;({{item.cost}})</b> 
+         </mat-grid-tile-header> 
+        
+         <img [src]="item.images[0].name"  style ="width: 100%; height: 90%; margin-top:88px!important;padding:20px;" *ngIf="item.images[0].name !== undefined;else no_image" [ngClass] ="{'desaturate': !item.checked}">
+         
+         <i  class="material-icons check-icon" (click) = "selectProposal(item, i+1)">{{item.icon}}</i>
+                  
+         <ng-template #no_image>
+           <mat-icon style ="font-size:128px;color :grey;margin-right: 25%; margin-bottom: 25%;" (click) = "selectProposal(item)">image</mat-icon>
+         </ng-template>
+        
+    
+       
+     
+       </mat-grid-tile> 
+     </mat-grid-list>     
+   
+     <button mat-fab color="primary" style ="font-size: 16px;" class ="mat-fab-1">{{selectedProposals}}</button>
+     <button mat-fab color="warn" style ="font-size: 16px;" (click) ="showDNICheckerDialog()" class ="mat-fab-2" [disabled] = "!optionSelected()">VOTAR</button>
+   </div>
+   <div *ngIf = "phase?.process === 'results'">   -->
+     <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 20px;">RESULTATS DE LA VOTACIÓ FINAL 2018-2019 (hem decidit el destí de 200.000€)</h2>
+     <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 0 20px 20px 20px;">Els projectes que tenen l’etiqueta de “PROPOSTA GUANYADORA” són els que s’executaran. Aquesta etiqueta la porta la proposta més votada, i després, la resta de propostes amb major nombre de vots, tenint en compte que la suma dels seus pressupostos no pot superar els 200.000€</h2>
+     <div fxLayout="row" style ="width: 100%!important;margin-bottom:25px;">
+       <span class="spacer" fxShow></span>
+       <button mat-raised-button color="warn" (click) ="openResults()" [ngStyle.xs]="{'font-size.px': 12}" *ngIf = "query?.totalVotes > 0">    
+         CLICA AQUÍ PER MÉS INFORMACIÓ SOBRE ELS RESULATS
+       </button>
+       <span class="spacer" fxShow></span>
+     </div>
+   
+ 
+  
+   <mat-grid-list  [cols]="columnNum" rowHeight="320px" gutterSize ="40px" ng-cloak>                  
+       <mat-grid-tile *ngFor="let item of proposalItems | orderby:['!votes']; let i = index">
+   <mat-grid-tile-header (click) = "openDialog(item, i+1, true)" style ="min-height: 60px!important;font-size: 16px!important;cursor:pointer; background: rgba(128, 128, 128, 1)!important;">
+       <b>{{item.title}}&nbsp;({{item.cost}})</b> 
+     </mat-grid-tile-header> 
+    
+     <img [src]="item.images[0].name"  style ="width: 100%; height: 90%; margin-top:88px!important;padding:20px;">
+     
+     <p [ngClass]="{
+       'result':item.winner === false,
+       'winner':item.winner === true}"><b><i *ngIf ="item.votes !== 0">{{item.votes * 100 / query.totalVotes | number : '2.1-2'}}% ({{item.votes}} <span *ngIf ="item.votes === 1">vot)</span><span *ngIf ="item.votes > 1">vots)</span></i> <span  *ngIf = "item.votes === 0">0%</span><span *ngIf = "item.winner" style = "background: #f44336!important; color: white!important;margin-top: 10px;font-size:22px!important;">PROPOSTA GUANYADORA</span></b></p>
+       
+   </mat-grid-tile> 
+ </mat-grid-list>     
+  <!-- </div>-->
+   
+ </div>
+ 

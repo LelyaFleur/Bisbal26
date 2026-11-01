@@ -1,0 +1,164 @@
+<!--<h2 mat-dialog-title style ="display:inline-block;">Proposta
+  <span fxShow class ="spacer"></span>&nbsp; &nbsp;
+  <button mat-icon-button matTooltip="Per seleccionar una proposta fes clic al cercle" *ngIf = "!data.admin" (click) = "selectProposal(data)">
+    <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+  </button>
+  
+</h2>-->
+<div mat-dialog-title fxLayout ="column">
+  <p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">{{data.title}}    
+    <span fxShow class ="spacer"></span>
+    <button mat-icon-button style ="height:32px!important;width:32px!important;line-height:32px;" (click) = "onSave()">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;line-height:32px;">clear</mat-icon>
+    </button>
+  </p>
+ <!-- <p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">{{data.title}}
+  </p>-->
+  <div fxLayout="row" fxLayoutAlign="flex-start center" ngClass.xl = "select-xl" ngClass.lg = "select-lg" ngClass.md = "select-md" ngClass.sm = "select-sm" ngClass.xs = "select-xs"  *ngIf = "!data.admin">
+    <button mat-icon-button ngClass.xl = "check-button-xl" ngClass.lg = "check-button-lg" ngClass.md = "check-button-md" ngClass.sm = "check-button-sm" ngClass.xs = "check-button-xs" matTooltip="Per seleccionar una proposta fes clic al cercle"  (click) = "selectProposal()">   
+      <mat-icon ngClass.xl="check-icon-xl" ngClass.lg ="check-icon-xl" ngClass.md ="check-icon-tablet" ngClass.sm ="check-icon-tablet" ngClass.xs="check-icon-xs" svgIcon="{{data.icon}}"></mat-icon>
+    </button>
+    <p ngClass.xl = "select-proposal-xl" ngClass.lg = "select-proposal-xl" ngClass.md = "select-proposal-tablet" ngClass.sm = "select-proposal-tablet-sm" ngClass.xs = "select-proposal-xs"  fxLayout="row">
+        Seleccionar proposta
+    </p>
+  </div>
+ 
+</div>
+
+  
+    <!-- <button mat-icon-button *ngIf = "data.checked"> <mat-icon  (click) = "selectProposal(data)">remove_red_eye</mat-icon> </button>-->
+    
+<div style ="margin-bottom: 20px;">
+  <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" [innerHTML]="data.description | safeHtml"></p> 
+  <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" [innerHTML]="data.location | safeHtml"></p> 
+  <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" *ngIf = "data.cost.quantity"><b>Cost aproximat: </b>{{data.cost.quantity}} {{data.cost.note}}</p> 
+  <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" [innerHTML]="data.report | safeHtml" *ngIf = "data.report"></p> 
+ <!-- <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+    <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px" >
+            
+      <mat-grid-tile  *ngFor="let image of data.images">
+        <div fxLayout="column" style ="width:100%!important;">
+            <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  >
+              <img [src]="image.name"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs">
+              
+          </div>
+          </div>
+      </mat-grid-tile>        
+    </mat-grid-list>
+  </div>-->
+
+    <div fxLayout.xl = "row" fxLayout.lg = "row" fxLayout.md = "column" fxLayout.sm = "column" fxLayout.xs = "column" ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" *ngIf ="data.images.length > 1">
+      <div *ngFor = "let image of data.images" [ngStyle.xl] = "{ 'width.%': 48 }" [ngStyle.lg] = "{ 'width.%': 48 }">
+        <img  [src]="image.name" style ="width: 99%; padding:10px 0 0 0;" class ="center">
+      </div>
+    </div>
+    <div fxLayout.xl = "row" fxLayout.lg = "row" fxLayout.md = "column" fxLayout.sm = "column" fxLayout.xs = "column" ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" *ngIf ="data.images.length === 1">
+      <div *ngFor = "let image of data.images" [ngStyle.xl] = "{ 'width.%': 60 }" [ngStyle.lg] = "{ 'width.%': 60 }">
+        <img  [src]="image.name" style ="width: 99%; padding:10px 0 0 0;" class ="center">
+      </div>
+    </div>
+  
+  </div>
+
+<!--<h2 mat-dialog-title style ="display:inline-block;">{{data.title}}</h2><span fxShow class ="spacer"></span> <button mat-icon-button *ngIf = "!edit && data.edit" >
+    <mat-icon (click) = "editProposal()">edit</mat-icon> </button><button mat-icon-button>
+    <mat-icon (click) = "editProposal()" *ngIf = "edit">remove_red_eye</mat-icon> </button>
+<mat-dialog-content style ="font-size: 18px;  text-align: justify;" ng-cloak>
+  <div *ngIf ="!edit"> <p><b>Nom ( de la persona, grup o entitat):</b> <br/> {{data.author.name}}</p> 
+    <p><b>Correu electrònic:</b> <br/> {{data.author.email}}</p> 
+    <p><b>Telèfon:</b> <br/> {{data.author.phone}}</p> 
+    <img [src]="data.file" style ="width: 90%;padding:20px;" *ngIf="data.file !== undefined;">
+      
+    <p><b>Necessitat a la que atén:</b> <br/> {{data.object}}</p>
+    <p><b>Descripció de la proposta:</b> <br/> {{data.description}}</p>
+    <p><b>Pressupost aproximat de la proposta:</b> <br/> {{data.cost}} &euro;</p>
+    <a mat-button  (click) = "getFile()" *ngIf = "data.file">Descarregar el fitxer<mat-icon style="cursor:pointer;">archive</mat-icon> </a> 
+  </div>
+  <div *ngIf ="edit">
+    <form class="edit-proposal-container" novalidate #f="ngForm" (ngSubmit)="saveProposal(f, data);">  
+      
+      <mat-form-field>
+        <input matInput placeholder="Nom (de la persona, grup o entitat)" [(ngModel)]="data.author.name" name = "name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Correu electrònic" [formControl]="email" [(ngModel)]="data.author.email" name = "email" required>
+        <mat-icon matSuffix style = "color: gray;">email</mat-icon>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field >-->
+      <!-- <span matPrefix>+34 &nbsp;</span>-->
+       <!-- <input type="tel" matInput placeholder="Telèfon" [(ngModel)]="data.author.phone" name = "phone">
+        <mat-icon matSuffix style = "color: gray;">phone</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Títol de la proposta" [(ngModel)]="data.title" name = "title" required>
+      </mat-form-field>   
+      <mat-form-field>
+        <textarea matInput placeholder="Necessitat a la que atén" [(ngModel)]="data.object" name = "object" required></textarea>
+      </mat-form-field>
+      <mat-form-field>      
+        <textarea matInput placeholder="Descripció de la proposta" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="5" [(ngModel)]="data.description" name = "description" required></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Pressupost aproximat de la proposta" type="number" class="right-align" [(ngModel)]="data.cost" name = "cost">      
+        <span matSuffix>&nbsp;&euro;</span>
+      </mat-form-field>-->
+    <!-- <mat-form-field>   
+                                        
+    </mat-form-field>-->  
+   <!-- <div fxLayout="row" style ="width: 100%!important;">
+      <span class ="spacer"></span>  
+      <button mat-raised-button color="primary" [disabled]="!f.valid" style ="margin-right:5%;">Guardar</button>      
+    </div>
+    
+    
+  </form>-->
+
+  <!--file uploader -->
+ <!-- <div fxLayout="row" fxLayout.xs="column" class ="file-uploader-box">
+     <button (click)="fileInput.click()" mat-button style ="padding-left: 0px;font-size: 20px;" [disabled]="uploader.queue.length > 0  || data.file"> <mat-icon>note_add</mat-icon>Afegeix un fitxer</button>
+      <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+          <input type="file" #fileInput ng2FileSelect [uploader]="uploader" />
+      </span>-->
+
+
+     <!-- <input  type="file" name="single" ng2FileSelect [uploader]="uploader"  [disabled]="uploader.queue.length > 0"/>-->
+    <!--  <span class ="spacer"></span>
+      <div *ngIf = "data.file">{{getFileName()}}<button mat-button 
+                (click)="removeFile()">
+            Eliminar <mat-icon>delete_forever</mat-icon>
+        </button>  </div> 
+      <div *ngFor="let item of uploader.queue">-->
+        
+        <!--<mat-progress-bar  [ngStyle]="{ 'width': item.progress + '%' }">
+        </mat-progress-bar>
+         {{item.file.name}}-->
+        <!--<button mat-button 
+                (click)="item.upload(); file = item.file.name" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+             Pujar &nbsp;<mat-icon>backup</mat-icon>
+        </button>-->
+        <!--<button mat-button color="primary"
+                (click)="item.cancel()" [disabled]="!item.isUploading">
+             Cancel·lar &nbsp; <mat-icon>clear</mat-icon>
+        </button>-->
+       <!-- <button mat-button 
+                (click)="item.remove()">
+            Eliminar <mat-icon>delete_forever</mat-icon>
+        </button>                
+        </div>
+       
+   </div>
+
+  </div>
+
+
+
+
+  </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>-->
+  <!-- Can optionally provide a result for the closing dialog. 
+  <span class ="spacer"></span>  
+  <button mat-button color= "primary" [mat-dialog-close]="true">Ok</button>
+</mat-dialog-actions>-->

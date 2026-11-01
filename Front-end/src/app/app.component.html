@@ -1,0 +1,127 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-toolbar> 
+    
+  <mat-toolbar-row ngClass.xl = "first-toolbar-lg" ngClass.lg = "first-toolbar-lg" ngClass.md = "first-toolbar-tablet" ngClass.sm = "first-toolbar-tablet-sm" ngClass.xs = "first-toolbar-xs">
+    <div ngClass.xl = "first-toolbar-container-lg" ngClass.lg = "first-toolbar-container-lg" ngClass.md = "first-toolbar-container-tablet" ngClass.sm = "first-toolbar-container-tablet" ngClass.xs = "first-toolbar-container-xs" fxLayout="row" fxLayoutAlign ="space-between center"> 
+  <!--  <div fxLayout="row" fxLayoutAlign ="space-between center" style ="align-items: center!important;">--> 
+    <div [ngStyle.xs]="{'height.px': 31}"  [ngStyle.sm]="{'height.px':45}"  [ngStyle.md]="{'height.px':70}"  [ngStyle.lg]="{'height.px':42}"  [ngStyle.xl]="{'height.px':42}">
+      <img src="assets/images/escut.png" alt="" [ngStyle.xs]="{'height.px': 31}"  [ngStyle.sm]="{'height.px':45}"  [ngStyle.md]="{'height.px':60}"  [ngStyle.lg]="{'height.px':42}"  [ngStyle.xl]="{'height.px':42}" routerLink = "/" style="cursor:pointer;">
+      <!--<img src="assets/images/diputacio.jpg" alt="" [ngStyle.xs]="{'height.px': 31, 'margin-left.px':10}"  [ngStyle.sm]="{'height.px': 45, 'margin-left.%':4.2}"  [ngStyle.md]="{'height.px': 60, 'margin-left.%':4.2}"  [ngStyle.lg]="{'height.px': 42, 'margin-left.%':4.2}"  [ngStyle.xl]="{'height.px': 42, 'margin-left.%':4.2}" routerLink = "/" style="cursor:pointer;">-->
+    </div>
+        <div fxShow [fxShow.xs]="false" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="true" [fxShow.xl]="true">
+          <!--<button mat-flat-button ngClass.xl = "grey-button-lg" ngClass.lg = "grey-button-lg" ngClass.md = "grey-button-tablet" (click) = "goToURL('2020')">Resultats 2020</button> 
+          <button mat-flat-button ngClass.xl = "grey-button-lg" ngClass.lg = "grey-button-lg" ngClass.md = "grey-button-tablet" (click) = "goToURL('2021')">Resultats 2021</button> 
+          <button mat-flat-button ngClass.xl = "grey-button-lg" ngClass.lg = "grey-button-lg" ngClass.md = "grey-button-tablet" (click) = "goToURL('2022')">Resultats 2022</button>-->
+          <button mat-flat-button ngClass.xl = "grey-button-lg" ngClass.lg = "grey-button-lg" ngClass.md = "grey-button-tablet" (click) = "goToURL('2024')">Resultats 2024</button>  
+          <button mat-flat-button ngClass.xl = "black-button-lg" ngClass.lg = "black-button-lg" ngClass.md = "black-button-tablet" (click) = "openDialog('Què són?', text, 'short')">Què són ?</button> 
+        </div>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="false" [fxShow.xl]="false" >
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon style ="font-size: 24px;color :#333333;"  [ngStyle.sm]="{'width.px':32, 'height.px': 32, 'font-size.px': 32, 'line-height.px': 32}" [ngStyle.md]="{'width.px':42, 'height.px': 42, 'font-size.px': 42, 'line-height.px': 42}" >menu</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click) = "openDialog('Què són?', text, 'short')" ngClass.md = "menu-tablet" ngClass.sm = "menu-tablet-sm" ngClass.xs = "menu-xs">
+              <!-- <mat-icon>dialpad</mat-icon>-->
+               <span>Què són?</span>
+             </button>
+            <button mat-menu-item ngClass.md = "menu-tablet" ngClass.sm = "menu-tablet-sm" ngClass.xs = "menu-xs" (click) = "goToURL('2024')">
+              <span>Resultats 2024</span>
+            </button>
+           <!-- <button mat-menu-item ngClass.md = "menu-tablet" ngClass.sm = "menu-tablet-sm" ngClass.xs = "menu-xs" (click) = "goToURL('2021')">
+              <span>Resultats 2021</span>
+            </button>
+            <button mat-menu-item ngClass.md = "menu-tablet" ngClass.sm = "menu-tablet-sm" ngClass.xs = "menu-xs" (click) = "goToURL('2022')">
+              <span>Resultats 2022</span>
+            </button>
+            <button mat-menu-item ngClass.md = "menu-tablet" ngClass.sm = "menu-tablet-sm" ngClass.xs = "menu-xs" (click) = "goToURL('2023')">
+              <span>Resultats 2023</span>
+            </button>--> 
+            
+            </mat-menu>
+          
+        </div>
+     <!-- </div>-->
+    </div>
+   
+  </mat-toolbar-row>
+  
+ <!-- <mat-toolbar-row ngClass.xl = "second-toolbar-lg">
+    <div ngClass.xl = "second-toolbar-title-lg">Pressupostos Participatius <br> <br>
+      <span style ="font-family: 'Gothic A1'!important; font-weight: 800; font-size: 60px; color :#FFFFFF;">Besalú 2019</span> 
+    </div>
+    <div>
+      <img src="assets/images/logo_besalu.png" alt="" style ="height: 30%;" [ngStyle.xs]="{'height.%': 100}"  [ngStyle.sm]="{'height.%': 100}"  [ngStyle.md]="{'height.%': 100}"  [ngStyle.lg]="{'height.%': 100}"  [ngStyle.xl]="{'height.%':100}" routerLink = "/" style="cursor:pointer;">
+         
+    </div>
+  </mat-toolbar-row>
+
+<mat-toolbar-row style = "height: 114px!important; background-color: #E9E9E9!important;" >
+    
+  </mat-toolbar-row>-->
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+<app-my-loader></app-my-loader>
+
+
+<footer ngClass.xl = "footer-lg" ngClass.lg = "footer-lg" ngClass.md = "footer-tablet" ngClass.sm = "footer-tablet" ngClass.xs = "footer-xs">
+  
+  <div ngClass.xl = "footer-container-lg" ngClass.lg = "footer-container-lg"  fxLayout="row" fxLayoutAlign ="space-between center" style ="vertical-align: middle!important;height: 373px;" fxShow [fxShow.xs]="false" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="true" [fxShow.xl]="true"> 
+   
+      <div >
+        <p style ="color:#FFFFFF; font-size: 18px;font-weight: 400;" ngClass.xl = "footer-text-lg" ngClass.lg = "footer-text-lg"><span style ="font-weight: 800;">Ajuntament de la Bisbal del Penedès</span><br><br>
+
+            Carrer Major, 21   <br>
+            43717 - La Bisbal del Penedès - Baix Penedès - Tarragona <br>
+            Tel. 977688438<br></p>
+            <a style ="text-decoration: none; color:white;font-size: 18px;font-weight: 400;" ngClass.xl = "footer-text-lg" ngClass.lg = "footer-text-lg" href ="mailto:info@bisbalpenedes.com">info@bisbalpenedes.com</a>
+            
+            
+       
+      </div>
+      <div >
+          <img src="assets/images/Escut_ajuntament_bw.png" alt="" style ="height:80px;vertical-align: middle!important;" ngClass.xl = "footer-image-lg" ngClass.lg = "footer-image-lg"> 
+      </div>
+   
+  </div>
+
+  <div ngClass.md = "footer-container-tablet"  ngClass.sm = "footer-container-tablet"  fxLayout="row" fxLayoutAlign ="space-between center" style ="vertical-align: middle!important;" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="false" [fxShow.xl]="false"> 
+    <div >
+      <img src="assets/images/Escut_ajuntament_bw.png" alt="" style ="height:100px!important;vertical-align: middle!important;"> 
+    </div>
+    <div >
+      <p style ="color:#FFFFFF; font-size: 18px; font-weight: 400;"><span style ="font-weight: 800;">Ajuntament de la Bisbal del Penedès</span><br><br>
+
+        Carrer Major, 21   <br>
+        43717 - La Bisbal del Penedès - Baix Penedès - Tarragona <br>
+        Tel. 977688438<br></p>
+        <a style ="text-decoration: none; color:white;font-size: 18px;font-weight: 400;" href ="mailto:info@bisbalpenedes.com">info@bisbalpenedes.com</a>
+         
+     
+    </div>
+    
+ 
+</div>
+
+  <div class = "footer-container-xs"  fxLayout="column" style ="vertical-align: middle!important;height: 220px!important;" fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false" > 
+    
+    <div style ="margin-top: 27px;">
+      <img src="assets/images/Escut_ajuntament_bw.png" alt="" style ="height:57px!important;"> 
+    </div>
+
+    <div style ="margin-top: 20px;">
+      <p style ="color:#FFFFFF; font-size: 10px; padding: 0px; margin:0px;font-weight: 400;"><span style ="font-weight: 800;">Ajuntament de la Bisbal del Penedès</span><br><br>
+
+        Carrer Major, 21   <br>
+        43717 - La Bisbal del Penedès - Baix Penedès - Tarragona <br>
+        Tel. 977688438<br></p>
+        <a style ="text-decoration: none; color:white;font-size: 10px;font-weight: 400;" href ="mailto:info@bisbalpenedes.com">info@bisbalpenedes.com</a>
+     
+    </div>
+    
+</div>
+
+
+<!--  <img src="assets/images/logoBesalu_white.png" alt="" style ="height: 120%;padding: 0 10px 0 0;" [ngStyle.xs]="{'height.%': 90}" [ngStyle.sm]="{'height.%': 90}" [ngStyle.md]="{'height.%': 90}"  [ngStyle.lg]="{'height.%': 100}"  [ngStyle.xl]="{'height.%': 100}"> -->
+ 
+</footer> 

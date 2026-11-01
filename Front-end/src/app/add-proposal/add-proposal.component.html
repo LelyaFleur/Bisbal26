@@ -1,0 +1,283 @@
+
+<mat-toolbar> 
+  <mat-toolbar-row ngClass.xl = "second-toolbar-lg" ngClass.lg = "second-toolbar-lg" ngClass.md = "second-toolbar-tablet" ngClass.sm = "second-toolbar-tablet-sm" ngClass.xs = "second-toolbar-xs">
+    <div ngClass.xl = "title-background-lg" ngClass.lg = "title-background-lg" ngClass.md = "title-background-tablet" ngClass.sm = "title-background-tablet"  ngClass.xs = "title-background-xs" fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="column">
+      <div ngClass.xl = "second-toolbar-title-lg" ngClass.lg = "second-toolbar-title-lg"  ngClass.md = "second-toolbar-title-tablet"  ngClass.sm = "second-toolbar-title-tablet-sm" style ="line-height: 120%;" ngClass.xs = "second-toolbar-title-xs" >Pressupostos Participatius<br> 
+        <span  ngClass.xl = "second-toolbar-title-bald-lg"  ngClass.lg = "second-toolbar-title-bald-lg" ngClass.md = "second-toolbar-title-bald-tablet" ngClass.sm = "second-toolbar-title-bald-tablet-sm" ngClass.xs = "second-toolbar-title-bald-xs">de La Bisbal del Penedès 2026</span> 
+      </div>
+      <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-xl" ngClass.sm= "back-button-xl" ngClass.xs= "back-button-xs" (click) = "navigateBack()" style ="cursor: pointer!important;"><  Tornar enrere</a>
+      </div>
+    </div>
+  </mat-toolbar-row>  
+</mat-toolbar>
+
+<div ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+  <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs" [innerHTML]="page?.title | safe"></p>
+  <p ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs" [innerHTML]="page?.content | safe"></p>
+  <p ngClass.xl = "form-title-lg" ngClass.lg = "form-title-lg" ngClass.md = "form-title-tablet" ngClass.sm = "form-title-tablet-sm" ngClass.xs = "form-title-xs">Dades personals</p>
+  <form  #f="ngForm" (ngSubmit)="addProposal(f);">
+     
+      <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;">
+          <div ngClass.xl = "input-container-lg" ngClass.lg = "input-container-lg" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet" ngClass.xs = "input-container-xs">
+              <p ngClass.xl = "label-lg" ngClass.lg = "label-lg"  ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Nom i cognoms</p>
+              <input ngClass.xl = "input-lg" ngClass.lg = "input-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Nom i cognoms" [(ngModel)]="newProposal.name" name = "name" required>
+            
+          </div>
+          <div style ="width: 4.7%!important;" fxShow [fxShow.xs]="false"></div>
+          <div ngClass.xl = "input-container-lg" ngClass.lg = "input-container-lg" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet" ngClass.xs = "input-container-xs">
+              <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">DNI</p>
+              <input ngClass.xl = "input-lg" ngClass.lg = "input-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="DNI" [(ngModel)]="newProposal.dni" name = "dni" required>
+          </div>
+          
+      </div>
+      <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl" ngClass.lg = "form-row-xl" style ="width:100%;">
+              <div ngClass.xl = "input-container-lg" ngClass.lg = "input-container-lg" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet" ngClass.xs = "input-container-xs"> 
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Correu electrònic</p>
+                  <input ngClass.xl = "input-lg" ngClass.lg = "input-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm"  ngClass.xs = "input-xs" placeholder="Correu electrònic" [(ngModel)]="newProposal.email" name = "email" required>
+                
+              </div>
+              <div style ="width: 4.7%!important;"  fxShow [fxShow.xs]="false"></div>
+              <div ngClass.xl = "input-container-lg" ngClass.lg = "input-container-lg" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet" ngClass.xs = "input-container-xs">
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Telèfon</p>
+                  <input ngClass.xl = "input-lg" ngClass.lg = "input-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Telèfon" [(ngModel)]="newProposal.phone" name = "phone" required>
+              </div>
+              
+          </div>
+      <p ngClass.xl = "form-proposal-lg" ngClass.lg = "form-proposal-lg" ngClass.md = "form-proposal-tablet" ngClass.sm = "form-proposal-tablet-sm" ngClass.xs = "form-proposal-xs">Proposta</p>  
+      <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+          <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol de la proposta</p>
+                  <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la proposta" [(ngModel)]="newProposal.title" name = "title" required>
+          </div>
+      </div>  
+      <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+          <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Necessitat que vol resoldre</p>
+                  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Necessitat que vol resoldre" [(ngModel)]="newProposal.object" name = "object" required></textarea>
+          </div>
+      </div> 
+      <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+          <div   style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Descripció de la proposta</p>
+                  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Descripció de la proposta" [(ngModel)]="newProposal.description" name = "description" required></textarea>
+          </div>
+      </div> 
+      <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+        <div style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+          <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Lloc/s del municipi on caldria dur a terme la proposta</p>
+          <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Lloc/s del municipi on caldria dur a terme la proposta" [(ngModel)]="newProposal.location" name = "location" required>
+        </div>
+      </div>
+      <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" ngClass.xs = "form-row-xs" style ="width:100%;">
+        <div  style ="width:100%;">
+          <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Aquesta proposa l’heu fet</p>
+              <mat-radio-group class="radio-group" [(ngModel)]="newProposal.how" name = "how" required>
+                  <div fxLayout.xl="column" fxLayout.lg="column" fxLayout="column">
+                      <mat-radio-button ngClass.xl="radio-button-lg" ngClass.lg="radio-button-lg"  ngClass.md="radio-button-tablet" ngClass.sm="radio-button-tablet-sm" ngClass.xs="radio-button-xs" value="Individualment">Individualment</mat-radio-button>
+                      <mat-radio-button ngClass.xl="radio-button-lg" ngClass.lg="radio-button-lg" ngClass.md="radio-button-tablet" ngClass.sm="radio-button-tablet-sm" ngClass.xs="radio-button-xs" value="En grup (família, amics, etc.)">En grup (família, amics, etc.)</mat-radio-button>
+                        <div fxLayout.xl="row" fxLayout.lg="row" fxShow [fxShow.xs]="false" [fxShow.md]="true" [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true">
+                          <mat-radio-button ngClass.xl="radio-button-lg" ngClass.lg="radio-button-lg" ngClass.md="radio-button-tablet" ngClass.sm="radio-button-tablet-sm" ngClass.xs="radio-button-xs"  value="Amb els membres d’una entitat">Amb els membres d’una entitat. <span  fxShow [fxShow.xl]="false">Quina:</span></mat-radio-button>
+                         <!-- <p >Quina: </p>--><input ngClass.xl = "text-radio-lg" ngClass.lg = "text-radio-lg" ngClass.md = "text-radio-tablet" ngClass.sm = "text-radio-tablet-sm" ngClass.xs = "text-radio-xs" [(ngModel)]="newProposal.howEntity" name = "howEntity" [disabled]="newProposal.how !=='Amb els membres d’una entitat'" required>
+                        </div>
+                        <div fxLayout.xs="column" fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false" [fxShow.sm]="false">
+                          <mat-radio-button ngClass.xs="radio-button-xs"  value="Amb els membres d’una entitat">Amb els membres d’una entitat.</mat-radio-button>
+                          <div style ="margin-left: 23%; margin-top: -20px; font-size: 13px;">Quina: <input ngClass.xl = "text-radio-lg" ngClass.lg = "text-radio-lg" ngClass.xs = "text-radio-xs" [(ngModel)]="newProposal.howEntity" name = "howEntity" [disabled]="newProposal.how !=='Amb els membres d’una entitat'" required></div>
+                         
+                        </div>
+                  </div>
+              </mat-radio-group>
+          </div>
+      </div> 
+    <!-- <p ngClass.xl = "note-info-xl" ngClass.lg = "note-info-lg" ngClass.md = "note-info-tablet" ngClass.sm = "note-info-tablet-sm" ngClass.xs = "note-info-xs"><i>Si vols fer-nos arribar algun document adjunt, envia'l a <a href="mailto:serveispersones@vilafant.cat">serveispersones@vilafant.cat</a>, indicant el teu nom i el títol de la proposta.</i></p>--> 
+      
+    <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true">
+      <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Enviar<br> <span ngClass.xl ="button-text-lg" ngClass.lg ="button-text-lg" ngClass.md ="button-text-md" ngClass.sm ="button-text-sm">i acceptar condicions i protecció de dades</span></button>         
+    
+      <p ngClass.xl = "note-lg" ngClass.lg = "note-lg" ngClass.md = "note-tablet" ngClass.sm = "note-tablet-sm" [innerHTML]="page?.note | safe">
+      </p>               
+      <!--[disabled]="!f.valid"-->
+
+  </div>  
+  <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false">
+                 
+    <button [disabled]="!f.valid" ngClass.xs = "button-xs">Enviar <br> <span ngClass.xs ="button-text-xs">i acceptar condicions i protecció de dades</span></button>         
+  <!--[disabled]="!f.valid"-->
+  <p ngClass.xs = "note-xs" [innerHTML]="page?.note | safe">
+  </p> 
+</div>      
+  </form> 
+ 
+</div>
+<!--<button (click)="openDialog()">openDialog</button> 
+<mat-card class="add-proposal-card"  [ngStyle.sm]="{'width.%': 80}" [ngStyle.md]="{'width.%': 70}" [ngStyle.xs]="{'width.%': 90}" style ="background-color:white;">
+  <img src='assets/images/paper_plane1.png' style ='width: 10%!important;margin-left: 45%;' [ngStyle.xl]="{'width.%': 10, 'margin-left.%': 45}" [ngStyle.lg]="{'width.%': 10, 'margin-left.%': 45}" [ngStyle.sm]="{'width.%': 20, 'margin-left.%': 40}" [ngStyle.md]="{'width.%': 20, 'margin-left.%': 40}" [ngStyle.xs]="{'width.%': 15, 'margin-left.%': 42.5}">
+  <h1 style = "padding:10px;text-align:center;color: #85B41D;">Envia la teva proposta</h1>  
+  <form class="add-proposal-container" novalidate #f="ngForm" (ngSubmit)="addProposal(f);" style ="background-color:white;" color="primary">  
+    <mat-form-field>
+      <input matInput placeholder="Nom" [(ngModel)]="newProposal.name" name = "name" required >
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Cognoms" [(ngModel)]="newProposal.surname" name = "surname" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="DNI" [(ngModel)]="newProposal.dni" name = "dni" required>
+    </mat-form-field> 
+    <mat-form-field>
+      <input matInput placeholder="Correu electrònic" [(ngModel)]="newProposal.email" name = "email" required>
+      <mat-icon matSuffix>email</mat-icon>
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>   
+    <mat-form-field >    
+      <input type="tel" matInput placeholder="Telèfon" [(ngModel)]="newProposal.phone" name = "phone">
+      <mat-icon matSuffix >phone</mat-icon>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Títol de la proposta" [(ngModel)]="newProposal.title" name = "title" required>
+    </mat-form-field>   
+    <mat-form-field>
+      <textarea matInput placeholder="Necessitat que vol resoldre" [(ngModel)]="newProposal.object" name = "object" required></textarea>
+    </mat-form-field>
+    <mat-form-field>      
+      <textarea matInput placeholder="Descripció de la proposta" matTextareaAutosize matAutosizeMinRows="2"
+            matAutosizeMaxRows="5" [(ngModel)]="newProposal.description" name = "description" required></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Lloc/s del municipi on caldria dur a terme la proposta" [(ngModel)]="newProposal.location" name = "location" required>
+    </mat-form-field> 
+    <p style ="margin-bottom:0px;font-family: 'Roboto';padding : 20px 20px 0 20px;font-size: 20px;font-weight: 600; line-height: 1.225;">Aquesta proposta l’heu fet: </p>
+    <mat-form-field style ="padding-top: 0px!important;" [ngStyle.xs]="{'font-size.px': 14}">
+        
+      <mat-radio-group class="radio-group" [(ngModel)]="newProposal.how" name = "how" required>
+        <mat-radio-button class="radio-button" value="Individualment">Individualment</mat-radio-button>
+        <mat-radio-button class="radio-button" value="En grup (família, amics, etc.)">En grup (família, amics, etc.)</mat-radio-button>
+        <mat-radio-button class="radio-button" value="Amb els membres d’una entitat">Amb els membres d’una entitat</mat-radio-button>
+        <p >Quina: </p><input matInput [(ngModel)]="newProposal.howEntity" name = "howEntity" [disabled]="newProposal.how !=='Amb els membres d’una entitat'" required>
+       
+      
+    </mat-radio-group>
+    </mat-form-field>-->
+    
+    
+    <!--<mat-form-field>
+      <input matInput placeholder="Pressupost aproximat de la proposta" type="number" class="right-align" [(ngModel)]="newProposal.cost" name = "cost">      
+      <span matSuffix>.00 &nbsp;&euro;</span>
+    </mat-form-field>
+    <div fxLayout="row" style ="width: 100%!important;">
+      <span class ="spacer"></span>  
+      <button mat-raised-button color="primary" [disabled]="!f.valid" style ="margin-right:5%;color: white!important;">Enviar</button>      
+    </div>
+  </form>-->
+ <!-- <div fxLayout="row" fxLayout.xs="column" class ="file-uploader-box">
+    <button (click)="fileInput.click()" mat-button style ="padding-left: 0px;font-size: 20px;" [disabled]="uploader.queue.length > 0"> <mat-icon>note_add</mat-icon>Afegeix un fitxer</button>
+     <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+         <input type="file" #fileInput ng2FileSelect [uploader]="uploader" />
+     </span>-->
+
+
+    <!-- <input  type="file" name="single" ng2FileSelect [uploader]="uploader"  [disabled]="uploader.queue.length > 0"/>-->
+    <!-- <span class ="spacer"></span>
+     <div *ngFor="let item of uploader.queue">-->
+       
+       <!--<mat-progress-bar  [ngStyle]="{ 'width': item.progress + '%' }">
+       </mat-progress-bar>-->
+      <!--  {{item.file.name}}-->
+       <!--<button mat-button 
+               (click)="item.upload(); file = item.file.name" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+            Pujar &nbsp;<mat-icon>backup</mat-icon>
+       </button>-->
+       <!--<button mat-button color="primary"
+               (click)="item.cancel()" [disabled]="!item.isUploading">
+            Cancel·lar &nbsp; <mat-icon>clear</mat-icon>
+       </button>-->
+    <!--   <button mat-button 
+               (click)="item.remove()">
+           Eliminar <mat-icon>delete_forever</mat-icon>
+       </button>                
+       </div>
+      
+  </div>
+  <div fxLayout="row" style ="margin-top:10px;">
+    <share-button button ="facebook" theme = "circles-dark" url="https://participa.besalu.cat" description ="Acabo de fer la meva proposta als #PressupostosParticipatius BESALÚ 2019 aquí:"></share-button>
+    <share-button button="twitter" theme = "circles-dark" url="https://participa.besalu.cat" description ="Acabo de fer la meva proposta als #PressupostosParticipatius BESALÚ 2019 aquí:"></share-button>
+    <share-button button="linkedin" theme = "circles-dark" url="https://participa.besalu.cat" description ="Acabo de fer la meva proposta als #PressupostosParticipatius BESALÚ 2019 aquí:"></share-button>
+    <share-button button="whatsapp" theme = "circles-dark" url="https://participa.besalu.cat" description ="Acabo de fer la meva proposta als #PressupostosParticipatius BESALÚ 2019 aquí:"></share-button>
+    <share-button button="google" theme = "circles-dark" url="https://participa.besalu.cat" description ="Acabo de fer la meva proposta als #PressupostosParticipatius BESALÚ 2019 aquí:"></share-button>
+</div>
+  <div style = "padding:1%;">
+    <h5 ><i>* Camps obligatoris</i></h5>
+    <h5 ><i>Les teves dades s’incorporaran a un fitxer automatitzat creat per l’Ajuntament de Besalú.
+      Les teves dades no es cediran a terceres persones. En qualsevol moment pots exercir els teus
+      drets d’accés, rectificació, oposició al tractament i cancel·lació adreçant-te a l’Ajuntament de
+      Besalú. Plaça de la Llibertat, 1 – 17850. Besalú (Girona). 
+
+    </i></h5>
+  </div>-->
+
+<!--Add Budget -->
+<!--<form class="add-proposal-container" novalidate #f="ngForm" (ngSubmit)="addProposalToQuery(f);">  
+  <mat-form-field>
+    <input matInput placeholder="Ordre" [(ngModel)]="newBudget.order" type ="number" name = "order" required>
+  </mat-form-field> 
+  <mat-form-field>
+    <input matInput placeholder="Títol de la proposta" [(ngModel)]="newBudget.title" name = "title" required>
+  </mat-form-field>     
+  <mat-form-field>      
+    <textarea matInput placeholder="Descripció de la proposta" matTextareaAutosize matAutosizeMinRows="2"
+          matAutosizeMaxRows="5" [(ngModel)]="newBudget.description" name = "description" required></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Ubicació" [(ngModel)]="newBudget.location" name = "location" required></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Pressupost aproximat de la proposta" type="number" class="right-align" [(ngModel)]="newBudget.cost" name = "cost">      
+    <span matSuffix>&nbsp;&euro;</span>
+  </mat-form-field>
+  <div fxLayout="row" style ="width: 100%!important;">
+    <span class ="spacer"></span>  
+    <button mat-raised-button color="primary" [disabled]="!f.valid" style ="margin-right:5%;">Enviar</button>      
+  </div>
+</form>
+
+
+  <div fxLayout="row" fxLayout.xs="column" class ="file-uploader-box">
+     <button (click)="fileInput.click()" mat-button style ="padding-left: 0px;font-size: 20px;" [disabled]="uploader.queue.length > 0"> <mat-icon>note_add</mat-icon>Afegeix un fitxer</button>
+      <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+          <input type="file" #fileInput ng2FileSelect [uploader]="uploader" />
+      </span>
+
+
+    
+      <span class ="spacer"></span>
+      <div *ngFor="let item of uploader.queue">
+        
+       
+         {{item.file.name}}
+       <button mat-button 
+                (click)="item.upload(); file = item.file.name" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+             Pujar &nbsp;<mat-icon>backup</mat-icon>
+        </button>
+      
+        <button mat-button 
+                (click)="item.remove()">
+            Eliminar <mat-icon>delete_forever</mat-icon>
+        </button>                
+        </div>
+       
+   </div>
+
+
+
+  
+  <div style = "padding:1%;">
+    <h5 ><i>* Camps obligatoris</i></h5>
+    <h5 ><i>Nota: Les vostres dades s’incorporaran a un fitxer automatitzat creat per l’Ajuntament i no es
+      cediran a terceres persones. En qualsevol moment podeu exercir els vostres drets d’accés,
+      rectificació, oposició al tractament i cancel·lació adreçant-vos a l’Ajuntament de Cassà de la
+      Selva, Rambla Onze de Setembre, 107, 17244 Cassà de la Selva</i></h5>
+  </div>
+  
+</mat-card>-->
+
+

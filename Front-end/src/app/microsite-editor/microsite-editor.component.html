@@ -1,0 +1,123 @@
+<mat-toolbar>  
+  
+  <mat-toolbar-row ngClass.xl = "second-toolbar-lg" ngClass.lg = "second-toolbar-lg" ngClass.md = "second-toolbar-tablet" ngClass.sm = "second-toolbar-tablet-sm" ngClass.xs = "second-toolbar-xs">
+    <div ngClass.xl = "second-toolbar-content-lg" ngClass.lg = "second-toolbar-content-lg" ngClass.md = "second-toolbar-content-tablet" ngClass.sm = "second-toolbar-content-tablet" ngClass.xs = "second-toolbar-content-xs" fxLayout="row" fxLayoutAlign ="space-between center">
+        <div ngClass.xl = "second-toolbar-title-lg" ngClass.lg = "second-toolbar-title-lg" ngClass.xs = "second-toolbar-title-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="true" [fxShow.xl]="true">
+          Pressupostos Participatius<br> <br>
+          <span ngClass.xl = "second-line-lg" ngClass.lg = "second-line-lg" ngClass.md = "second-line-tablet" ngClass.sm = "second-line-tablet-sm">de La Bisbal del Penedès 2026</span> 
+        </div>
+        <div ngClass.xs = "second-toolbar-title-xs" ngClass.md = "second-toolbar-title-tablet"  ngClass.sm = "second-toolbar-title-tablet-sm" fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="false" [fxShow.xl]="false">Pressupostos  <br> Participatius <br>
+          <span ngClass.xs = "second-line-xs" ngClass.md = "second-line-tablet" ngClass.sm = "second-line-tablet-sm">Sant Antoni <br> de Vilamajor 2026</span> 
+        </div>
+       <!-- <div ngClass.xs = "second-toolbar-title-xs" ngClass.md = "second-toolbar-title-tablet"  ngClass.sm = "second-toolbar-title-tablet-sm" fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="false" [fxShow.xl]="false">Pressupostos <br> Participatius  <br>
+          <span ngClass.xs = "second-line-xs" ngClass.md = "second-line-tablet" ngClass.sm = "second-line-tablet-sm">Besalú 2019</span> 
+        </div>-->
+        <div>
+     <!--     <img src="assets/images/logo.png" alt="" style ="height: 30%;" [ngStyle.xs]="{'height.px': 52, 'margin-top.px': 20}"  [ngStyle.sm]="{'height.px': 120}"  [ngStyle.md]="{'height.px': 160}"  [ngStyle.lg]="{'height.px':150}"  [ngStyle.xl]="{'height.px':200}" routerLink = "/" style="cursor:pointer;">-->
+     <img src="assets/images/logo.png" alt="" style ="height: 30%;" [ngStyle.xs]="{'height.px': 65}"  [ngStyle.sm]="{'height.px': 120}"  [ngStyle.md]="{'height.px': 150}"  [ngStyle.lg]="{'height.px':138}"  [ngStyle.xl]="{'height.px':154}" routerLink = "/" style="cursor:pointer;">
+          
+        </div>
+    </div>
+  </mat-toolbar-row> 
+
+
+   <mat-toolbar-row ngClass.xl = "third-toolbar-lg" ngClass.lg = "third-toolbar-lg" ngClass.md = "third-toolbar-tablet" ngClass.sm = "third-toolbar-tablet-sm" ngClass.xs = "third-toolbar-xs">
+    
+    <div ngClass.xl = "third-toolbar-content-lg" ngClass.lg = "third-toolbar-content-lg" ngClass.md = "third-toolbar-content-tablet" ngClass.sm = "third-toolbar-content-tablet-sm" ngClass.xs = "third-toolbar-content-xs" fxLayout="row" fxLayoutAlign="space-between">
+      <div>
+        <p>Estat actual del procés</p>
+        <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf = "!editPhaseTitleMode"><span ngClass.xl="material-icons edit-icon-title-xl" ngClass.lg ="material-icons edit-icon-title-xl" ngClass.md ="material-icons edit-icon-title-xl" ngClass.sm ="material-icons edit-icon-title-xl"  style = "margin-left: 0px!important;"(click) = "editPhaseTitle()" >
+         create
+       </span> {{microsite?.currentPhase.name}}.&nbsp; {{microsite?.currentPhase.title}}</p>
+        <div  fxLayout="row" *ngIf = "editPhaseTitleMode">
+         <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg">{{microsite?.currentPhase.name}}.&nbsp;</p> <input placeholder="Títol de la fase" [(ngModel)]="microsite?.currentPhase.title" name = "phaseTitle" ngClass.xs =  "fase-name-xs" ngClass.xl =  "input-phase-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "input-phase-lg" >
+         <span ngClass.xl="material-icons edit-icon-title-xl" ngClass.lg ="material-icons edit-icon-title-xl" ngClass.md ="material-icons edit-icon-title-xl" ngClass.sm ="material-icons edit-icon-title-xl" (click) = "savePhaseTitle()" >check</span>
+         <span ngClass.xl="material-icons edit-icon-title-xl" ngClass.lg ="material-icons edit-icon-title-xl" ngClass.md ="material-icons edit-icon-title-xl" ngClass.sm ="material-icons edit-icon-title-xl" (click) = "cancelEditTitle()" >close</span>
+        </div>
+       
+        
+       </div>
+       <div fxLayout="row" fxLayoutAlign="space-between" style ="width: 40%;" fxShow [fxShow.xs]="false" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="true" [fxShow.xl]="true">
+         
+         <div ngClass.xl = "fases-lg" ngClass.lg = "fases-lg" *ngFor = "let phase of microsite?.phases | visiblephasefilter: 'visible' : true | orderby:['number']" [ngStyle]="{'color': detectColor(phase),  'border-bottom': detectBorderColor(phase)}" >
+          <div style ="position:absolute; position: absolute; top: -5px; right: 0px;">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon style ="font-size: 22px;color :white;">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click) = "activatePhase(phase)" ngClass.md = "menu-tablet" ngClass.sm = "menu-tablet-sm" ngClass.xs = "menu-xs">
+                <!-- <mat-icon>dialpad</mat-icon>-->
+                 <span>Activar</span>
+               </button>
+              </mat-menu>
+            
+          </div> 
+          <b><span (click) = "changePhase(phase)" style ="cursor:pointer;">{{phase.number}}</span></b>
+          
+           </div>
+ 
+         <!--   <div ngClass.xl = "fases-lg" ngClass.lg = "fases-lg" >2</div>
+         <div ngClass.xl = "fases-lg" ngClass.lg = "fases-lg">3</div>
+         <div ngClass.xl = "fases-lg" ngClass.lg = "fases-lg">4</div>
+         <div ngClass.xl = "fases-lg" ngClass.lg = "fases-lg">5</div>--> 
+       </div>
+    </div> 
+     
+    
+   </mat-toolbar-row>
+ 
+ </mat-toolbar>
+ 
+ <div fxLayout="column" ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs">
+ 
+   <div ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs">
+    <div style ="padding: 10px;border: 1px #989234 dashed;" ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs" *ngIf = "!editMessageMode">
+      <span ngClass.xl="material-icons edit-icon-message-xl" ngClass.lg ="material-icons edit-icon-message-xl" ngClass.md ="material-icons edit-icon-message-xl" ngClass.sm ="material-icons edit-icon-message-xl" (click) = "editMessage()" >
+        create
+      </span>
+      <div [innerHTML]="microsite?.currentPhase.message | safe" ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs"> </div>
+    </div>  
+    
+      <form  #f="ngForm" (ngSubmit)="saveMessage(f);" *ngIf = "editMessageMode"> 
+        <ckeditor [(ngModel)]="microsite?.currentPhase.message" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" name = "message" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+        <div fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true">
+          <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar</button> 
+          <button type="button" style ="background-color: gainsboro!important; color:black!important;margin-left:15px;" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm" (click) = "cancelEditMessage()">Cancel·lar</button> 
+        </div>  
+      </form>
+     </div>
+
+     <div style ="margin: 0 auto!important;padding-bottom: 72px;">
+      <!--   <button mat-fab color="warn">
+           <mat-icon >add</mat-icon>
+         </button>-->
+         <button style ="border: none; padding: 15px;cursor:pointer;" [routerLink] = "['/afegir-pagina', microsite?._id, microsite?.currentPhase.number]">
+           <mat-icon style ="font-size:50px;height: 50px; width: 50px;">add</mat-icon>
+         </button>
+         
+      </div>
+             
+   <div ngClass.xl = "grid-wrapper-lg" ngClass.lg = "grid-wrapper-lg" ngClass.md = "grid-wrapper-tablet" ngClass.sm = "grid-wrapper-tablet-sm" ngClass.xs = "grid-wrapper-xs">
+       <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px">
+         <mat-grid-tile style ="background-color: #F3F3F3;" *ngFor= "let item of menuItems | orderby:['index']" >
+           <div fxLayout="column" xLayoutAlign="space-evenly center">
+               <div ngClass.xl = "tile-top-lg" ngClass.lg = "tile-top-lg" ngClass.md = "tile-top-tablet" ngClass.sm = "tile-top-tablet-sm" ngClass.xs = "tile-top-xs">
+                   <img [src]="item.image" ngClass.xl = "tile-image-lg" ngClass.lg = "tile-image-lg" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "navigateToPage(item.index, item.type.type)">   
+                   <span ngClass.xl="page-index-xl" ngClass.lg ="page-index-xl" ngClass.md ="page-index-xl" ngClass.sm ="page-index-xl">
+                    {{item.index}}
+                    </span>
+                   <span ngClass.xl="material-icons clear-icon-xl" ngClass.lg ="material-icons clear-icon-xl" ngClass.md ="material-icons clear-icon-xl" ngClass.sm ="material-icons clear-icon-xl" (click) = "openConfirmDialog(item._id)">
+                    clear
+                    </span>
+                    <span ngClass.xl="material-icons edit-icon-xl" ngClass.lg ="material-icons edit-icon-xl" ngClass.md ="material-icons edit-icon-xl" ngClass.sm ="material-icons edit-icon-xl" [routerLink] = "['/editar-pagina', item._id]">
+                      create
+                    </span>
+                  </div>
+               <div (click) = "navigateToPage(item.index, item.type.type)" ngClass.xl = "tile-bottom-lg" ngClass.lg = "tile-bottom-lg" ngClass.md = "tile-bottom-tablet" ngClass.sm = "tile-bottom-tablet-sm" ngClass.xs = "tile-bottom-xs" > <p  ngClass.xl = "tile-text-lg" ngClass.lg = "tile-text-lg" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs">{{item?.coverTitle}}</p></div>
+           </div>
+         </mat-grid-tile>
+       </mat-grid-list>
+   </div>  
+ 
+ </div>
+ 

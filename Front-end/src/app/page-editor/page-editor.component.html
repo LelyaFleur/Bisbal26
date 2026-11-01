@@ -1,0 +1,394 @@
+<!--<p mat-dialog-title ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between center">Crear proposta  
+    <span fxShow class ="spacer"></span> 
+    <button mat-icon-button [mat-dialog-close] = "true" style ="height:32px!important;width:32px!important;line-height:32px;">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;line-height:32px;">clear</mat-icon>
+    </button>
+  </p>-->
+  <mat-toolbar>
+    <mat-toolbar-row ngClass.xl = "third-toolbar-lg" ngClass.lg = "third-toolbar-lg" ngClass.md = "third-toolbar-tablet" ngClass.sm = "third-toolbar-tablet-sm" ngClass.xs = "third-toolbar-xs">
+    
+      <div ngClass.xl = "third-toolbar-content-lg" ngClass.lg = "third-toolbar-content-lg" ngClass.md = "third-toolbar-content-tablet" ngClass.sm = "third-toolbar-content-tablet-sm" ngClass.xs = "third-toolbar-content-xs" fxLayout="row" fxLayoutAlign="space-between">
+          <div >
+            <p>Editor de la pàgina</p>
+            <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf ="!editMode">Afegir pàgina</p>
+            <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf ="editMode">Editar pàgina</p>
+          </div>
+        <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-md" ngClass.sm= "back-button-sm" ngClass.xs= "back-button-xs"  [routerLink]="['/microsite-fase', page.phase]" style ="cursor: pointer!important;"><  Tornar enrere</a>
+        <!--[routerLink] = "['/editar-consulta', queryId]"-->
+        </div>
+      </div> 
+        
+      
+      </mat-toolbar-row>
+    
+  </mat-toolbar>
+  <div ngClass.xs = "content-xs" style ="height:300px; padding-top: 100px;" fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+    <p ngClass.xs = "text-xs">Editor no està disponible per als dispositius mòbils</p>
+  </div>
+  <div ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true"> 
+  <!--  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign ="space-between center" ngClass.xl = "file-uploader-box-lg"  ngClass.lg = "file-uploader-box-lg">
+      
+      <button (click)="fileInput.click()" mat-button style ="padding-left: 0px;font-size: 20px;" > <mat-icon>note_add</mat-icon>Afegir imatges</button>
+       <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+           <input type="file" #fileInput ng2FileSelect [uploader]="uploader" multiple/>
+       </span>
+      
+       <div fxLayout = "column">
+        <div *ngFor="let item of uploader.queue" fxLayout = "row" fxLayoutAlign ="space-between center">
+         
+         
+            {{item.file.name}}
+          
+            <button mat-button 
+                    (click)="item.remove()">
+                Eliminar <mat-icon>delete_forever</mat-icon>
+            </button>     
+       
+                     
+         </div>
+       </div>
+    </div>-->
+    <div style ="margin-bottom: 60px;" fxLayout="row" fxLayoutAlign ="start center">
+        <div style ="width: 35%!important;">
+            <img [src]="page.image" style ="width: 350px!important;">
+        </div>
+        <div style ="width: 40%!important;">
+            <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px" >
+                
+                <mat-grid-tile  *ngFor="let icon of microsite?.icons; let i = index" [ngStyle]="{'border': icon.selected === true ? '#333333 4px solid' : 'none'}" >     
+                         
+                <div fxLayout="column" style ="width:80%!important;cursor:pointer;">
+                    <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs">
+                        <img [src]="icon.image"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs"  (click) = "selectIcon(icon.image)">
+                    <!--  <span ngClass.xl="material-icons clear-icon-xl" ngClass.lg ="material-icons clear-icon-xl" ngClass.md ="material-icons clear-icon-xl" ngClass.sm ="material-icons clear-icon-xl" (click) = "openConfirmDialog(i)">
+                        clear
+                        </span>--> 
+                    </div>
+                    </div>
+                </mat-grid-tile>        
+            </mat-grid-list>
+        </div>
+        
+     </div> 
+     
+      <form  #f="ngForm" (ngSubmit)="processPage(f);" *ngIf ="page.type.type === 'text' || page.type.type === 'form'"> 
+        <!--<div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+          <mat-slide-toggle [(ngModel)]="proposal.municipality" name = "municipality">Tipus de pàgina</mat-slide-toggle>
+        </div>-->        
+        <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+          <mat-form-field ngClass.xl = "select-xl" ngClass.lg = "select-lg" ngClass.md = "select-md" ngClass.sm = "select-sm" ngClass.xs = "select-xs">
+            <mat-label ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Tipus</mat-label>      
+            <mat-select  [(value)]="page.type.name"  name ="typeofPage" (valueChange)="selectionChanged()">              
+              <mat-option *ngFor ="let type of types" value="{{type.name}}">{{type.name}}</mat-option>              
+            </mat-select> 
+          </mat-form-field>
+        </div>
+         
+          
+          
+         <!-- <p ngClass.xl = "form-proposal-lg" ngClass.lg = "form-proposal-lg" ngClass.md = "form-proposal-tablet" ngClass.sm = "form-proposal-tablet-sm" ngClass.xs = "form-proposal-xs">Proposta</p> --> 
+         <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+            <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                    <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Ordre</p>
+                    <input type="number" ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Ordre" [(ngModel)]="page.index" name = "index" required>
+            </div>
+        </div>  
+         <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+            <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                    <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol de la portada</p>
+                    <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la portada" [(ngModel)]="page.coverTitle" name = "coverTitle" required>
+            </div>
+        </div>  
+         <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+              <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                      <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol</p>
+                      <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la pàgina" [(ngModel)]="page.title" name = "title" required>
+              </div>
+          </div>  
+        
+          <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+              <div   style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Contingut</p>
+                  <div ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs">
+                    <ckeditor [(ngModel)]="page.content" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Contingut de la pàgina" name = "content" [editor]="Editor1" (ready)="onReady($event)" required></ckeditor>
+                  </div><!--  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Descripció de la proposta" [(ngModel)]="proposal.description" name = "description" required></textarea>--> 
+              </div>
+          </div> 
+         <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;"  *ngIf ="page.type.type === 'form'">
+            <div   style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Nota legal</p>
+                <div ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs">
+                  <ckeditor [(ngModel)]="page.note" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Nota legal" name = "note" [editor]="Editor1" (ready)="onReady($event)" required></ckeditor>
+                </div><!--  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Descripció de la proposta" [(ngModel)]="proposal.description" name = "description" required></textarea>--> 
+            </div>
+        </div> 
+       
+          <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="!editMode">
+              <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Crear pàgina </button> 
+          </div> 
+          <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="editMode">
+              <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar pàgina</button> 
+          </div>  
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="!editMode">
+              <button [disabled]="!f.valid" ngClass.xs = "button-xs">Crear pàgina</button>         
+          </div>   
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="editMode">
+            <button [disabled]="!f.valid" ngClass.xs = "button-xs">Guardar pàgina</button>         
+        </div>      
+      </form> 
+
+      <div *ngIf = "page.type.type === 'phases'">
+        <div fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <form  #fphases="ngForm" (ngSubmit)="processPage(fphases);"> 
+            <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+              <mat-form-field ngClass.xl = "select-xl" ngClass.lg = "select-lg" ngClass.md = "select-md" ngClass.sm = "select-sm" ngClass.xs = "select-xs">
+                <mat-label ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Tipus</mat-label>      
+                <mat-select  [(value)]="page.type.name"  name ="typeofPage" (valueChange)="selectionChanged()">              
+                  <mat-option *ngFor ="let type of types" value="{{type.name}}">{{type.name}}</mat-option>              
+                </mat-select> 
+              </mat-form-field>
+            </div>
+             
+              
+              
+             <!-- <p ngClass.xl = "form-proposal-lg" ngClass.lg = "form-proposal-lg" ngClass.md = "form-proposal-tablet" ngClass.sm = "form-proposal-tablet-sm" ngClass.xs = "form-proposal-xs">Proposta</p> --> 
+             <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Ordre</p>
+                        <input type="number" ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Ordre" [(ngModel)]="page.index" name = "index" required>
+                </div>
+            </div>  
+             <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol de la portada</p>
+                        <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la portada" [(ngModel)]="page.coverTitle" name = "coverTitle" required>
+                </div>
+            </div>  
+            <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;margin-bottom: 60px;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol</p>
+                        <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la pàgina" [(ngModel)]="page.title" name = "title" required>
+                </div>
+            </div> 
+
+            <div ngClass.xl = "fases-content-lg" ngClass.lg = "fases-content-lg" ngClass.md = "fases-content-tablet" ngClass.sm = "fases-content-tablet">
+             <!-- <div fxLayout="row" ngClass.xl = "fase-lg" ngClass.lg = "fase-lg" ngClass.md = "fase-tablet" ngClass.sm = "fase-tablet">
+                <div ngClass.xl = "fase-date-top-lg" ngClass.lg = "fase-date-top-lg" ngClass.md = "fase-date-top-tablet" ngClass.sm = "fase-date-top-tablet-sm"></div> 
+                <div ngClass.xl = "fase-name-top-xl" ngClass.lg = "fase-name-top-xl" ngClass.md = "fase-name-top-tablet" ngClass.sm = "fase-name-top-tablet"><p></p></div>
+                <div ngClass.xl = "fase-description-top-xl" ngClass.lg = "fase-description-top-xl" ngClass.md = "fase-description-top-tablet" ngClass.sm = "fase-description-top-tablet"><p></p></div>
+              </div>-->
+              <div fxLayout="row" ngClass.xl = "fase-lg" ngClass.lg = "fase-lg" ngClass.md = "fase-tablet" ngClass.sm = "fase-tablet" *ngFor = "let phase of microsite?.phases; index as i">
+               <div ngClass.xl = "fase-date-lg" ngClass.lg = "fase-date-lg" ngClass.md = "fase-date-tablet" ngClass.sm = "fase-date-tablet">
+                <textarea ngClass.xl = "textarea-phase-date-lg" ngClass.lg = "textarea-phase-date-lg" placeholder="Data" [(ngModel)]="phase.date" name = "date{{i}}"></textarea>
+                </div> 
+                
+                <img ngClass.xl = "fase-circle-xl" ngClass.lg = "fase-circle-xl" ngClass.md = "fase-circle-tablet" ngClass.sm = "fase-circle-tablet" src="assets/images/icons/SVG_Circle.svg" style ="margin-top: -5px;">
+                      
+                <div ngClass.xl = "fase-name-xl" ngClass.lg = "fase-name-xl" ngClass.md = "fase-name-tablet" ngClass.sm = "fase-name-tablet-sm">
+                  <input ngClass.xl = "input-phase-name-lg" ngClass.lg = "input-phase-name-lg" placeholder="Nom" [(ngModel)]="phase.name" name = "name{{i}}">
+                  <!--<p>FASE {{i+1}} <br>{{phase.name}}{{phase.name}}</p>--></div>
+                <div ngClass.xl = "fase-description-lg" ngClass.lg = "fase-description-lg" ngClass.md = "fase-description-tablet" ngClass.sm = "fase-description-tablet-sm">
+                  <ckeditor class= "phases" [(ngModel)]="phase.description" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Contingut de la pàgina" name = "description{{i}}" [editor]="Editor1" (ready)="onReady($event)"></ckeditor>
+                 <!-- <div style ="margin-top: -10px;" [innerHTML]="phase.description | safe"></div>--></div>
+              </div>
+              
+            </div>
+
+            <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="!editMode">
+              <button [disabled]="!fphases.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Crear pàgina </button> 
+          </div> 
+          <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="editMode">
+              <button [disabled]="!fphases.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar pàgina</button> 
+          </div>  
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="!editMode">
+              <button [disabled]="!fphases.valid" ngClass.xs = "button-xs">Crear pàgina</button>         
+          </div>   
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="editMode">
+            <button [disabled]="!fphases.valid" ngClass.xs = "button-xs">Guardar pàgina</button>         
+        </div>     
+            
+          </form>
+         </div>
+        
+        <!--xs -->
+        <!-- <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false" ngClass.xs = "content-xs">
+            <div ngClass.xs = "content-container-xs">
+                
+              <p ngClass.xs ="title-xs">Fases del procés</p>         
+             
+                <div *ngFor = "let phase of microsite?.phases; index as i" ngClass.xs ="content-fase-xs">
+                  <p ngClass.xs = "fase-name-xs">{{phase.name}}</p>
+                  <p ngClass.xs = "fase-date-xs">{{phase.date}}</p> 
+                  <div [innerHTML]="phase.description | safe" ngClass.xs = "fase-description-xs"></div>
+                </div>
+                
+            </div> 
+      
+        
+        
+       </div>-->
+      
+      
+      </div>
+      <div *ngIf = "page.type.type === 'historic'">
+        <div fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <form  #fhistoric="ngForm" (ngSubmit)="processPage(fhistoric);"> 
+            <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+              <mat-form-field ngClass.xl = "select-xl" ngClass.lg = "select-lg" ngClass.md = "select-md" ngClass.sm = "select-sm" ngClass.xs = "select-xs">
+                <mat-label ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Tipus</mat-label>      
+                <mat-select  [(value)]="page.type.name"  name ="typeofPage" (valueChange)="selectionChanged()">              
+                  <mat-option *ngFor ="let type of types" value="{{type.name}}">{{type.name}}</mat-option>              
+                </mat-select> 
+              </mat-form-field>
+            </div>
+             
+              
+              
+             <!-- <p ngClass.xl = "form-proposal-lg" ngClass.lg = "form-proposal-lg" ngClass.md = "form-proposal-tablet" ngClass.sm = "form-proposal-tablet-sm" ngClass.xs = "form-proposal-xs">Proposta</p> --> 
+             <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Ordre</p>
+                        <input type="number" ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Ordre" [(ngModel)]="page.index" name = "index" required>
+                </div>
+            </div>  
+             <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol de la portada</p>
+                        <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la portada" [(ngModel)]="page.coverTitle" name = "coverTitle" required>
+                </div>
+            </div>  
+            <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;margin-bottom: 60px;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol</p>
+                        <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la pàgina" [(ngModel)]="page.title" name = "title" required>
+                </div>
+            </div> 
+          <!--  <div ngClass.xl = "title-container-lg" ngClass.lg = "title-container-lg" ngClass.md = "title-container-tablet" ngClass.sm = "title-container-tablet-sm" >
+              <div ngClass.xl = "title-fases-container-xl" ngClass.lg = "title-fases-container-xl" ngClass.md = "title-fases-container-tablet" ngClass.sm = "title-fases-container-tablet-sm"><p class ="title">On ha anat a parar la meva proposta?</p></div>
+             </div>-->
+            <div ngClass.xl = "page-content-lg" ngClass.lg = "page-content-lg" ngClass.md = "page-content-tablet" ngClass.sm = "page-content-tablet">
+              
+              <div ngClass.xl = "historial-text-xl" ngClass.lg = "historial-text-lg" ngClass.md = "historial-text-md">
+                <ckeditor  [(ngModel)]="microsite?.historial.message" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Text" name = "historicMessage" [editor]="Editor1" (ready)="onReady($event)"></ckeditor>
+              </div>
+             <!--<div style ="padding-bottom: 52px;margin: 0 auto!important;">
+               
+                   <button type ="button" style ="border: none; padding: 15px;cursor:pointer;" (click) = "addPoint('start', 0)">
+                     <mat-icon style ="font-size:50px;height: 50px; width: 50px;">add</mat-icon>
+                   </button>
+                   
+                </div>--> 
+              <div fxLayout="row" fxLayoutAlign ="space-between top" ngClass.xl = "historial-xl" ngClass.lg = "historial-lg" ngClass.md = "historial-md" *ngFor = "let record of microsite?.historial.points; index as i">
+                <div>
+                  <button type = "button" style ="border: none; padding: 5px;cursor:pointer;margin-right: 15px;">
+                    <mat-icon style ="font-size:25px;height: 25px; width: 25px;" (click) = "addPoint('middle', i)">add</mat-icon>
+                  </button>
+                  <button type = "button" style ="border: none; padding: 5px;cursor:pointer;">
+                    <mat-icon style ="font-size:25px;height: 25px; width: 25px;" (click) = "removePoint(i)">remove</mat-icon>
+                  </button>                 
+                </div>
+                <div ngClass.xl = "historial-description-xl" ngClass.lg = "historial-description-lg" ngClass.md = "historial-description-md" ngClass.sm = "historial-description-sm" >
+                  <ckeditor class= "record" [(ngModel)]="record.body" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Contingut" name = "body{{i}}" [editor]="Editor1" (ready)="onReady($event)"></ckeditor>
+                </div>
+                <button type="button" mat-flat-button ngClass.xl = "historial-button-xl" ngClass.lg = "historial-button-lg" ngClass.md = "historial-button-md" (click) = "openHistorialDialog(record)">{{record.button}}</button>
+               </div>
+               <div style ="padding-bottom: 52px;">
+                <!--   <button mat-fab color="warn">
+                     <mat-icon >add</mat-icon>
+                   </button>-->
+                   <button type = "button" style ="border: none; padding: 15px;cursor:pointer;margin: 0 auto!important;" (click) = "addPoint('end', 0)">
+                     <mat-icon style ="font-size:50px;height: 50px; width: 50px;">add</mat-icon>
+                   </button>
+                   
+                </div>
+            </div>
+            
+            <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="!editMode">
+              <button [disabled]="!fhistoric.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Crear pàgina </button> 
+            </div> 
+            <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="editMode">
+                <button [disabled]="!fhistoric.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar pàgina</button> 
+            </div>  
+            <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="!editMode">
+                <button [disabled]="!fhistoric.valid" ngClass.xs = "button-xs">Crear pàgina</button>         
+            </div>   
+            <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="editMode">
+              <button [disabled]="!fhistoric.valid" ngClass.xs = "button-xs">Guardar pàgina</button>         
+          </div>     
+        </form>
+      </div>
+    </div>
+    
+      <div *ngIf = "page.type.type === 'voting'">
+        <div fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <form  #fvoting="ngForm" (ngSubmit)="processPage(fvoting);"> 
+            <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+              <mat-form-field ngClass.xl = "select-xl" ngClass.lg = "select-lg" ngClass.md = "select-md" ngClass.sm = "select-sm" ngClass.xs = "select-xs">
+                <mat-label ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Tipus</mat-label>      
+                <mat-select  [(value)]="page.type.name"  name ="typeofPage" (valueChange)="selectionChanged()">              
+                  <mat-option *ngFor ="let type of types" value="{{type.name}}">{{type.name}}</mat-option>              
+                </mat-select> 
+              </mat-form-field>
+            </div>
+             
+              
+              
+             <!-- <p ngClass.xl = "form-proposal-lg" ngClass.lg = "form-proposal-lg" ngClass.md = "form-proposal-tablet" ngClass.sm = "form-proposal-tablet-sm" ngClass.xs = "form-proposal-xs">Proposta</p> --> 
+             <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Ordre</p>
+                        <input type="number" ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Ordre" [(ngModel)]="page.index" name = "index" required>
+                </div>
+            </div>  
+             <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+                <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                        <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol de la portada</p>
+                        <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la portada" [(ngModel)]="page.coverTitle" name = "coverTitle" required>
+                </div>
+            </div>  
+
+            <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="!editMode">
+              <button [disabled]="!fvoting.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Crear pàgina </button> 
+          </div> 
+          <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="editMode">
+              <button [disabled]="!fvoting.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar pàgina</button> 
+          </div>  
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="!editMode">
+              <button [disabled]="!fvoting.valid" ngClass.xs = "button-xs">Crear pàgina</button>         
+          </div>   
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="editMode">
+            <button [disabled]="!fvoting.valid" ngClass.xs = "button-xs">Guardar pàgina</button>         
+        </div>     
+            
+          </form>
+         </div>
+        
+        <!--xs -->
+        <!-- <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false" ngClass.xs = "content-xs">
+            <div ngClass.xs = "content-container-xs">
+                
+              <p ngClass.xs ="title-xs">Fases del procés</p>         
+             
+                <div *ngFor = "let phase of microsite?.phases; index as i" ngClass.xs ="content-fase-xs">
+                  <p ngClass.xs = "fase-name-xs">{{phase.name}}</p>
+                  <p ngClass.xs = "fase-date-xs">{{phase.date}}</p> 
+                  <div [innerHTML]="phase.description | safe" ngClass.xs = "fase-description-xs"></div>
+                </div>
+                
+            </div> 
+      
+        
+        
+       </div>-->
+      
+      
+     
+  
+  
+  
+  
+  
+    </div> 
+  </div>
+  

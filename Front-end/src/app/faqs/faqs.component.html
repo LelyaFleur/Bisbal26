@@ -1,0 +1,108 @@
+<p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">Preguntes freqüents
+    <span fxShow class ="spacer"></span>
+   <!-- <button mat-icon-button [mat-dialog-close]="true">
+    <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+      <mat-icon style ="color:white;">
+        favorite
+        </mat-icon>
+    </button>-->
+    <button mat-icon-button [mat-dialog-close]="true" style ="height:32px!important;width:32px!important;">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;margin-top:5px;">clear</mat-icon>
+    </button>
+  </p>
+
+
+
+    <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+       <div [innerHTML]="data.info | safeHtml" class= "text-xs"></div> 
+
+   <!-- <p><b>QUÈ DECIDIM?</b></p>
+    <p>Estem decidint el destí de 25.000€ del capítol d’inversions del pressupost
+    municipal.</p>
+
+    <p><b>QUI POT VOTAR?</b></p>
+    <p>
+        Poden votar totes les persones que hagin complert els 16 anys abans del 15 de
+        gener de 2020 i que estiguin empadronades a Sant Gregori abans d’aquesta data.
+  </p>
+ 
+  <p><b>QUI HA FET LES PROPOSTES QUE ARA VOTEM?</b></p>
+  <p>Totes les persones que viuen, treballen i/o tenen algun vincle amb el poble han
+    pogut presentar les seves propostes, així com entitats del municipi.<br>
+    Posteriorment, la Comissió de Participació (formada per l'alcalde, representants de
+    cada grup polític municipal, la secretaria i el personal tècnic municipal designat) va
+    analitzar les propostes rebudes i va descartar les que no s’ajustaven a les normes
+    del procés. Les propostes que ara votem són les que efectivament complien amb
+    tots els requisits.</p>
+
+  <p><b>QUÈ NECESSITO PER VOTAR?</b></p>
+  <p>Només necessiteu introduir el <b>DNI (8 dígits+lletra sense espais ni guions)</b> o, en el
+    cas de no tenir-ne, la targeta de residència (X, Y o Z +7 dígits+lletra sense espais ni
+    guions) o el passaport (si no teniu DNI o NIE caldrà posar el número de passaport
+    tal i com es va entrar en el registre d’empadronament de l’Ajuntament). 
+    També haureu d’indicar la vostra data de naixement.
+  </p>
+
+  <p><b>FINS QUAN PUC VOTAR?</b></p>
+  <p>El període per votar començarà el dissabte 15 de febrer i finalitzarà el dilluns 2 de
+    març (ambdós inclosos).
+  <p>
+
+  <p><b>COM PUC VOTAR?</b></p>
+  <p>Podeu votar a través d’aquest portal web mitjançant qualsevol dispositiu electrònic
+    (mòbil, tauleta, ordinador, etc.) amb connexió a Internet.
+  <br>Si voleu també podeu acudir a la Biblioteca Miquel Martí i Pol, a Cal Bolet o al
+    Centre Cívic Sant Grau, i utilitzar els ordinadors amb connexió a Internet d’aquests
+    equipaments. Els responsables municipals us ajudaran a votar si els hi demaneu.<br>També s’establirà una jornada per poder fer votació presencial, que serà anunciada
+        degudament.<br>Si teniu qualsevol dubte o incidència us podeu desplaçar a les dependències
+    municipals (Av. Girona, 33 -17150 Sant Gregori), trucar al 972.42.83.00 o enviar un
+    correu electrònic a: <a href ="mailto:ajuntament@santgregori.cat">ajuntament@santgregori.cat</a></p>
+      
+  <p><b>QUANTES PROPOSTES PUC VOTAR?</b></p>
+  <p>De les 10 propostes que han passat a la fase de votació final en podeu votar 3 com
+    a màxim (les que vulgueu)
+  <p>
+
+  <p><b>QUINA O QUINES PROPOSTES S’EXECUTARAN?</b></p>  
+  <p>
+    S’executarà segur la proposta més votada, i després la resta de propostes amb
+    major nombre de vots, sempre i quan la suma total no excedeixi els 25.000€, per bé
+    que serà la Comissió de Participació qui tindrà la darrera paraula.
+  </p>
+
+
+  <p><b>PUC VOTAR MÉS D’UNA VEGADA?</b></p>
+  <p>No, si voleu votar dues vegades a través d’Internet el sistema no us deixarà.</p>
+   <p><b>IMPORTANT:</b>  Suplantar la identitat d’altri a l’hora d’emetre un vot és un delicte.
+  </p>
+
+
+  <p><b>LES MEVES DADES SÓN CONFIDENCIALS?</b></p>
+  <p>Sí. Tant el vot com les dades del padró són confidencials. Només s’utilitzarà el
+    número de document d’identitat i la data de naixement per comprovar
+    l'empadronament.</p>
+  
+  <p style ="font-size:12px;word-break: break-all;">
+      <i>D’acord amb l’article 13 del reglament europeu 2016/679, de 27 d’abril, s’informa que el responsable del
+        tractament de les dades personals és l’Ajuntament de Sant Gregori (departament d’Alcaldia Av. Girona,
+        33 · 17150 Sant Gregori). La finalitat del tractament de les dades és la gestió i tramitació de la votació
+        final dels pressupostos participatius 2018-2019. La base jurídica és el consentiment inequívoc del propi
+        interessat en prendre part en la votació. La categoria de les dades són identificatives (DNI i data de
+        naixement). Les dades facilitades es comunicaran exclusivament a l’empresa adjudicatària de la gestió
+        dels procés als únics efectes de compliment del contracte, i no es transferiran fora de la Unió Europea i
+        seran conservades durant el temps previst a la normativa vigent. Es poden exercir els drets d’accés,
+        rectificació, supressió i portabilitat de les seves dades, i la limitació o oposició al seu tractament a través
+        de la seu electrònica <a href="https://www.sangregori.cat" [target] = "'_blank'">https://www.sangregori.cat</a> o presencialment a l’ Oficina d’Atenció al Ciutadà. Tota
+        persona interessada tindrà dret a presentar una reclamació davant d’una autoritat de control en
+        particular en l’Estat membre en què tingui la seva residència habitual, lloc de treball o lloc de la
+        suposada infracció, si considera que el tractament de dades personals que el concerneixen infringeix el
+        RGPD, essent a Catalunya l’APDCAt l’autoritat de
+        referència <a href="https://seu.apd.cat/ca/tramits/denuncia" [target] = "'_blank'">https://seu.apd.cat/ca/tramits/denuncia</a> / <a href="https://seu.apd.cat/ca/tramits/reclamacions" [target] = "'_blank'">https://seu.apd.cat/ca/tramits/reclamacions</a>
+        </i>
+    </p>-->
+   
+    </div>
+     
+  
+
+

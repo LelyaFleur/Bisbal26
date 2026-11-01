@@ -1,0 +1,140 @@
+<!--<p mat-dialog-title ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between center">Crear proposta  
+    <span fxShow class ="spacer"></span> 
+    <button mat-icon-button [mat-dialog-close] = "true" style ="height:32px!important;width:32px!important;line-height:32px;">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;line-height:32px;">clear</mat-icon>
+    </button>
+  </p>-->
+<mat-toolbar>
+  <mat-toolbar-row ngClass.xl = "third-toolbar-lg" ngClass.lg = "third-toolbar-lg" ngClass.md = "third-toolbar-tablet" ngClass.sm = "third-toolbar-tablet-sm" ngClass.xs = "third-toolbar-xs">
+  
+    <div ngClass.xl = "third-toolbar-content-lg" ngClass.lg = "third-toolbar-content-lg" ngClass.md = "third-toolbar-content-tablet" ngClass.sm = "third-toolbar-content-tablet-sm" ngClass.xs = "third-toolbar-content-xs" fxLayout="row" fxLayoutAlign="space-between">
+        <div >
+          <p>Editor de la consulta</p>
+          <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf ="!editMode">Afegir proposta</p>
+          <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf ="editMode">Editar proposta</p>
+        </div>
+      <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+        <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-md" ngClass.sm= "back-button-sm" ngClass.xs= "back-button-xs" [routerLink] = "['/editar-consulta', queryId]" style ="cursor: pointer!important;"><  Tornar enrere</a>
+      </div>
+    </div> 
+      
+    
+    </mat-toolbar-row>
+  
+</mat-toolbar>
+<div ngClass.xs = "content-xs" style ="height:300px; padding-top: 100px;" fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+  <p ngClass.xs = "text-xs">Editor no està disponible per als dispositius mòbils</p>
+</div>
+<div ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true"> 
+  <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign ="space-between center" ngClass.xl = "file-uploader-box-lg"  ngClass.lg = "file-uploader-box-lg">
+    <!--[disabled]="uploader.queue.length > 0"-->
+    <button (click)="fileInput.click()" mat-button style ="padding-left: 0px;font-size: 20px;" > <mat-icon>note_add</mat-icon>Afegir imatges</button>
+     <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+         <input type="file" #fileInput ng2FileSelect [uploader]="uploader" multiple/>
+     </span>
+    
+     <div fxLayout = "column">
+      <div *ngFor="let item of uploader.queue" fxLayout = "row" fxLayoutAlign ="space-between center">
+       
+        <!--<div fxLayout = "column">-->
+          {{item.file.name}}
+         <!-- <button mat-button 
+                  (click)="item.upload(); file = item.file.name" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+                Pujar &nbsp;<mat-icon>backup</mat-icon>
+          </button>-->
+        
+          <button mat-button 
+                  (click)="item.remove()">
+              Eliminar <mat-icon>delete_forever</mat-icon>
+          </button>     
+      <!--  </div>-->
+                   
+       </div>
+     </div>
+  </div>
+  <div *ngIf ="editMode" style ="margin-bottom: 60px;">
+    <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px" >
+          
+      <mat-grid-tile  *ngFor="let item of proposal.images; let i = index">
+        <div fxLayout="column" style ="width:100%!important;">
+            <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  >
+              <img [src]="item.name"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs">
+              <span ngClass.xl="material-icons clear-icon-xl" ngClass.lg ="material-icons clear-icon-xl" ngClass.md ="material-icons clear-icon-xl" ngClass.sm ="material-icons clear-icon-xl" (click) = "openConfirmDialog(i)">
+                clear
+                </span>
+           </div>
+          </div>
+      </mat-grid-tile>        
+    </mat-grid-list>
+   </div> 
+    <form  #f="ngForm" (ngSubmit)="processProposal(f);">        
+        
+        
+       <!-- <p ngClass.xl = "form-proposal-lg" ngClass.lg = "form-proposal-lg" ngClass.md = "form-proposal-tablet" ngClass.sm = "form-proposal-tablet-sm" ngClass.xs = "form-proposal-xs">Proposta</p> --> 
+      <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" *ngIf = "proposal.winner">
+        <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Estat d'execució <mat-slide-toggle [(ngModel)]="proposal.executiveState.show" name = "showState" style ="margin-left: 20px; "></mat-slide-toggle></p>
+                <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Estat d'execució" [(ngModel)]="proposal.executiveState.state" name = "executiveState">
+        </div>
+        
+      </div>  
+       
+       <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+            <div  style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                    <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Títol</p>
+                    <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Títol de la proposta" [(ngModel)]="proposal.title" name = "title" required>
+            </div>
+        </div>  
+       
+        <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+            <div   style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Descripció</p>
+                <div ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs">
+                  <ckeditor [(ngModel)]="proposal.description" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Descripció de la proposta" name = "description" [editor]="Editor1" (ready)="onReady($event)" required></ckeditor>
+                </div><!--  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Descripció de la proposta" [(ngModel)]="proposal.description" name = "description" required></textarea>--> 
+            </div>
+        </div> 
+        <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+          <div style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+            <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Ubicació </p>
+           <!-- <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Lloc/s del municipi on caldria dur a terme la proposta" [(ngModel)]="proposal.location" name = "location" required>-->
+           <!-- <div ngClass.xl = "input-long-ckeditor-lg" ngClass.lg = "input-long-ckeditor-lg" ngClass.md = "input-ckeditor-tablet" ngClass.sm = "input-ckeditor-tablet-sm" ngClass.xs = "input-ckeditor-xs">
+              <ckeditor [config]="{ link: {addTargetToExternalLinks: true} }" [(ngModel)]="proposal.location" placeholder="Lloc/s del municipi on caldria dur a terme la proposta" name = "location" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+            </div>-->
+            <div ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs">
+              <ckeditor [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" [(ngModel)]="proposal.location" placeholder="Lloc/s del municipi on caldria dur a terme la proposta" name = "location" [editor]="Editor1" (ready)="onReady($event)" ></ckeditor>
+            </div><!--  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Lloc/s del municipi on caldria dur a terme la proposta" [(ngModel)]="proposal.location" name = "location" required></textarea>--> 
+      
+          </div>
+        </div>
+        <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+            <div style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+              <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs"> Cost aproximat </p>
+              <input ngClass.xl = "input-long-lg" ngClass.lg = "input-long-lg" ngClass.md = "input-tablet" ngClass.sm = "input-tablet-sm" ngClass.xs = "input-xs" placeholder="Cost aproximat" [(ngModel)]="proposal.cost.quantity" name = "cost" >
+            </div>
+          </div>
+          <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+           
+            
+        </div> 
+
+        
+        
+      <!-- <p ngClass.xl = "note-info-xl" ngClass.lg = "note-info-lg" ngClass.md = "note-info-tablet" ngClass.sm = "note-info-tablet-sm" ngClass.xs = "note-info-xs"><i>Si vols fer-nos arribar algun document adjunt, envia'l a <a href="mailto:serveispersones@vilafant.cat">serveispersones@vilafant.cat</a>, indicant el teu nom i el títol de la proposta.</i></p>--> 
+        
+        <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="!editMode">
+            <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Crear proposta </button> 
+        </div> 
+        <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="editMode">
+            <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar proposta</button> 
+        </div>  
+        <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="!editMode">
+            <button [disabled]="!f.valid" ngClass.xs = "button-xs">Crear proposta</button>         
+        </div>   
+        <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="editMode">
+          <button [disabled]="!f.valid" ngClass.xs = "button-xs">Guardar proposta</button>         
+      </div>      
+    </form> 
+    
+    
+</div>

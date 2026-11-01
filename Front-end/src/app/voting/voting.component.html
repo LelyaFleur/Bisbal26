@@ -1,0 +1,240 @@
+<mat-toolbar> 
+  <mat-toolbar-row ngClass.xl = "second-toolbar-lg" ngClass.lg = "second-toolbar-lg" ngClass.md = "second-toolbar-tablet" ngClass.sm = "second-toolbar-tablet-sm" ngClass.xs = "second-toolbar-xs">
+    <div ngClass.xl = "title-background-lg" ngClass.lg = "title-background-lg" ngClass.md = "title-background-tablet" ngClass.sm = "title-background-tablet"  ngClass.xs = "title-background-xs" fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="column">
+      <div ngClass.xl = "second-toolbar-title-lg" ngClass.lg = "second-toolbar-title-lg"  ngClass.md = "second-toolbar-title-tablet"  ngClass.sm = "second-toolbar-title-tablet-sm" style ="line-height: 120%;" ngClass.xs = "second-toolbar-title-xs" >Pressupostos Participatius<br> 
+        <span  ngClass.xl = "second-toolbar-title-bald-lg"  ngClass.lg = "second-toolbar-title-bald-lg" ngClass.md = "second-toolbar-title-bald-tablet" ngClass.sm = "second-toolbar-title-bald-tablet-sm" ngClass.xs = "second-toolbar-title-bald-xs">de La Bisbal del Penedès 2026</span> 
+      </div>
+      <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-xl" ngClass.sm= "back-button-xl" ngClass.xs= "back-button-xs" (click) = "navigateBack()" style ="cursor: pointer!important;"><  Tornar enrere</a>
+      </div>
+    </div>
+  </mat-toolbar-row>  
+</mat-toolbar>
+<div fxLayout="column" ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs" *ngIf = "query?.phase.process === 'information' || query?.phase.process === 'votingOnlineFinished'">
+  <div fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column"  style ="width:100%;" fxLayoutAlign ="space-between start">
+    <div ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs">
+      <div [innerHTML]="query?.phase.message | safe" ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs"></div>
+     <!-- <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">VOTACIÓ FINAL
+        </p>
+        <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Selecciona un màxim de 3 propostes (les que vulguis) i VOTA
+          
+        </p>
+        <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">25.000€ a les teves mans!
+          
+        </p>-->
+        
+    </div>
+    <div fxLayout.xs ="row" fxLayout.md ="row" fxLayout.sm ="row" ngClass.xl = "button-group-xl" ngClass.lg = "button-group-xl" ngClass.md = "button-group-tablet" ngClass.sm = "button-group-tablet-sm" ngClass.xs = "button-group-xs" >
+      <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-FAQ-xl" ngClass.md = "faq-button-tablet" ngClass.sm = "faq-button-tablet-sm" ngClass.xs = "faq-button-xs" (click)= "openFAQS()">FAQS</button>
+      <span class="spacer"></span>
+      <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-lg" ngClass.md = "instrucions-button-tablet" ngClass.sm = "instrucions-button-tablet-sm"  ngClass.xs = "instrucions-button-xs" (click) = "openInstructions()">Instruccions per votar</button>
+    </div>
+  </div>
+ 
+  <div ngClass.xl = "grid-wrapper-xl" ngClass.lg = "grid-wrapper-xl" ngClass.md = "grid-wrapper-tablet" ngClass.sm = "grid-wrapper-tablet-sm" ngClass.xs = "grid-wrapper-xs">
+      <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px">
+        <mat-grid-tile style ="background-color: #F3F3F3; cursor:pointer;" *ngFor="let item of proposalItems; let i = index">
+          <div fxLayout="column" style ="width:100%!important;">
+              <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-tablet-xs">
+                <img [src]="item.images[0].name"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" [ngStyle]="{'opacity':item.checked === true ? 1: 0.5 }" (click) = "openDialog(item, i+1, true)">
+                <!-- <i  class="material-icons check-icon" (click) = "selectProposal(item, i+1)">{{item.icon}}</i>--> 
+               <!-- <mat-icon ngClass.xl="material-icons check-icon-xl" ngClass.lg ="material-icons check-icon-xl" ngClass.md ="material-icons check-icon-tablet" ngClass.sm ="material-icons check-icon-tablet" ngClass.xs="material-icons check-icon-xs" svgIcon="{{item.icon}}" (click) = "selectProposal(item, i+1)"></mat-icon>-->
+             </div>
+                <div ngClass.xl = "tile-bottom-xl" ngClass.lg = "tile-bottom-lg" ngClass.md = "tile-bottom-tablet" ngClass.sm = "tile-bottom-tablet-sm" ngClass.xs = "tile-bottom-xs" [ngStyle]="{'background':item.checked === true ? '#00B8B8 ' : '#F3F3F3' }"> <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs" [ngStyle]="{'color':item.checked === true ? 'white' : 'black' }" (click) = "openDialog(item, i+1, true)">{{item?.title}}&nbsp;({{item.cost.quantity}})</p></div>
+             </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+      <!-- <button ngClass.xl ="mat-fab-votes-xl" ngClass.lg ="mat-fab-votes-xl" ngClass.md ="mat-fab-votes-md" ngClass.sm ="mat-fab-votes-sm" ngClass.xs ="mat-fab-votes-xs"><span >{{selectedProposals}}/{{maxSelection}}</span> <p ngClass.xl = "button-text-xl" ngClass.lg = "button-text-xl" ngClass.md = "button-text-md" ngClass.sm = "button-text-sm" ngClass.xs = "button-text-xs">propostes 
+        seleccionades </p> 
+      </button>
+      (click) ="showDNICheckerDialog()"
+      <button ngClass.xl = "mat-fab-vote-button-xl" ngClass.lg = "mat-fab-vote-button-xl" ngClass.md = "mat-fab-vote-button-md" ngClass.sm = "mat-fab-vote-button-sm" ngClass.xs = "mat-fab-vote-button-xs" class ="mat-fab-2" [disabled] = "!optionSelected()" style ="cursor: pointer;" (click) = "showDNICheckerDialog()"><span style ="margin-left: -30px;" >VOTA</span></button>-->
+  </div>  
+
+</div>
+<div fxLayout="column" ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs" *ngIf = "query?.phase.process === 'voting'">
+  <div fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column"  style ="width:100%;" fxLayoutAlign ="space-between start">
+    <div ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs">
+      <div [innerHTML]="query?.phase.message | safe" ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs"></div>
+     <!-- <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">VOTACIÓ FINAL
+        </p>
+        <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Selecciona un màxim de 3 propostes (les que vulguis) i VOTA
+          
+        </p>
+        <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">25.000€ a les teves mans!
+          
+        </p>-->
+        
+    </div>
+    <div fxLayout.xs ="row" fxLayout.md ="row" fxLayout.sm ="row" ngClass.xl = "button-group-xl" ngClass.lg = "button-group-xl" ngClass.md = "button-group-tablet" ngClass.sm = "button-group-tablet-sm" ngClass.xs = "button-group-xs" >
+      <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-FAQ-xl" ngClass.md = "faq-button-tablet" ngClass.sm = "faq-button-tablet-sm" ngClass.xs = "faq-button-xs" (click)= "openFAQS()">FAQS</button>
+      <span class="spacer"></span>
+      <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-lg" ngClass.md = "instrucions-button-tablet" ngClass.sm = "instrucions-button-tablet-sm"  ngClass.xs = "instrucions-button-xs" (click) = "openInstructions()">Instruccions per votar</button>
+    </div>
+  </div>
+ 
+  <div ngClass.xl = "grid-wrapper-xl" ngClass.lg = "grid-wrapper-xl" ngClass.md = "grid-wrapper-tablet" ngClass.sm = "grid-wrapper-tablet-sm" ngClass.xs = "grid-wrapper-xs">
+    <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px">
+        
+      <mat-grid-tile style ="background-color: #F3F3F3; cursor:pointer;" *ngFor="let item of proposalItems; let i = index">
+        <div fxLayout="column" style ="width:100%!important;">
+            <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  >
+              <!--{'-webkit-filter':item.checked === true ? 'brightness(100%)' : 'brightness(50%)' }-->
+              <!--<img  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, false)" [ngStyle]="{'background-image':item.checked === true ? 'linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),url(' +item.images[0].name+')' : 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' +item.images[0].name+')', 'background-size': '100%,100%', 'background-repeat': 'round' }" *ngIf="item.images[0] !== undefined;else no_image">-->
+              <img [src]="item.images[0].name"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, false)" [ngStyle]="{'opacity':item.checked === true ? '1' : '0.5' }" *ngIf="item.images[0] !== undefined;else no_image">
+           
+              <ng-template #no_image>
+                <img src="assets/images/image-icon.jpg"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, false)">
+              </ng-template>
+              <!-- <i  class="material-icons check-icon" (click) = "selectProposal(item, i+1)">{{item.icon}}</i>--> 
+              <mat-icon ngClass.xl="material-icons check-icon-xl" ngClass.lg ="material-icons check-icon-xl" ngClass.md ="material-icons check-icon-tablet" ngClass.sm ="material-icons check-icon-tablet" ngClass.xs="material-icons check-icon-xs" svgIcon="{{item.icon}}" (click) = "selectProposal(item)"></mat-icon>
+          </div>
+          <div ngClass.xl = "tile-bottom-xl" ngClass.lg = "tile-bottom-lg" ngClass.md = "tile-bottom-tablet" ngClass.sm = "tile-bottom-tablet-sm" ngClass.xs = "tile-bottom-xs" [ngStyle]="{'background':item.checked === true ? '#00B8B8 ' : '#F3F3F3' }" (click) = "openDialog(item, i+1, false)"> <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs" [ngStyle]="{'color':item.checked === true ? 'white' : 'black' }" >{{item?.title}}&nbsp;<span *ngIf ="item.title !== 'Vot en blanc'">({{item.cost.quantity}})</span></p></div>
+          </div>
+      </mat-grid-tile>
+    
+    </mat-grid-list>
+      <button ngClass.xl ="mat-fab-votes-xl" ngClass.lg ="mat-fab-votes-xl" ngClass.md ="mat-fab-votes-md" ngClass.sm ="mat-fab-votes-sm" ngClass.xs ="mat-fab-votes-xs"><span >{{selectedProposals}}/{{maxSelection}}</span> <p ngClass.xl = "button-text-xl" ngClass.lg = "button-text-xl" ngClass.md = "button-text-md" ngClass.sm = "button-text-sm" ngClass.xs = "button-text-xs">propostes 
+        seleccionades </p> 
+      </button>
+      <!-- (click) ="showDNICheckerDialog()"-->
+      <button ngClass.xl = "mat-fab-vote-button-xl" ngClass.lg = "mat-fab-vote-button-xl" ngClass.md = "mat-fab-vote-button-md" ngClass.sm = "mat-fab-vote-button-sm" ngClass.xs = "mat-fab-vote-button-xs"  [disabled] = "!optionSelected()" style ="cursor: pointer;" (click) = "showDNICheckerDialog()"><span style ="margin-left: -30px;" >VOTA</span></button>
+  </div>  
+
+</div>
+<div *ngIf = "query?.phase.process === 'results'" fxLayout="column" ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs">
+  <div fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="column" fxLayout.sm="column" fxLayout.xs="column"  style ="width:100%;" fxLayoutAlign ="space-between start">
+    <div ngClass.xl = "message-lg" ngClass.lg = "message-lg" ngClass.md = "message-tablet" ngClass.sm = "message-tablet-sm" ngClass.xs = "message-xs">
+      <div [innerHTML]="query?.phase.message | safe" ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs"></div>
+     <!-- <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">VOTACIÓ FINAL 
+        </p>
+        <p ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Resultats de la votació final
+          
+        </p>   -->     
+    </div>
+    <div fxLayout.xs ="row" fxLayout.md ="row" fxLayout.sm ="row" ngClass.xl = "button-group-xl" ngClass.lg = "button-group-xl" ngClass.md = "button-group-tablet" ngClass.sm = "button-group-tablet-sm" ngClass.xs = "button-group-xs" >
+      <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-lg" ngClass.md = "faq-button-tablet" ngClass.sm = "faq-button-tablet-sm" ngClass.xs = "faq-button-xs" (click)= "openResults()">Resultats</button>
+    <!--  <span class="spacer"></span>
+      <button mat-flat-button ngClass.xl = "black-button-xl" ngClass.lg = "black-button-xl" ngClass.md = "instrucions-button-tablet" ngClass.sm = "instrucions-button-tablet-sm"  ngClass.xs = "instrucions-button-xs" (click) = "openInstructions()">Instruccions per votar</button>-->
+    </div>
+  </div>
+  <div ngClass.xl = "grid-wrapper-xl" ngClass.lg = "grid-wrapper-xl" ngClass.md = "grid-wrapper-tablet" ngClass.sm = "grid-wrapper-tablet-sm" ngClass.xs = "grid-wrapper-xs">
+    <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeightResult}}px" gutterSize = "{{gutterSize}}px">
+      <mat-grid-tile style ="background-color: #F3F3F3; cursor:pointer;" *ngFor="let item of proposalItems |  orderby:['!votes']; let i = index">
+        <div fxLayout="column" style ="width:100%!important;">
+            
+              <img [src]="item.images[0].name"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, true)" *ngIf="item.images[0] !== undefined;else no_image">
+             
+              <ng-template #no_image>
+                <img src="assets/images/image-icon.jpg"  ngClass.xl = "tile-image-xl" ngClass.lg = "tile-image-xl" ngClass.md = "tile-image-tablet" ngClass.sm = "tile-image-tablet-sm" ngClass.xs = "tile-image-xs" (click) = "openDialog(item, i+1, true)">
+              </ng-template> <!-- <i  class="material-icons check-icon" (click) = "selectProposal(item, i+1)">{{item.icon}}</i>--> 
+            
+          
+        <div (click) = "openDialog(item, i+1, true)"  ngClass.xl = "tile-bottom-result-xl" ngClass.lg = "tile-bottom-result-lg" ngClass.md = "tile-bottom-result-md" ngClass.sm = "tile-bottom-result-sm" ngClass.xs = "tile-bottom-result-xs" [style.background-color]="detectColorResult(item)"> <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs" style= "color:white;">
+          <i *ngIf = "item.winner">Proposta guanyadora</i><br *ngIf = "item.winner">
+            <i *ngIf ="item.votes !== 0">{{item.votes * 100 / query.totalVotes | number : '1.1-2'}}% ({{item.votes}} <span *ngIf ="item.votes === 1">vot)</span><span *ngIf ="item.votes > 1">vots)</span></i> <span  *ngIf = "item.votes === 0">0%</span>
+            <br *ngIf = "item.winner && item.executiveState.show"><i *ngIf = "item.winner && item.executiveState.show" ngClass.xl = "state-xl" ngClass.lg = "state-lg" ngClass.md = "state-md" ngClass.sm = "state-sm" ngClass.xs = "state-xs" ><b>{{item.executiveState.state}}</b></i>
+          </p>
+        </div>
+          
+          <div (click) = "openDialog(item, i+1, true)" ngClass.xl = "tile-bottom-xl" ngClass.lg = "tile-bottom-lg" ngClass.md = "tile-bottom-tablet" ngClass.sm = "tile-bottom-tablet-sm" ngClass.xs = "tile-bottom-xs" [style.background-color]="detectColor(item)"> <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs" [ngStyle]="{'color':item.checked === true ? 'rgb(33,25,21);' : 'black' }">{{item?.title}}&nbsp;<span *ngIf ="item.title !== 'Vot en blanc'">({{item.cost.quantity}})</span></p></div>
+          </div>
+      </mat-grid-tile>
+     
+    </mat-grid-list>
+  
+</div>
+  <!-- <div *ngIf = "phase?.process === 'gathering'">
+    <proposals [process] = "phase?.process"></proposals>
+  </div>
+  <div *ngIf = "phase?.process === 'selection'">
+    <proposals [process] = "phase?.process"></proposals>
+  </div>
+
+  <div *ngIf = "phase?.process === 'voting'" [ngStyle.xs]="{'margin-top.px': 15}" [ngStyle.sm]="{'margin-top.px': 25}" [ngStyle.xl]="{'margin-top.px': 45}" [ngStyle.lg]="{'margin-top.px': 35}">
+    <h3 fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="false" [fxShow.xl]="false" style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">PRESSUPOSTOS PARTICIPATIUS VILOBÍ D’ONYAR 2019</h3>
+    <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">VOTACIÓ FINAL DELS PRESSUPOSTOS
+      PARTICIPATS VILOBÍ D’ONYAR 2019.</h2>
+    <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">SELECCIONA UN MÀXIM DE 3 PROPOSTES (les que vulguis) I VOTA.
+     </h2>
+    <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;"> 35.000€ A LES TEVES MANS!</h2>
+    <h3 style ="text-align: center; font-family:'Roboto';margin-bottom: 40px;">Pots votar del 23 de setembre al 13 d’octubre (ambdós inclosos)</h3>
+    <div fxLayout="row" style ="width: 100%!important;margin-bottom:25px;">
+        <span class="spacer" fxShow></span>
+        <button mat-raised-button color="warn" [ngStyle.xs]="{'font-size.px': 11}" (click) ="openInstructions()">
+          INSTRUCCIONS PER VOTAR
+        </button>
+        <button mat-raised-button color="warn" [ngStyle.xs]="{'font-size.px': 11}" style = "margin-left: 10px;" (click) ="openFAQS()">
+          PREGUNTES FREQÜENTS
+      </button>
+        <span class="spacer" fxShow></span>
+    </div>
+
+    <mat-grid-list  [cols]="columnNum" rowHeight="320px" gutterSize ="40px" ng-cloak>
+      <mat-grid-tile *ngFor="let item of proposalItems; let i = index">-->
+        <!--ng-style="item.file != '' && {'background-image':'url(item.file)'}" style ="height:100%!important;background-size: cover;" [style.background]="'url('+ item.images[0].name +')'"    [ngClass] ="{'desaturate': !item.checked}"  [ngStyle]="{'background':'url(' + item.images[0].name + ')'}"-->
+      <!--   <mat-grid-tile-header (click) = "openDialog(item, i+1, false)" style ="min-height: 60px!important;font-size: 16px!important;cursor:pointer; background: #333!important;">
+          <p style ="font-size:16px!important;" [ngStyle.xs]="{'font-size.px': 12}" [ngStyle.md]="{'font-size.px': 12}" [ngStyle.sm]="{'font-size.px': 12}" [ngStyle.xl]="{'font-size.px': 14}" [ngStyle.lg]="{'font-size.px': 14}">{{item.title}}&nbsp;({{item.cost.quantity}})</p>
+        </mat-grid-tile-header>
+
+        <img [src]="item.images[0].name"  style ="width: 100%; height: 90%; margin-top:88px!important;padding:20px;" *ngIf="item.images[0].name !== undefined;else no_image" [ngClass] ="{'desaturate': !item.checked}">
+
+        <i  class="material-icons check-icon" (click) = "selectProposal(item, i+1)">{{item.icon}}</i>
+
+        <ng-template #no_image>
+          <mat-icon style ="font-size:128px;color :#e53517;margin-right: 25%; margin-bottom: 25%;" (click) = "selectProposal(item)">image</mat-icon>
+        </ng-template>
+      </mat-grid-tile>
+    </mat-grid-list>
+   <p>El període per votar comença el <b>dilluns 22 d’octubre i finalitza el diumenge 11
+        de novembre (ambdós inclosos).</b><p>
+    <button mat-fab style ="font-size: 16px;background-color: #e53517!important;" class ="mat-fab-1">{{selectedProposals}}</button>
+    <button mat-fab color="warn" style ="font-size: 16px;" (click) ="showDNICheckerDialog()" class ="mat-fab-2" [disabled] = "!optionSelected()">VOTAR</button>
+  </div>
+
+  <div *ngIf = "phase?.process === 'votingOnlineFinished'">
+    <h2 fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="false" [fxShow.xl]="false" style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">PRESSUPOSTOS PARTICIPATIUS VILOBÍ D’ONYAR 2019</h2>
+
+    <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 40px;" [innerHTML]="phase?.text | safeHtml"></h2>
+    <mat-grid-list  [cols]="columnNum" rowHeight="320px" gutterSize ="40px" ng-cloak>
+      <mat-grid-tile *ngFor="let item of proposalItems | orderby:['!votes']">
+      <mat-grid-tile-header (click) = "openDialog(item, i+1, true)" style ="min-height: 60px!important;font-size: 16px!important;cursor:pointer; background-color: #333!important;">
+        <p style ="font-size:16px!important;" [ngStyle.xs]="{'font-size.px': 12}" [ngStyle.md]="{'font-size.px': 12}" [ngStyle.sm]="{'font-size.px': 12}" [ngStyle.xl]="{'font-size.px': 14}" [ngStyle.lg]="{'font-size.px': 14}">{{item.title}}&nbsp;({{item.cost.quantity}})</p>
+      </mat-grid-tile-header>
+
+      <img [src]="item.images[0].name"  style ="width: 100%; height: 90%; margin-top:88px!important;padding:20px;" *ngIf="item.images[0].name !== undefined;else no_image">
+
+  <p class="result" (click)  = "checkWinner(item._id)" ><b><i *ngIf ="item.votes !== 0">{{item.votes * 100 / query.totalVotes | number : '2.1-2'}}% ({{item.votes}} <span *ngIf ="item.votes === 1">vot)</span><span *ngIf ="item.votes > 1">vots)</span></i> <span  *ngIf = "item.votes === 0">0%</span></b></p>
+
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div> -->
+ <!-- <div *ngIf = "phase?.process === 'results'">
+      <h2 fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false" style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">PRESSUPOSTOS PARTICIPATIUS VILOBÍ D’ONYAR 2019</h2>
+      <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 20px;"><b>RESULTATS DE LA VOTACIÓ FINAL DELS PRESSUPOSTOS PARTICIPATIUS DE VILOBÍ D’ONYAR 2019</b></h2>-->
+     <!-- <h3 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 10px;">Els projectes que tenen l’etiqueta de “PROPOSTA GUANYADORA” són els que s’executaran. Aquesta etiqueta la porta la proposta més votada, i després, la resta de propostes amb major nombre de vots, tenint en compte que la suma dels seus pressupostos no podia superar en cap cas els 40.000€</h3>-->
+      <!-- <h2 style="text-align:center; font-family:'Roboto'; margin: 0px; padding: 0 20px 20px 20px;">Els projectes que tenen l’etiqueta de “PROPOSTA GUANYADORA” són els que s’executaran. Aquesta etiqueta la porta la proposta més votada, i després, la resta de propostes amb major nombre de vots, tenint en compte que la suma dels seus pressupostos no pot superar els 200.000€</h2>-->
+     <!--   <div fxLayout="row" style ="width: 100%!important;margin-bottom:25px;">
+         <span class="spacer" fxShow></span>
+         <button mat-raised-button color="warn" (click) ="openResults()" [ngStyle.xs]="{'font-size.px': 12}" *ngIf = "query.totalVotes > 0">
+          CLICA AQUÍ PER MÉS INFO SOBRE ELS RESULTATS
+         </button>
+         <span class="spacer" fxShow></span>
+       </div>
+     <mat-grid-list  [cols]="columnNum" rowHeight="320px" gutterSize ="40px" ng-cloak>
+         <mat-grid-tile *ngFor="let item of proposalItems | orderby:['!votes']">
+     <mat-grid-tile-header (click) = "openDialog(item, i+1, true)" style ="min-height: 60px!important;font-size: 16px!important;cursor:pointer; background: #333!important;">
+      <p style ="font-size:16px!important;" [ngStyle.xs]="{'font-size.px': 12}" [ngStyle.md]="{'font-size.px': 12}" [ngStyle.sm]="{'font-size.px': 12}" [ngStyle.xl]="{'font-size.px': 14}" [ngStyle.lg]="{'font-size.px': 14}">{{item.title}}&nbsp;({{item.cost.quantity}})</p>
+       </mat-grid-tile-header>
+
+       <img [src]="item.images[0].name"  style ="width: 100%; height: 90%; margin-top:88px!important;padding:20px;" *ngIf="item.images[0].name !== undefined;else no_image">
+
+       <p [ngClass]="{
+         'result':item.winner === false,
+         'winner':item.winner === true}"><b><i *ngIf ="item.votes !== 0">{{item.votes * 100 / query.totalVotes | number : '2.1-2'}}% ({{item.votes}} <span *ngIf ="item.votes === 1">vot)</span><span *ngIf ="item.votes > 1">vots)</span></i> <span  *ngIf = "item.votes === 0">0%</span><span *ngIf = "item.winner" style = "background: #f44336!important; color: white!important;margin-top: 10px;font-size:22px!important;"><br>PROPOSTA GUANYADORA</span></b></p>
+
+     </mat-grid-tile>
+   </mat-grid-list>
+  </div>-->
+
+</div>

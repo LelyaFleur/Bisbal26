@@ -1,0 +1,137 @@
+<mat-toolbar> 
+  <mat-toolbar-row ngClass.xl = "second-toolbar-lg" ngClass.lg = "second-toolbar-lg" ngClass.md = "second-toolbar-tablet" ngClass.sm = "second-toolbar-tablet-sm" ngClass.xs = "second-toolbar-xs">
+    <div ngClass.xl = "title-background-lg" ngClass.lg = "title-background-lg" ngClass.md = "title-background-tablet" ngClass.sm = "title-background-tablet"  ngClass.xs = "title-background-xs" fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="column">
+      <div ngClass.xl = "second-toolbar-title-lg" ngClass.lg = "second-toolbar-title-lg"  ngClass.md = "second-toolbar-title-tablet"  ngClass.sm = "second-toolbar-title-tablet-sm" style ="line-height: 120%;" ngClass.xs = "second-toolbar-title-xs" >Pressupostos Participatius<br> 
+        <span  ngClass.xl = "second-toolbar-title-bald-lg"  ngClass.lg = "second-toolbar-title-bald-lg" ngClass.md = "second-toolbar-title-bald-tablet" ngClass.sm = "second-toolbar-title-bald-tablet-sm" ngClass.xs = "second-toolbar-title-bald-xs">de La Bisbal del Penedès 2026</span> 
+      </div>
+      <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-xl" ngClass.sm= "back-button-xl" ngClass.xs= "back-button-xs" (click) = "navigateBack()" style ="cursor: pointer!important;"><  Tornar enrere</a>
+      </div>
+    </div>
+  </mat-toolbar-row>  
+</mat-toolbar>
+  
+  <div  ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs" >
+    <div ngClass.xl = "content-container-xl" ngClass.lg = "content-container-xl" ngClass.md = "content-container-tablet" ngClass.sm = "content-container-tablet-sm" ngClass.xs = "content-container-xs">    
+      <div *ngIf = "href === '/paes'" style = "height: 95vh;">
+        <object data="assets/docs/paes.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/paes.pdf" target="_blank">Paes</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/paes.pdf" target="_blank">Paes</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/accions'" style = "height: 95vh;">
+        <object data="assets/docs/accions.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/accions.pdf" target="_blank">Accions</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/accions.pdf" target="_blank">Accions</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/emissions'" style = "height: 95vh;">
+        <object data="assets/docs/emissions.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/emissions.pdf" target="_blank">Emissions</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/emissions.pdf" target="_blank">Emissions</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/acceptades'" style = "height: 95vh;">
+        <object data="assets/docs/acceptades.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/acceptades.pdf" target="_blank">Propostes acceptades</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/acceptades.pdf" target="_blank">Propostes acceptades</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/valides'" style = "height: 95vh;">
+        <object data="assets/docs/valides.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/valides.pdf" target="_blank">Propostes vàlides</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/valides.pdf" target="_blank">Propostes vàlides</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/ja_previstes'" style = "height: 95vh;">
+        <object data="assets/docs/ja_previstes.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/ja_previstes.pdf" target="_blank">Propostes ja previstes</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/ja_previstes.pdf" target="_blank">Propostes ja previstes</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/descartades'" style = "height: 95vh;">
+        <object data="assets/docs/descartades.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/descartades.pdf" target="_blank">Propostes descartades</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/descartades.pdf" target="_blank">Propostes descartades</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/descartades_o_ja_previstes'" style = "height: 95vh;">
+        <object data="assets/docs/descartades_o_ja_previstes.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/descartades_o_ja_previstes.pdf" target="_blank">Propostes descartades o ja previstes</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/descartades_o_ja_previstes.pdf" target="_blank">Propostes descartades o ja previstes</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/prioritzades'" style = "height: 95vh;">
+        <object data="assets/docs/prioritzades.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/prioritzades.pdf" target="_blank">Propostes prioritzades</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/prioritzades.pdf" target="_blank">Propostes prioritzades</a>
+        </div>
+      </div>
+      <div *ngIf = "href === '/repetides'" style = "height: 95vh;">
+        <object data="assets/docs/repetides.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          <a href="assets/docs/repetides.pdf" target="_blank">propostes repetides</a>
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+            <a href="assets/docs/repetides.pdf" target="_blank">propostes repetides</a>
+        </div>
+      </div>
+    
+      <div *ngIf = "href === '/inversions'" style = "height: 95vh;">
+        <object data="assets/docs/inversions.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          Cliqueu <a href="assets/docs/inversions.pdf" target="_blank">AQUÍ</a> per obrir
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+          Cliqueu <a href="assets/docs/inversions.pdf" target="_blank">AQUÍ</a> per obrir
+        </div>
+      </div>
+    
+      <div *ngIf = "href === '/resultats'" style = "height: 95vh;">
+        <object data="assets/docs/resultats.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          Cliqueu <a href="assets/docs/resultats.pdf" target="_blank">AQUÍ</a> per obrir
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+          Cliqueu <a href="assets/docs/resultats.pdf" target="_blank">AQUÍ</a> per obrir
+        </div>
+      </div>
+      <div *ngIf = "href === '/demandes'" style = "height: 95vh;">
+        <object data="assets/docs/demandes.pdf" width="100%" height="100%" type='application/pdf' fxShow [fxShow.xs]="false">
+          <p>El PDF no es pot mostrar!</p>
+          Cliqueu <a href="assets/docs/demandes.pdf" target="_blank">AQUÍ</a> per obrir
+        </object>
+        <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+          Cliqueu <a href="assets/docs/demandes.pdf" target="_blank">AQUÍ</a> per obrir
+        </div>
+      </div>
+  </div>
+  </div> 
+

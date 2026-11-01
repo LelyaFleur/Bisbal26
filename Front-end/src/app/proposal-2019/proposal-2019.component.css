@@ -1,0 +1,73 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
+}
+
+.edit-proposal-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  
+}
+
+.edit-proposal-container > * {
+  width: 90%;
+}
+
+
+.edit-proposal-card {
+  width: 65%;
+  margin: 0 auto;
+  padding: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+mat-form-field {
+    padding : 20px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.225;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+
+.right-align {
+  text-align: right;
+}
+
+input.right-align::-webkit-outer-spin-button,
+input.right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+
+.mat-form-field.mat-input-infix.mat-form-field-infix {
+   
+    padding: .8375em 0!important;
+    border-top: .84375em solid transparent;
+    
+}
+
+.file-uploader-box {
+    width: 100%!important;
+    padding:2%;
+    margin-bottom: 20px;
+}
+
+p {
+  font-family : 'Roboto';
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

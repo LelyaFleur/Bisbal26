@@ -1,0 +1,301 @@
+$base-color1: #00B8B8 ;
+//$base-color2: #31917f;
+$base-color2: #00B8B8 ;
+$base-color3: #FE371E;
+//$base-color4: #F3F3F3;
+$base-color4: rgb(33,25,21);
+$base-color5: rgb(255, 255, 255);
+
+
+.second-toolbar-xl {
+    padding:0;
+    height: 212px!important;
+    background-color: $base-color1!important;
+  }
+  
+  .second-toolbar-lg {
+    padding:0;
+    height: 212px!important;
+    background-color: $base-color1!important;
+  }
+  
+  .second-toolbar-title-xl {
+   // margin-left: 345px!important;
+   // width: 614px!important;
+    width: 43.79!important;
+    font-family: 'Gothic A1'!important;
+    font-weight: 400;
+    font-size: 32px;
+  //  color :#FFFFFF;
+    color :$base-color5;
+    line-height: 130%;
+  }
+  
+  .second-toolbar-title-lg {
+    // margin-left: 345px!important;
+    // width: 614px!important;
+     width: 43.79!important;
+     font-family: 'Gothic A1'!important;
+     font-weight: 400;
+     font-size: 32px;
+    // color :#FFFFFF;
+     color :$base-color5;
+     line-height: 150%;
+  }
+  
+  
+  .title-background-xl{
+   // width: 1414.5px!important;
+  
+    width: 73%!important;
+    margin: 0 auto;
+  }
+  .title-background-lg{
+    // width: 1414.5px!important;
+   
+     width: 74%!important;
+     margin: 0 auto;
+  }
+  
+  .second-toolbar-title-bald-xl {
+    font-family: 'Gothic A1'!important;
+    font-weight: 800;
+    font-size: 32px; 
+   // color :#FFFFFF;
+    color :$base-color5;
+    line-height: 130%;
+  }
+  
+  .second-toolbar-title-bald-lg {
+    font-family: 'Gothic A1'!important;
+    font-weight: 800;
+    font-size: 32px; 
+   // color :#FFFFFF;
+    color :$base-color5;
+    line-height: 150%;
+  }
+.back-button-container-xl {
+  
+    display: flex;
+    align-items: center;
+    //margin-left: 619px;
+    margin-left: 44.7%!important;
+  }
+
+  .back-button-container-md {
+  
+    display: flex;
+    align-items: center;
+    //margin-left: 619px;
+    margin-left: 15.7%!important;
+  }
+
+  .back-button-container-sm {
+  
+    display: flex;
+    align-items: center;
+    //margin-left: 619px;
+    margin-left: 25.7%!important;
+  }
+
+  .back-button-container-xs {
+  
+    display: flex;
+    align-items: flex-end!important;
+    //margin-left: 619px;
+   // margin-left: 25.7%!important;
+  }
+  
+  .back-button-xl {
+   // color :#FFFFFF!important;
+    color :$base-color5;
+    font-family: 'Gothic A1'!important;
+    font-weight: 500;
+    font-size: 18px;   
+    vertical-align: middle!important; 
+  }
+
+  .back-button-xs {
+    color :$base-color5;
+   // color :#FFFFFF!important;
+    font-family: 'Gothic A1'!important;
+    font-weight: 500;
+    font-size: 13px;       
+    vertical-align: middle!important; 
+    padding-left: 58.7%!important;
+  }
+  
+   a:link {
+    text-decoration: none;  
+    vertical-align: middle!important; 
+    
+  }
+
+.content-container-xl {
+   // width: 1414.5px!important;
+    width: 74.53%!important;
+    
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 143px;
+    padding-bottom: 334px;
+}
+
+
+.content-xl{
+   // width: 1045px!important;
+  //  width: 54.42%!important;
+    width: 73%!important;
+    margin: 0 auto;
+}
+
+.content-lg{
+    // width: 1045px!important;
+   //  width: 54.42%!important;
+     width: 74%!important;
+     margin: 0 auto;
+ }
+
+//md.sm
+
+.second-toolbar-tablet {
+    padding: 0;
+   // height: 343px!important;
+   // height: 267px!important;
+    height: 240px!important;
+    background-color: $base-color1!important;
+}
+
+.second-toolbar-tablet-sm {
+    padding: 0;
+   // height: 343px!important;
+   // height: 267px!important;
+    height: 180px!important;
+    background-color: $base-color1!important;
+}
+.second-toolbar-title-tablet {
+   // margin-left: 345px!important;
+   // width: 614px!important;
+    width: 64.81%!important;
+    font-family: 'Gothic A1'!important;
+    font-weight: 400;
+    font-size: 40px;
+    color :$base-color5;
+   // color :#FFFFFF;
+    line-height: 130%;
+}
+.second-toolbar-title-tablet-sm {
+    // margin-left: 345px!important;
+    // width: 614px!important;
+     width: 54.81%!important;
+     font-family: 'Gothic A1'!important;
+     font-weight: 400;
+     font-size: 29px;
+     color :$base-color5;
+    // color :#FFFFFF;
+     line-height: 130%;
+ }
+
+.title-background-tablet{
+   // width: 1414.5px!important;
+  
+    width: 84.37%!important;
+    margin: 0 auto;
+}
+
+.second-toolbar-title-bald-tablet {
+    font-family: 'Gothic A1'!important;
+    font-weight: 800;
+    font-size: 40px; 
+    color :$base-color5;
+  // color :#FFFFFF;
+    line-height: 130%;
+}
+
+.second-toolbar-title-bald-tablet-sm {
+    font-family: 'Gothic A1'!important;
+    font-weight: 800;
+    font-size: 29px; 
+    color :$base-color5;
+  //  color :#FFFFFF;
+    line-height: 130%;
+}
+
+.content-container-tablet {
+   // width: 1414.5px!important;
+    width: 100%!important;
+    
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 97px;
+    padding-bottom: 284px;
+}
+
+.content-container-tablet-sm {
+    // width: 1414.5px!important;
+    width: 100%!important;
+   
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-top: 72px;
+    padding-bottom: 190px;
+ }
+
+.content-tablet{
+   // width: 1045px!important;
+  //  width: 54.42%!important;
+    width: 84.37%!important;
+    margin: 0 auto;
+}
+
+//xs
+.second-toolbar-xs {
+    
+    height: 135px!important;
+    background-color:$base-color1!important;
+    padding: 0px;
+}
+
+.title-background-xs{
+    width: 82.6%!important;
+    margin: 0 auto;
+}
+
+.second-toolbar-title-xs {
+    // margin-left: 345px!important;
+     width: 253px!important;
+     font-family: 'Gothic A1'!important;
+     font-weight: 400;
+     font-size: 18px;
+     padding: 0px;
+     color :$base-color5;
+    // color :#FFFFFF!important;
+ }
+
+ .second-toolbar-title-bald-xs {
+    font-family: 'Gothic A1'!important;
+    font-weight: 800;
+    font-size: 18px; 
+    color :$base-color5;
+   //   color :#FFFFFF;
+}
+
+.title {
+    font-family: "Gothic A1"!important;
+    font-weight: 400;
+    font-size: 32px;
+    margin-top: 0px;
+}
+
+.content-container-xs {
+    width: 100%!important;
+   
+    padding-top: 63px;
+    padding-bottom: 92px;
+}
+
+.content-xs{
+    width: 82%!important;
+    margin: 0 auto;
+}
+

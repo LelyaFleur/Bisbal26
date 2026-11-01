@@ -1,0 +1,41 @@
+<p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">Instruccions per votar 
+  <span fxShow class ="spacer"></span>
+ <!-- <button mat-icon-button [mat-dialog-close]="true">
+  <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+    <mat-icon style ="color:white;">
+      favorite
+      </mat-icon>
+  </button>-->
+  <button mat-icon-button [mat-dialog-close]="true" style ="height:32px!important;width:32px!important;">
+    <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;margin-top:5px;">clear</mat-icon>
+  </button>
+</p>
+  <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+    <div [innerHTML]="data.info | safeHtml" class= "content"></div> 
+  </div>
+    <!-- <ul ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+       <li>Per obtenir més informació sobre una proposta clica el nom/títol de la
+        proposta.</li>
+        <li>Per seleccionar una proposta fes clic al cercle. Veuràs que la imatge
+          s’il·lumina (pots seleccionar un màxim de 3 propostes, les que vulguis).
+             </li>
+        <li>Una vegada seleccionades les propostes ves a la icona “VOTA” i clica. </li>
+        <li>Introdueix el teu DNI (8 dígits+lletra sense espais ni guions) o, en el cas
+          de no tenir-ne, la targeta de residència (X, Y o Z +7 dígits+lletra sense
+          espais ni guions) o el passaport (si no teniu DNI o NIE caldrà posar el
+          número de passaport tal i com es va entrar en el registre
+          d’empadronament de l’Ajuntament). També haureu d’indicar la vostra
+          data de naixement.
+          
+       </li>
+        <li>Si tot és correcte veuràs el següent missatge: &#39;Identificació realitzada
+          correctament. El teu vot s’ha emès. Gràcies per participar&#39;.
+        </li>
+     </ul>-->
+     
+   
+ 
+<!--<mat-dialog-actions>
+  <span class ="spacer"></span>
+  <button mat-raised-button style = "background-color:rgb(0,139,203)!important; color: white!important;" [mat-dialog-close]="true">Ok</button>
+</mat-dialog-actions>-->

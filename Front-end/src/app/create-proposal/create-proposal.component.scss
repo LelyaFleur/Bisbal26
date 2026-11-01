@@ -1,0 +1,1356 @@
+$base-color1: #CD0030;
+//$base-color2: #31917f;
+$base-color2: #CD0030;
+$base-color3: #FE371E;
+//$base-color4: #F3F3F3;
+$base-color4: rgb(33,25,21);
+$base-color5: rgb(255, 255, 255);
+
+.back-button-container-xl {
+
+  display: flex;
+  align-items: center;
+  //margin-left: 619px;
+  margin-left: 44.7%!important;
+}
+
+.back-button-container-md {
+
+  display: flex;
+  align-items: center;
+  //margin-left: 619px;
+ // margin-left: 13.7%!important;
+}
+
+.back-button-container-sm {
+
+  display: flex;
+  align-items: center;
+  //margin-left: 619px;
+ // margin-left: 15.7%!important;
+}
+
+.back-button-container-xs {
+
+  display: flex;
+  align-items: flex-end!important;
+  //margin-left: 619px;
+ // margin-left: 25.7%!important;
+}
+
+.back-button-xl {
+ // color :#FFFFFF!important;
+  color :$base-color5;
+  font-family: 'Gothic A1'!important;
+  font-weight: 500;
+  font-size: 18px;   
+  vertical-align: middle!important; 
+}
+
+.back-button-md {
+  // color :#FFFFFF!important;
+   color :$base-color5;
+   font-family: 'Gothic A1'!important;
+   font-weight: 500;
+   font-size: 16px;   
+   vertical-align: middle!important; 
+ }
+
+ .back-button-sm {
+  // color :#FFFFFF!important;
+   color :$base-color5;
+   font-family: 'Gothic A1'!important;
+   font-weight: 500;
+   font-size: 14px;   
+   vertical-align: middle!important; 
+ }
+
+.back-button-xs {
+  color :$base-color5;
+ // color :#FFFFFF!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 500;
+  font-size: 13px;       
+  vertical-align: middle!important; 
+  padding-left: 58.7%!important;
+}
+
+ a:link {
+  text-decoration: none;  
+  vertical-align: middle!important; 
+  
+}
+
+.third-toolbar-xl {
+  height: 114px!important;
+  background-color: #333333!important;
+  padding:0px;
+}
+
+
+
+.third-toolbar-content-lg {
+  // width: 1414.5px!important;
+   width: 73%!important;
+   margin: 0 auto;
+   
+   p {
+       font-family: 'Gothic A1'!important;
+       font-weight: 400;
+       font-size: 18px;
+       color :#FFFFFF; 
+       margin: 0px;
+       line-height: 1.6em;
+       
+   }
+   p.fase-name-lg {
+       font-family: 'Gothic A1'!important;
+       font-weight: 800;
+       font-size: 20px;
+       color :#FFFFFF;  
+       margin: 0px;
+       line-height: 150%;
+       
+       
+   }
+}
+
+//md, sm
+
+.third-toolbar-content-tablet {
+  // width: 1414.5px!important;
+   width: 84.37%!important;
+   margin: 0 auto;
+   
+   p {
+       font-family: 'Gothic A1'!important;
+       font-weight: 400;
+       font-size: 20px;
+       color :#FFFFFF; 
+       margin: 0px;
+       line-height: 1.6em;
+       
+   }
+   p.fase-name-tablet {
+       font-family: 'Gothic A1'!important;
+       font-weight: 800;
+       font-size: 24px;
+       color :#FFFFFF;  
+       margin: 0px;
+       line-height: 100%;
+       
+       
+   }
+}
+
+.third-toolbar-content-tablet-sm {
+  // width: 1414.5px!important;
+   width: 84.37%!important;
+   margin: 0 auto;
+   
+   p {
+       font-family: 'Gothic A1'!important;
+       font-weight: 400;
+       font-size: 14px;
+       color :#FFFFFF; 
+       margin: 0px;
+       line-height: 1.6em;
+       
+   }
+   p.fase-name-tablet {
+       font-family: 'Gothic A1'!important;
+       font-weight: 800;
+       font-size: 18px;
+       color :#FFFFFF;  
+       margin: 0px;
+       line-height: 100%;
+       
+       
+   }
+}
+
+
+.third-toolbar-tablet {
+ height: 114px!important;
+ background-color: #333333!important;
+ padding:0px;
+}
+
+.third-toolbar-tablet-sm {
+ height: 76px!important;
+ background-color: #333333!important;
+ padding:0px;
+}
+
+.third-toolbar-lg {
+ height: 104px!important;
+ padding: 0px;
+ background-color: #333333!important;
+}
+
+.third-toolbar-xs {
+ height: 60px!important;
+ background-color: #333333!important;
+ padding: 0px;
+}
+
+.third-toolbar-content-xs {
+ width: 82.6%!important;
+ margin: 0 auto;
+ 
+ p {
+     font-family: 'Gothic A1'!important;
+     font-weight: 400;
+     font-size: 11px;
+     color :#FFFFFF; 
+     margin: 0px;
+     line-height: 1.6em;
+     
+ }
+ p.fase-name-xs {
+     font-family: 'Gothic A1'!important;
+     font-weight: 800;
+     font-size: 12px;
+     color :#FFFFFF;  
+     margin: 0px;
+     line-height: 100%;
+     
+     
+ }
+}
+
+
+
+.title-xl {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 22px; 
+    margin-left: 20px;
+}
+
+.title-tablet {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 28px; 
+    margin-left: 30px;
+} 
+
+.title-tablet-sm {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 26px; 
+    margin-left: 30px;
+} 
+
+.title-xs {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 22px; 
+    margin-left: 20px;
+}  
+
+.container-xl {
+  position: relative;
+  text-align: center;
+  height: 338px!important;
+}
+
+.container-tablet {
+  position: relative;
+  text-align: center;
+  height: 338px!important;
+}  
+
+
+.container-tablet-sm {
+  position: relative;
+  text-align: center;
+  height: 253px;
+}  
+
+.container-xs {
+  position: relative;
+  text-align: center;
+  height : 217px!important;
+}  
+
+.tile-image-xl {
+  // height: 100%!important;
+   height: 338px!important;
+   width: 100%;
+   
+ }
+ 
+ .tile-image-lg {
+   margin-top: 75px!important;
+ }
+ 
+ .tile-image-tablet {
+   
+   height: 338px;
+   width:100%;
+ }
+ 
+ .tile-image-tablet-sm {
+   width: 100%;
+   height: 253px;
+ }
+ 
+ .tile-image-xs {
+   width:100%;
+   height : 217px!important;
+ }
+
+ .clear-icon-xl {
+  color: white;
+  height:35px!important;
+  width:35px!important;
+  position: absolute!important;
+  top: 3%!important;
+  left: 98%!important;
+  transform: translate(-98%, -3%)!important;
+  cursor: pointer!important;
+  font-size: 35px!important;
+}
+
+
+
+/*.content-xl {
+    font-family: 'Gothic A1'!important;     
+    padding: 0 25px 0 25px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.content-lg {
+    font-family: 'Gothic A1'!important;     
+    padding: 0 25px 0 25px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.content-tablet {
+    font-family: 'Gothic A1'!important;    
+    padding: 0 30px 0 30px;
+    font-weight: 400;
+    font-size: 22px; 
+} 
+
+.content-tablet-sm {
+    font-family: 'Gothic A1'!important;    
+    padding: 0 30px 0 30px;
+    font-weight: 400;
+    font-weight: 400;
+} 
+
+.content-xs {
+    font-family: 'Gothic A1'!important;    
+    padding: 0 20px 0 20px;
+    font-weight: 400;
+    font-size: 16px; 
+}  */
+.content-xl {
+  margin-left : 13.48%;
+  padding-top: 143px;
+  width: 73%!important;
+ /* display: flex;
+  flex-direction: column;
+  background-color: white;*/
+  
+}
+
+.content-lg {
+  margin: 0 auto;
+  padding-top: 143px;
+  width: 73%!important;
+ /* display: flex;
+  flex-direction: column;
+  background-color: white;*/
+  
+}
+
+.content-tablet {
+  margin: 0 auto;
+  padding-top: 97px;
+  width: 84.37%!important;
+ 
+  
+}
+.content-tablet-sm {
+  margin: 0 auto;
+  padding-top: 72px;
+  width: 84.37%!important;
+ 
+}
+
+
+.content-xs {
+margin : 0 auto;
+padding-top: 64px;
+width: 82%!important;
+/* display: flex;
+flex-direction: column;
+background-color: white;*/
+
+}  
+
+.text-xl {    
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 32px;
+    margin-top: 0px;
+    margin-bottom: 32px;
+}
+
+.text-lg{    
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 22px;
+  margin-top: 0px;
+  margin-bottom: 32px;
+}
+
+.text-tablet {    
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 35px;
+  margin-top: 0px;
+  margin-bottom: 32px;
+}
+
+.text-tablet-sm {    
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 26px;
+  margin-top: 0px;
+  margin-bottom: 32px;
+}
+
+.text-xs {    
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 19px;
+  margin-top: 0px;
+  margin-bottom: 24px;
+}
+
+.message-xl {
+    //width: 542px!important;
+    width: 38.65%!important;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 29px;
+    margin: 0px;   
+    padding: 0px;
+}
+
+.message-lg {
+  //width: 542px!important;
+  width: 38.65%!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+  margin: 0px;   
+  padding: 0px;
+}
+
+.message-tablet {
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 25px;
+  margin-bottom: 56px;
+}
+
+.message-tablet-sm {
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 19px;
+  margin-bottom: 42px;
+}
+
+
+.message-xs {
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 68px;
+}
+
+.form-title-xl{
+    margin-top: 118px;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 32px;
+    color:$base-color2;
+    margin-bottom: 0px;
+}
+
+.form-title-lg{
+  margin-top: 118px;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 20px;
+  color:$base-color2;
+  margin-bottom: 0px;
+}
+
+.form-title-tablet{
+  
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 29px;
+  color:$base-color2;
+  margin-bottom: 51px;
+}
+
+.form-title-tablet-sm{
+  
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 22px;
+  color: $base-color2;
+  margin-bottom: 38px;
+}
+
+.form-title-xs{
+  
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 15px;
+  color: $base-color2;
+  margin-bottom: 25px;
+}
+
+.form-proposal-xl {
+ //   margin-top: 172px;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 32px;
+    color:$base-color2;
+    margin-bottom:0px;
+}
+
+.form-proposal-lg {
+ // margin-top: 122px;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 20px;
+  color:$base-color2;
+  margin-bottom:0px;
+}
+
+.form-proposal-tablet {
+//  margin-top: 85px;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 29px;
+  color:$base-color2;
+  margin-bottom:0px;
+}
+
+.form-proposal-tablet-sm {
+ // margin-top: 65px;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 22px;
+  color:$base-color2;
+  margin-bottom:0px;
+}
+
+
+.form-proposal-xs {
+  margin-top: 74px;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 15px;
+  color:$base-color2;
+  margin-bottom:0px;
+}
+
+.form-row-xl {
+    margin-top: 30px;
+}
+
+.form-row-xs {
+  margin-top: 46px;
+}
+
+.form-row-bottom-xl {
+  margin-top: 66px;
+  margin-bottom: 331px;
+  
+}
+
+.form-row-bottom-tablet {
+  margin-top: 66px;
+  margin-bottom: 231px;
+  
+}
+
+.form-row-bottom-tablet-sm {
+  margin-top: 46px;
+  margin-bottom: 171px;
+  
+}
+/*.input-container-xl {
+    margin-right: 38px!important;
+}*/
+
+.label-xl {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 25px;
+  //  margin-top: 19px;
+    margin-bottom: 14px;
+}
+
+.label-lg {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+//  margin-top: 19px;
+  margin-bottom: 14px;
+}
+
+
+.label-tablet {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 25px;
+  margin-top: 44px;
+  margin-bottom: 7px;
+}
+
+.label-tablet-sm {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+  margin-top: 34px;
+  margin-bottom: 7px;
+}
+
+
+.label-xs {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 13px;
+  margin-top: 14px;
+  margin-bottom: 7px;
+}
+
+.input-container-xl {
+  width: 38.58%!important;
+ // margin-right: 2.7%!important;
+}
+
+.input-container-lg {
+  width: 38.58%!important;
+ // margin-right: 2.7%!important;
+}
+
+.input-container-tablet {
+  width:81.64%!important;
+ // margin-right: 2.7%!important;
+  margin-bottom: 35px;
+}
+
+
+.input-container-xs {
+  width: 100%!important;
+ // margin-right: 2.7%!important;
+  margin-bottom: 85px;
+}
+
+.input-xl {
+  //  margin-right: 38px!important;
+    border : solid 1px black;
+    padding-left: 30px;
+    height: 70px;
+  //  width: 541px; 
+    width: 100%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.input-lg {
+  //  margin-right: 38px!important;
+    border : solid 1px black;
+    padding-left: 30px;
+    height: 70px;
+  //  width: 541px; 
+    width: 100%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.input-tablet {
+  //  margin-right: 38px!important;
+    border : solid 0.5px black;
+    padding-left: 3%;
+    height: 69px;
+  //  width: 541px; 
+    width: 95%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.input-ckeditor-tablet {
+   // overflow: auto;
+    height: 99px;
+  //  width: 541px; 
+    width: 95%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 22px;
+}
+
+.input-tablet-sm {
+  //  margin-right: 38px!important;
+    border : solid 0.5px black;
+    padding-left: 3%;
+    height: 47px;
+  //  width: 541px; 
+    width: 95%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 16px;
+}
+
+.input-ckeditor-tablet-sm {
+  //  overflow: auto;
+    height: 77px;
+  //  width: 541px; 
+    width: 95%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 16px;
+}
+.input-xs {
+  //  margin-right: 38px!important;
+    border : solid 0.5px black;
+    padding-left: 3%;
+    height: 37px;
+  //  width: 541px; 
+    width: 95%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.input-ckeditor-xs {
+  //  overflow: auto;
+    height: 67px;
+  //  width: 541px; 
+    width: 95%; 
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 12px;
+}
+
+
+.input-long-xl {
+    border : solid 1px black;
+    padding-left: 30px;
+    height: 70px;
+   // width: 1132px; 
+    width: 80%;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 20px;  
+}
+
+.input-long-lg {
+  border : solid 1px black;
+  padding-left: 30px;
+  height: 70px;
+ // width: 1132px; 
+  width: 80%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;  
+}
+
+.input-long-ckeditor-lg {  
+  height: 70px;
+ // overflow: auto;
+ // width: 1132px; 
+  width: 82.362%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;  
+}
+
+.textarea-long-xl {
+  //  border : solid 1px black;
+  //  padding-left: 30px;
+  //  padding-top: 30px;
+    min-height: 210px;
+  
+  //  width: 1132px;
+    width: 82.362%;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 20px;   
+}
+
+.textarea-long-lg {
+//  border : solid 1px black;
+// padding-left: 30px;
+//  padding-top: 30px;
+  height: 210px;
+  //overflow-y: auto;
+//  width: 1132px;
+  margin-bottom: 45px;
+  width: 82.362%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;   
+}
+
+ :host ::ng-deep .ck-editor__editable_inline {
+    border : solid 1px black;
+    height: 100%;
+    padding-left:30px;
+    
+}
+
+
+.textarea-tablet {
+  //border : solid 0.5px black;
+ // padding-left: 3%;
+ // padding-top: 3%;
+  height: 224px;
+  margin-bottom: 45px;
+//  width: 1132px;
+  width: 97%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 22px;   
+}
+
+.textarea-tablet-sm {
+ // border : solid 0.5px black;
+ // padding-left: 3%;
+//  padding-top: 3%;
+  min-height: 124px;
+//  width: 1132px;
+  width: 95%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 16px;   
+}
+
+.textarea-xs {
+//  border : solid 0.5px black;
+ // padding-left: 3%;
+ // padding-top: 3%;
+  height: 224px;
+//  width: 1132px;
+  width: 95%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 12px;   
+}
+
+
+.text-radio-xl {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 256px;
+  margin-bottom: 32px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px black;
+  background-color: white;
+}
+
+.text-radio-lg {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 256px;
+  margin-bottom: 32px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px black;
+  background-color: white;
+}
+
+
+.text-radio-tablet {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 25px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 256px;
+  margin-bottom: 32px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px black;
+  background-color: white;
+}
+
+.text-radio-tablet-sm {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 256px;
+  margin-bottom: 32px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px black;
+  background-color: white;
+}
+
+.text-radio-xs {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 12px;
+  margin-left: 10px;
+  padding-left: 10px;
+  width: 121px;
+  margin-bottom: 32px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: solid 1px black;
+  background-color: white;
+}
+
+.text-radio-xl:focus {
+  outline:none;
+}
+
+.button-xl {
+  cursor: pointer;
+ // width: 428px;
+  width: 30.49%;
+  margin-bottom: 50px;
+  height: 99px;
+  background: $base-color1;
+ // margin-top:63px;
+  color:white;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 25px;
+  border: none;
+  text-align: center;
+}
+
+.button-lg {
+  cursor: pointer;
+ // width: 428px;
+  width: 25.49%;
+  margin-bottom: 50px;
+  height: 89px;
+  background: $base-color1;
+ // margin-top:63px;
+  color:white;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 18px;
+  border: none;
+  text-align: center;
+}
+
+.button-tablet {
+  cursor: pointer;
+ // width: 428px;
+  width: 42.49%;
+  margin-bottom: 50px;
+  height: 99px;
+  background: $base-color1;
+ // margin-top:63px;
+  color:white;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 23px;
+  border: none;
+  text-align: center;
+}
+
+.button-tablet-sm {
+  cursor: pointer;
+ // width: 428px;
+  width: 45.49%;
+  margin-bottom: 50px;
+  height: 99px;
+  background: $base-color1;
+ // margin-top:63px;
+  color:white;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 18px;
+  border: none;
+  text-align: center;
+}
+
+.button-xs {
+  cursor: pointer;
+  width: 100%;
+  //width: 30.49%;
+
+  height: 68px;
+  background: $base-color1;
+ // margin-top:63px;
+  color:white;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 13px;
+  border: none;
+  text-align: center;
+}
+
+.button-text-xl {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.button-text-lg {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+.button-text-md {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.button-text-sm {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 13px;
+}
+
+
+.button-text-xl button:disabled,
+button[disabled]{
+  border: none;
+  background-color:#EEEEEE;
+  color: #333333;
+}
+
+button-text-lg button:disabled,
+button[disabled]{
+  border: none;
+  background-color:#EEEEEE;
+  color: #333333;
+}
+
+.button-text-xs {
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 11px;
+}
+
+.button-text-xs button:disabled,
+button[disabled]{
+  border: none;
+  background-color:#EEEEEE;
+  color: #333333;
+}
+
+.note-xl {
+  width: 80%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 18px;
+  margin-right: 8.9%;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.note-lg {
+  width: 80%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 13px;
+  margin-right: 8.9%;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.note-tablet {
+  width: 100%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 17px;
+  margin-right: 4.9%;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.note-tablet-sm {
+  width: 100%;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 14px;
+  margin-right: 4.9%;
+  margin-top: 0px;
+  padding: 0px;
+}
+
+.note-xs { 
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 9px; 
+  margin-top: 28px;
+  padding: 0px;
+  margin-bottom: 111px;
+}
+
+
+
+
+ /*::-webkit-input-placeholder { Edge 
+    padding-left: 15px;
+  }
+  */
+/*   :-ms-input-placeholder { Internet Explorer 
+    padding-left: 15px;
+  }
+  
+  ::placeholder {
+    padding-left: 15px;
+  }*/
+
+  .radio-button-xl {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 25px;
+    margin-bottom: 29px;
+  }
+  .radio-button-lg {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 29px;
+  }
+
+  .radio-button-tablet {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 25px;
+    margin-bottom: 29px;
+  }
+
+  .radio-button-tablet-sm {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 29px;
+  }
+
+  .radio-button-xs {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 13px;
+    margin-bottom: 29px;
+  }
+ 
+  .add-proposal-container > * {
+    width: 80%;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  
+  .add-proposal-card {
+    width: 65%;
+    margin: 0 auto;
+    padding: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+  }
+  
+  mat-form-field {
+      padding : 20px;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.225;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  
+  
+  .right-align {
+    text-align: right;
+  }
+  
+  input.right-align::-webkit-outer-spin-button,
+  input.right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  
+  .mat-form-field.mat-input-infix.mat-form-field-infix {
+     
+      padding: .8375em 0!important;
+      border-top: .84375em solid transparent;
+      
+  }
+  
+  .file-uploader-box-lg {
+      width: 85%!important;
+      padding:0px;
+    //  margin-top: 70px;
+      margin-bottom: 50px;
+  }
+  
+  /*mat-icon {
+      color :gray;
+  }*/
+  
+  .radio-group {
+    display: inline-flex;
+    flex-direction: column;
+  }
+  
+  .radio-button {
+    margin: 5px;
+    border-radius : 0%!important;
+  }
+  
+  .selected-value {
+    margin: 15px 0;
+  }
+
+  
+
+  input[type=checkbox].css-checkbox { position: absolute;  overflow: hidden;  clip: rect(0 0 0 0);  height:1px;  width:1px;  margin:-1px;  padding:0; border:0; } 
+input[type=checkbox].css-checkbox + label.css-label { padding-left:20px; height:15px;  display:inline-block; line-height:15px; background-repeat:no-repeat; background-position: 0 0; font-size:15px; vertical-align:middle; cursor:pointer; } 
+input[type=checkbox].css-checkbox:checked + label.css-label { background-position: 0 -15px; }  .css-label{ background-image:url(http://csscheckbox.com/checkboxes/lite-x-red.png); }
+  
+input[type="radio"] {
+    -webkit-appearance: checkbox; /* Chrome, Safari, Opera */
+    -moz-appearance: checkbox;    /* Firefox */
+    -ms-appearance: checkbox;     /* not currently supported */
+  }
+
+
+ ::ng-deep .mat-radio-button .mat-radio-outer-circle {
+    border-radius:0%!important;
+    width: 28px!important;
+    height: 28px!important;
+    border-width: 1px!important;
+}
+
+::ng-deep .mat-radio-button .mat-radio-inner-circle {
+  border-radius:0%!important;
+  width: 28px!important;
+  height: 28px!important;
+}
+
+::ng-deep .mat-radio-button .mat-radio-ripple {
+  left:calc(50% - 38px)!important;
+  top:calc(50% - 28px)!important;
+  height:56px!important;
+  width:56px!important;
+}
+
+
+
+::ng-deep .mat-radio-button .mat-radio-container {
+  width: 48px!important;
+  height: 28px!important;
+}
+
+::ng-deep .mat-radio-button .mat-radio-label-content {
+  margin-top: 10px;
+}
+
+.note-info-xl {
+    width: 78.65%!important;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 25px;
+    margin: 0px;   
+    padding: 0px;
+}
+
+.note-info-lg {
+  width: 78.65%!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0px;   
+  padding: 0px;
+}
+
+.note-info-tablet {
+  width: 78.65%!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0px;   
+  padding: 0px;
+}
+
+.note-info-sm {
+  width: 78.65%!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 20px;
+  margin: 0px;   
+  padding: 0px;
+}
+
+.note-info-xs {
+  width: 100%!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 15px;
+  margin: 10px 0 20px 0;   
+  padding: 0px;
+}
+
+.select-neighborhood-xl {
+  width:50%;
+  padding: 40px 0 20px 0!important;
+}
+
+.select-neighborhood-lg {
+  width:60%;
+  padding: 40px 0 20px 0!important;
+}
+
+.select-neighborhood-md {
+  width:80%;
+  padding: 40px 0 20px 0!important;
+
+}
+
+.select-neighborhood-sm {
+  width:90%;
+  padding: 40px 0 20px 0!important;
+
+}
+
+.select-neighborhood-xs {
+  width:100%;
+  padding: 40px 0 20px 0!important;
+
+}
+ 

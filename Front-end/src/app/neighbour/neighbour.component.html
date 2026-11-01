@@ -1,0 +1,61 @@
+<p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">Comprovador d’identitat 
+  <span fxShow class ="spacer"></span>
+ <!-- <button mat-icon-button [mat-dialog-close]="true">
+  <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+    <mat-icon style ="color:white;">
+      favorite
+      </mat-icon>
+  </button>-->
+  <button mat-icon-button [mat-dialog-close]="true" style ="height:32px!important;width:32px!important;">
+    <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;margin-top:5px;" (click) = "onSave()">clear</mat-icon>
+  </button>
+</p>
+<mat-dialog-content>
+  <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+    <form class="check-neighbour-container" novalidate #f="ngForm" (ngSubmit)="vote(f, data);">
+      <!-- <mat-form-field>
+             <mat-select placeholder="Gènere" [(ngModel)]="user.gender" name="gender" required>
+               <mat-option *ngFor="let gender of genders" [value]="gender.value" >
+                 {{ gender.viewValue }}
+               </mat-option>
+             </mat-select>
+       </mat-form-field>
+       <mat-form-field>
+           <input matInput placeholder="Carrer de residència" [(ngModel)]="user.street" name = "street" required>
+       </mat-form-field>-->
+       <p style = "margin-bottom: 10px;">DNI/NIE</p>
+       <p style = "font-size: 14px; margin:0px;">DNI (8 dígits+lletra sense espais ni guions), NIE (X,Y o Z + 7dígit + lletra sense espais ni guions)</p>
+       <mat-form-field>
+         <input matInput placeholder="DNI/NIE" [(ngModel)]="user.document" name = "document" required>
+         <!--matTooltip="DNI (8 dígits+lletra sense espais ni guions), NIE (X,Y o Z + 7dígit + lletra sense espais ni guions)" [matTooltipPosition]="position"-->
+       </mat-form-field>
+       <!-- <div  style ="margin-left:10px;">-->
+       <p style = "margin-bottom: 10px;">Data de naixement</p>
+       <p style = "font-size: 14px; margin:0px;">Format de la data - (DD/MM/AAAA)</p>
+       <mat-form-field>
+           <input matInput [matDatepicker]="picker" name="birthdate" placeholder="Data de naixement" [(ngModel)]="user.birthdate" required>
+           <!--matTooltip="Format de la data - (DD/MM/AAAA)" [matTooltipPosition]="position"  (focus)="picker.open()"-->
+           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+           <mat-datepicker touchUi="true" #picker startView="multi-year"></mat-datepicker>
+         </mat-form-field>
+          <!-- <my-date-picker name="birthdate" [options]="myDatePickerOptions"
+                         [(ngModel)]="user.birthdate" required [locale]="locale"></my-date-picker>
+       </div>-->
+     <div fxLayout="row" style ="width: 100%!important;margin-top:30px;">
+       <!--<span class ="spacer"></span>-->
+       <button mat-raised-button [disabled]="!f.valid" ngClass.xl = "button-xl" ngClass.lg = "button-lg" ngClass.md = "button-md" ngClass.sm = "button-sm" ngClass.xs = "button-xs">VOTAR</button>
+       <button mat-raised-button  (click) = "onSave()" type = "button"  ngClass.xl = "button-xl" ngClass.lg = "button-lg" ngClass.md = "button-md" ngClass.sm = "button-sm" ngClass.xs = "button-xs">Cancelar</button>
+     </div>
+   </form>
+  </div>
+    
+</mat-dialog-content>
+<mat-dialog-actions>
+ <!-- <button mat-button mat-dialog-close>No</button>-->
+  <!-- Can optionally provide a result for the closing dialog. -->
+ <!-- <span class ="spacer"></span>
+  <button mat-button color= "primary" [disabled]="!f.valid"  (click) = "vote(f, data)">Votar</button>
+  <button mat-button color= "primary"  [mat-dialog-close]="true" >Cancelar</button>
+  <p [ngStyle] = "{'color': color}">{{message}}</p>-->
+</mat-dialog-actions>
+

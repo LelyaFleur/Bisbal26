@@ -1,0 +1,154 @@
+
+.microsite-container {
+  width: 100vw;
+  height:90vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.microsite-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.microsite-sidenav {
+  padding: 40px;
+  width: 200px !important;
+}
+
+.fixed-header {
+  top: 60px;
+  position: fixed;
+  z-index:999;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.content-xl {
+  margin-left : 13.48%;
+  padding-top: 143px;
+  width: 73%!important;
+  min-height: 70vh!important;
+ /* display: flex;
+  flex-direction: column;
+  background-color: white;*/
+  
+}
+
+.content-lg {
+  margin: 0 auto;
+  padding-top: 143px;
+  width: 73%!important;
+  min-height: 70vh!important;
+ /* display: flex;
+  flex-direction: column;
+  background-color: white;*/
+  
+}
+
+.content-tablet {
+  margin: 0 auto;
+  padding-top: 97px;
+  width: 84.37%!important;
+ 
+  
+}
+.content-tablet-sm {
+  margin: 0 auto;
+  padding-top: 72px;
+  width: 84.37%!important;
+  min-height: 70vh!important;
+ 
+}
+
+
+.content-xs {
+margin : 0 auto;
+padding-top: 64px;
+width: 82%!important;
+min-height: 70vh!important;
+/* display: flex;
+flex-direction: column;
+background-color: white;*/
+
+}  
+
+
+.container-xl {
+ 
+  background-color:#F3F3F3;
+  height: 123px!important;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  width:100%;
+}
+
+.container-tablet {
+  position: relative;
+  text-align: center;
+  background-color:#F3F3F3;
+  height: 338px!important;
+}  
+
+
+.container-tablet-sm {
+  position: relative;
+  text-align: center;
+  background-color:#F3F3F3;
+  height: 253px;
+}  
+
+.container-xs {
+  position: relative;
+  text-align: center;
+  background-color:#F3F3F3;
+  height : 217px!important;
+}  
+
+.tile-text-xl {
+ 
+  width: 78.45%!important;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.tile-text-lg {
+  width:346px!important;
+  margin:0px;
+  padding:0px;
+ 
+  text-align:center;
+}
+
+.tile-text-tablet {
+ 
+  width: 74%!important;
+  margin: 0 auto;
+  text-align:center;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.tile-text-tablet-sm {
+ 
+  width: 90%!important;
+  margin: 0 auto;
+  text-align:center;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.tile-text-xs {
+  width: 74%!important;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+}

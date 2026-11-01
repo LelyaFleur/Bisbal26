@@ -1,0 +1,555 @@
+$base-color1: rgb(33,25,21);
+$base-color2: rgb(246,217,0);
+$base-color3: #FE371E;
+$base-color4: #F3F3F3;
+$base-color5: #333333;
+
+
+.grey-button-xl {
+  border-radius: 0px!important;
+  background-color: #F5F5F5;
+  color:black;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 18px;
+  height: 44px!important;
+ 
+  /*padding-top: 8px!important;
+  padding-bottom: 8px!important;*/
+
+}
+
+.grey-button-lg {
+   
+  margin-left: 12px!important; 
+  border-radius: 0px!important;
+  background-color: #F5F5F5;
+  color:black;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0 13px;
+  height: 28px!important;
+  display: inline-block;
+  line-height: 12px;
+  //margin-top: 9px;
+
+}
+
+.black-button-xl {
+  margin-left: 24px!important; 
+  border-radius: 0px!important;
+  background-color: #333333;
+  color:#FFFFFF;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 18px;
+  height: 44px!important;
+/*padding-top: 12px!important;
+  padding-bottom: 12px!important;*/
+
+}
+
+.black-button-lg {
+  margin-left: 12px!important; 
+  border-radius: 0px!important;
+  background-color: #333333;
+  color:#FFFFFF;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 0 13px;
+  height: 28px!important;
+  display: inline-block;
+  line-height: 12px;
+ //  margin-top: 9px;
+/*padding-top: 12px!important;
+  padding-bottom: 12px!important;*/
+
+}
+
+.first-toolbar-xl {
+  
+  height: 199px!important;
+  background-color: white!important;
+  padding: 0px;
+}
+
+.first-toolbar-lg {
+  
+height: 88px!important;
+background-color: white!important;
+padding: 0px;
+}
+
+.first-toolbar-container-xl {    
+//  width: 1414.5px!important;
+  width: 73%!important;
+  //margin-left: 245.5px!important;
+  margin: 0 auto;
+}
+
+.first-toolbar-container-lg {    
+//  width: 1414.5px!important;
+  width: 73%!important;
+  //margin-left: 245.5px!important;
+  margin: 0 auto;
+}
+
+//md, sm
+
+.grey-button-tablet {
+margin-left: 24px!important; 
+border-radius: 0px!important;
+background-color: #F5F5F5;
+color:black;
+font-family: 'Gothic A1'!important;
+font-weight: 400;
+font-size: 18px;
+height: 44px!important;  
+/*padding-top: 8px!important;
+padding-bottom: 8px!important;*/
+
+}
+
+.black-button-tablet {
+margin-left: 24px!important; 
+border-radius: 0px!important;
+background-color: #333333;
+color:#FFFFFF;
+font-family: 'Gothic A1'!important;
+font-weight: 400;
+font-size: 18px;
+height: 44px!important;
+/*padding-top: 12px!important;
+padding-bottom: 12px!important;*/
+
+}
+
+.first-toolbar-tablet {
+    
+  height: 163px!important;
+  background-color: white!important;
+  padding: 0px;
+}
+
+.first-toolbar-tablet-sm {
+    
+  height: 133px!important;
+  background-color: white!important;
+  padding: 0px;
+}
+
+
+
+.first-toolbar-container-tablet {    
+//  width: 1414.5px!important;
+  width: 84.37%!important;    
+  //margin-left: 245.5px!important;
+  margin: 0 auto;
+}
+
+.menu-xs {
+font-family: 'Gothic A1'!important;
+font-weight: 400!important;
+font-size: 20px!important;
+}
+
+.menu-tablet {
+font-family: 'Gothic A1'!important;
+font-weight: 400!important;
+font-size: 25px!important;
+}
+
+.menu-tablet-sm {
+font-family: 'Gothic A1'!important;
+font-weight: 400!important;
+font-size: 25px!important;
+}
+
+
+
+//xs
+
+.first-toolbar-xs {
+  padding: 0px!important;
+  height: 86px!important;
+  background-color: white!important;
+}
+
+.first-toolbar-container-xs { 
+  padding: 0px!important;   
+  width: 82.6%!important;
+  //margin-left: 245.5px!important;
+  margin: 0 auto;
+}
+
+
+.second-toolbar-xl {
+  height: 406px!important;
+  background-color: #A1C84A!important;
+}
+
+.second-toolbar-title-xl {
+  margin-left: 259px;
+  width: 920px!important;
+  font-family: 'Gothic A1'!important;
+  font-weight: 300;
+  font-size: 60px;
+  color :#FFFFFF;
+}
+
+.footer {
+  min-height: 150px!important;
+  justify-content: center;
+  background-color: rgb(102, 102, 102);
+  color: white;
+  display: flex;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: -o-flex;
+}
+
+.footer-xl {
+  padding: 0;
+  height: 333px;
+  background-color:  $base-color5;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-lg {
+  padding: 0;
+  height: 216px;
+  background-color:  $base-color5;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-tablet {
+  padding: 0;
+  height: 316px;
+  background-color:  $base-color5;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-xs {
+  height: 220px;
+  background-color:  $base-color5;
+  position: absolute;
+  width: 100%;
+}
+
+.footer-container-xl {   
+ // width: 1414.5px!important;
+  width: 73%!important;    
+  margin: 0 auto;
+ // vertical-align: middle!important;
+  height: 333px!important;
+  font-family: 'Gothic A1'!important;
+}
+
+.footer-container-lg {   
+  // width: 1414.5px!important;
+   width: 73%!important;    
+   margin: 0 auto;
+  // vertical-align: middle!important;
+   height: 216px!important;
+   font-family: 'Gothic A1'!important;
+ }
+
+.footer-container-tablet {   
+  // width: 1414.5px!important;
+   width: 84.37%!important;    
+   margin: 0 auto;
+  // vertical-align: middle!important;
+   height: 316px!important;
+   font-family: 'Gothic A1'!important;
+ }
+
+.footer-container-xs {   
+  padding: 0px!important;   
+  width: 82.6%!important;
+  font-family: 'Gothic A1'!important;
+  
+  margin: 0 auto;
+}
+
+.footer-text-lg{
+  font-size: 13px!important;
+}
+
+.footer-image-lg{
+  height:90px!important;
+}
+
+
+
+/*.grey-button-xl {
+    border-radius: 0px!important;
+    background-color: #F5F5F5;
+    color:black;
+    font-family: 'Gothic A1'!important;
+    font-weight: 400;
+    font-size: 18px;
+    height: 44px!important;
+}
+
+.grey-button-lg {
+   
+  margin-left: 12px!important; 
+  border-radius: 0px!important;
+  background-color: #F5F5F5;
+  color:black;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 0 13px;
+  height: 32px!important;
+
+}
+
+
+.black-button-xl {
+    margin-left: 24px!important; 
+    border-radius: 0px!important;
+    background-color: #333333;
+    color:#FFFFFF;
+    font-family: 'Gothic A1'!important;
+    font-weight: 400;
+    font-size: 18px;
+    height: 44px!important;
+
+}
+
+.black-button-lg {
+  margin-left: 24px!important; 
+  border-radius: 0px!important;
+  background-color: #333333;
+  color:#FFFFFF;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 13px;
+  padding: 0 13px;
+  height: 32px!important;
+
+}
+
+.first-toolbar-xl {
+    
+    height: 199px!important;
+    background-color: white!important;
+    padding: 0px;
+}
+
+.first-toolbar-lg {
+    
+  height: 110px!important;
+  background-color: white!important;
+  padding: 0px;
+}
+
+.first-toolbar-container-xl {    
+  //  width: 1414.5px!important;
+    width: 73%!important;
+    //margin-left: 245.5px!important;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.first-toolbar-container-lg {    
+  //  width: 1414.5px!important;
+    width: 73%!important;
+    //margin-left: 245.5px!important;
+    margin: 0 auto;
+    align-items: center;
+}
+
+//md, sm
+
+.grey-button-tablet {
+  border-radius: 0px!important;
+  background-color: #F5F5F5;
+  color:black;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 18px;
+  height: 44px!important;
+  margin-left: 12px!important;   
+ 
+
+}
+.black-button-tablet {
+  margin-left: 24px!important; 
+  border-radius: 0px!important;
+  background-color: #333333;
+  color:#FFFFFF;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 18px;
+  height: 44px!important;
+
+
+}
+
+.first-toolbar-tablet {
+    
+  height: 163px!important;
+  background-color: white!important;
+  padding: 0px;
+}
+
+.first-toolbar-tablet-sm {
+    
+  height: 133px!important;
+  background-color: white!important;
+  padding: 0px;
+}
+
+.first-toolbar-container-tablet {    
+  //  width: 1414.5px!important;
+    width: 84.37%!important;    
+    //margin-left: 245.5px!important;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.menu-xs {
+  font-family: 'Gothic A1'!important;
+  font-weight: 400!important;
+  font-size: 20px!important;
+}
+
+.menu-tablet {
+  font-family: 'Gothic A1'!important;
+  font-weight: 400!important;
+  font-size: 25px!important;
+}
+
+.menu-tablet-sm {
+  font-family: 'Gothic A1'!important;
+  font-weight: 400!important;
+  font-size: 25px!important;
+}
+
+
+
+//xs
+
+.first-toolbar-xs {
+    padding: 0px!important;
+    height: 86px!important;
+    background-color: white!important;
+    
+}
+
+.first-toolbar-container-xs { 
+    padding: 0px!important;   
+    width: 82.6%!important;
+    //margin-left: 245.5px!important;
+    margin: 0 auto;
+   
+}
+
+
+.second-toolbar-xl {
+    height: 406px!important;
+    background-color: #A1C84A!important;
+}
+
+.second-toolbar-title-xl {
+    margin-left: 259px;
+    width: 920px!important;
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 60px;
+    color :#FFFFFF;
+}
+
+.footer {
+    min-height: 150px!important;
+    justify-content: center;
+    background-color: rgb(102, 102, 102);
+    color: white;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: -o-flex;
+  }
+
+  .footer-xl {
+    padding: 0;
+    height: 333px;
+    background-color: #333333;
+    position: absolute;
+    width: 100%;
+  }
+
+  .footer-lg {
+    padding: 0;
+    height: 270px;
+    background-color: #333333;
+    position: absolute;
+    width: 100%;
+  }
+
+  .footer-tablet {
+    padding: 0;
+    height: 286px;
+    background-color: #333333;
+    position: absolute;
+    width: 100%;
+  }
+
+  .footer-xs {
+    height: 220px;
+    background-color: #333333;
+    position: absolute;
+    width: 100%;
+  }
+
+  .footer-container-xl {   
+   // width: 1414.5px!important;
+    width: 73%!important;    
+    margin: 0 auto;
+   // vertical-align: middle!important;
+    height: 100%!important;
+    font-family: 'Gothic A1'!important;
+  }
+
+  .footer-container-lg {   
+    // width: 1414.5px!important;
+     width: 73%!important;    
+     margin: 0 auto;
+    // vertical-align: middle!important;
+     height: 100%!important;
+     font-family: 'Gothic A1'!important;
+   }
+
+  .footer-container-tablet {   
+    // width: 1414.5px!important;
+     width: 84.37%!important;    
+     margin: 0 auto;
+    // vertical-align: middle!important;
+     height: 100%!important;
+     font-family: 'Gothic A1'!important;
+   }
+
+  .footer-container-xs {   
+    padding: 0px!important;   
+    width: 82.6%!important;
+    font-family: 'Gothic A1'!important;
+    height: 100%!important;
+    margin: 0 auto;
+  }
+
+  .footer-text-lg{
+    font-size: 13px!important;
+  }
+
+  .footer-image-lg{
+    height:60px!important;
+  }*/

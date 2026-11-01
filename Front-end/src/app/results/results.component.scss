@@ -1,0 +1,197 @@
+.spacer {
+    flex: 1 1 auto;
+}
+
+progress {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 88%;
+    height: 10px;
+    display: inline-block;
+    margin-top:12px;
+    margin-bottom: 15px;
+    /* Firefox */
+    border: none;
+    background: #FFF;
+    /*border-radius: 3px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;*/
+  }
+
+  progress::-webkit-progress-bar {
+    background: #FFF;
+    /*box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;*/
+    border-radius: 25px;
+  }
+
+  progress::-webkit-progress-value {
+    /*background-color: #d9534f;*/
+    background-color: #333333!important;
+    border-radius: 25px;
+
+  }
+
+  progress::-moz-progress-bar {
+    /*background-color: #d9534f;*/
+    background-color:#333333!important;
+    border-radius: 25px;
+  }
+
+  .progress-value {
+    padding: 0px 3px;
+    line-height: 20px;
+    margin-left: 0px;
+    font-size: 16px;
+    height: 16px;
+    margin-top: 12px;
+    float: right;
+  }
+
+  .progress-bar-wrapper{
+    display: block;
+
+  }
+
+  p {
+    font-family: 'Gothic A1'!important;
+    font-weight: 400;
+    font-size: 16px; 
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+.title-xl {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 22px; 
+    margin-left: 20px;
+}
+
+.title-tablet {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 28px; 
+    margin-left: 30px;
+} 
+
+.title-tablet-sm {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 26px; 
+    margin-left: 30px;
+} 
+
+.title-xs {
+    font-family: 'Gothic A1'!important;
+    font-weight: 300;
+    font-size: 22px; 
+    margin-left: 20px;
+}  
+
+
+.content-xl {
+    font-family: 'Gothic A1'!important;     
+    padding: 0 25px 0 25px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.content-tablet {
+    font-family: 'Gothic A1'!important;    
+    padding: 0 30px 0 30px;
+    font-weight: 400;
+    font-size: 22px; 
+} 
+
+.content-tablet-sm {
+    font-family: 'Gothic A1'!important;    
+    padding: 0 30px 0 30px;
+    font-weight: 400;
+    font-weight: 400;
+} 
+
+.content-xs {
+    font-family: 'Gothic A1'!important;    
+    padding: 0 20px 0 20px;
+    font-weight: 400;
+    font-size: 16px; 
+}  
+
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+   display: none;
+}
+
+.mat-icon-button .mat-icon, .mat-icon-button i {
+    line-height: 16px;
+}
+
+.cdk-overlay-pane {
+    max-width:100vw!important;
+}
+
+.proposal-title-xl {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.proposal-title-lg {
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.proposal-title-md {
+  font-weight: 400;
+  font-size: 22px; 
+}
+
+.proposal-title-sm {
+  font-weight: 400;
+  font-size: 20px; 
+}
+
+.proposal-title-xs {
+  font-weight: 400;
+  font-size: 16px; 
+}
+
+.results-xl {
+  margin: 0 0 35px 0;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.results-lg {
+  margin: 0 0 35px 0;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.results-md {
+  margin: 0 0 45px 0;
+  font-weight: 800;
+  font-size: 28px;
+}
+
+.results-sm {
+  margin: 0 0 35px 0;
+  font-weight: 800;
+  font-size: 26px;
+}
+
+.results-xs {
+  margin: 0 0 35px 0;
+  font-weight: 800;
+  font-size: 20px;
+}
+
+/*.mat-dialog-content {
+  overflow: hidden!important;
+}*/
+
+
+
+
+

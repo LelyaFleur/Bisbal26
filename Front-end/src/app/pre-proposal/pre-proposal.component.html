@@ -1,0 +1,143 @@
+<h2 mat-dialog-title style ="display:inline-block;">Proposta
+  <span fxShow class ="spacer"></span>&nbsp; &nbsp;
+ <!-- <button mat-icon-button matTooltip="Per seleccionar una proposta fes clic al cercle" *ngIf = "!data.admin" (click) = "selectProposal(data)">
+    <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+  </button>-->
+  
+</h2>
+    <!-- <button mat-icon-button *ngIf = "data.checked"> <mat-icon  (click) = "selectProposal(data)">remove_red_eye</mat-icon> </button>-->
+    
+    <mat-dialog-content style ="font-size: 16px;  text-align: justify;" ng-cloak> 
+    <p><b>Nom i Cognom:</b> {{data.name}}</p>
+   <!--  <p><b>Cognom:</b> {{data.surname}}</p>-->
+    <p><b>DNI:</b> {{data.dni}}</p>
+   <!-- <p><b>Adreça postal:</b> {{data.direction}}</p>-->
+    <p><b>Telèfon:</b> {{data.phone}}</p>
+    <p><b>Correu electònic:</b> {{data.email}}</p>
+    <p><b>Títol de la proposta: {{data.title}}</b></p> 
+    <p><b>Necessitat que vol resoldre</b> {{data.object}}</p>       
+    <p><b>Descripció de la proposta:</b>{{data.description}}</p>
+    <!--<p><b>Cost aproximat:</b> {{data.cost}}</p> 
+    
+    <div *ngFor = "let image of data.images">
+      <img  [src]="image.name" style ="width: 90%; padding:20px;" [ngStyle.xl] = "{ 'width.%': 80 }" [ngStyle.lg] = "{ 'width.%': 70 }" [ngStyle.md] = "{ 'width.%': 70 }" *ngIf="image.name !== undefined;else no_image" class ="center">
+    </div>
+  
+    -->
+    
+    <p><b>Lloc/s del municipi on caldria dur a terme la proposta:</b> {{data.location}}</p>
+    <p><b>Aquesta proposta l’heu fet:</b> {{data.how}}<span *ngIf = "data.how ==='Amb els membres d’una entitat'">; {{data.howEntity}}</span></p>
+    
+    
+    <span class="spacer" fxShow [fxShow.md]="true" fxShow [fxShow.xl]="true" fxShow [fxShow.lg]="true"></span>
+    
+    <span class="spacer" fxShow [fxShow.md]="true" fxShow [fxShow.xl]="true" fxShow [fxShow.lg]="true"></span>
+       
+  
+</mat-dialog-content>
+<mat-dialog-actions>
+  <span class ="spacer"></span>  
+  <button mat-button (click) = "onSave()" style = "background-color:rgb(33,25,21)!important;color: white!important;">Ok</button>
+</mat-dialog-actions>
+<!--<h2 mat-dialog-title style ="display:inline-block;">{{data.title}}</h2><span fxShow class ="spacer"></span> <button mat-icon-button *ngIf = "!edit && data.edit" >
+    <mat-icon (click) = "editProposal()">edit</mat-icon> </button><button mat-icon-button>
+    <mat-icon (click) = "editProposal()" *ngIf = "edit">remove_red_eye</mat-icon> </button>
+<mat-dialog-content style ="font-size: 18px;  text-align: justify;" ng-cloak>
+  <div *ngIf ="!edit"> <p><b>Nom ( de la persona, grup o entitat):</b> <br/> {{data.author.name}}</p> 
+    <p><b>Correu electrònic:</b> <br/> {{data.author.email}}</p> 
+    <p><b>Telèfon:</b> <br/> {{data.author.phone}}</p> 
+    <img [src]="data.file" style ="width: 90%;padding:20px;" *ngIf="data.file !== undefined;">
+      
+    <p><b>Necessitat a la que atén:</b> <br/> {{data.object}}</p>
+    <p><b>Descripció de la proposta:</b> <br/> {{data.description}}</p>
+    <p><b>Pressupost aproximat de la proposta:</b> <br/> {{data.cost}} &euro;</p>
+    <a mat-button  (click) = "getFile()" *ngIf = "data.file">Descarregar el fitxer<mat-icon style="cursor:pointer;">archive</mat-icon> </a> 
+  </div>
+  <div *ngIf ="edit">
+    <form class="edit-proposal-container" novalidate #f="ngForm" (ngSubmit)="saveProposal(f, data);">  
+      
+      <mat-form-field>
+        <input matInput placeholder="Nom (de la persona, grup o entitat)" [(ngModel)]="data.author.name" name = "name" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Correu electrònic" [formControl]="email" [(ngModel)]="data.author.email" name = "email" required>
+        <mat-icon matSuffix style = "color: gray;">email</mat-icon>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field >-->
+      <!-- <span matPrefix>+34 &nbsp;</span>-->
+       <!-- <input type="tel" matInput placeholder="Telèfon" [(ngModel)]="data.author.phone" name = "phone">
+        <mat-icon matSuffix style = "color: gray;">phone</mat-icon>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Títol de la proposta" [(ngModel)]="data.title" name = "title" required>
+      </mat-form-field>   
+      <mat-form-field>
+        <textarea matInput placeholder="Necessitat a la que atén" [(ngModel)]="data.object" name = "object" required></textarea>
+      </mat-form-field>
+      <mat-form-field>      
+        <textarea matInput placeholder="Descripció de la proposta" matTextareaAutosize matAutosizeMinRows="2"
+              matAutosizeMaxRows="5" [(ngModel)]="data.description" name = "description" required></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Pressupost aproximat de la proposta" type="number" class="right-align" [(ngModel)]="data.cost" name = "cost">      
+        <span matSuffix>&nbsp;&euro;</span>
+      </mat-form-field>-->
+    <!-- <mat-form-field>   
+                                        
+    </mat-form-field>-->  
+   <!-- <div fxLayout="row" style ="width: 100%!important;">
+      <span class ="spacer"></span>  
+      <button mat-raised-button color="primary" [disabled]="!f.valid" style ="margin-right:5%;">Guardar</button>      
+    </div>
+    
+    
+  </form>-->
+
+  <!--file uploader -->
+ <!-- <div fxLayout="row" fxLayout.xs="column" class ="file-uploader-box">
+     <button (click)="fileInput.click()" mat-button style ="padding-left: 0px;font-size: 20px;" [disabled]="uploader.queue.length > 0  || data.file"> <mat-icon>note_add</mat-icon>Afegeix un fitxer</button>
+      <span style="visibility: hidden; position: absolute; overflow: hidden; width: 0px; height:0px;border:none;margin:0; padding:0">
+          <input type="file" #fileInput ng2FileSelect [uploader]="uploader" />
+      </span>-->
+
+
+     <!-- <input  type="file" name="single" ng2FileSelect [uploader]="uploader"  [disabled]="uploader.queue.length > 0"/>-->
+    <!--  <span class ="spacer"></span>
+      <div *ngIf = "data.file">{{getFileName()}}<button mat-button 
+                (click)="removeFile()">
+            Eliminar <mat-icon>delete_forever</mat-icon>
+        </button>  </div> 
+      <div *ngFor="let item of uploader.queue">-->
+        
+        <!--<mat-progress-bar  [ngStyle]="{ 'width': item.progress + '%' }">
+        </mat-progress-bar>
+         {{item.file.name}}-->
+        <!--<button mat-button 
+                (click)="item.upload(); file = item.file.name" [disabled]="item.isReady || item.isUploading || item.isSuccess">
+             Pujar &nbsp;<mat-icon>backup</mat-icon>
+        </button>-->
+        <!--<button mat-button color="primary"
+                (click)="item.cancel()" [disabled]="!item.isUploading">
+             Cancel·lar &nbsp; <mat-icon>clear</mat-icon>
+        </button>-->
+       <!-- <button mat-button 
+                (click)="item.remove()">
+            Eliminar <mat-icon>delete_forever</mat-icon>
+        </button>                
+        </div>
+       
+   </div>
+
+  </div>
+
+
+
+
+  </mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>-->
+  <!-- Can optionally provide a result for the closing dialog. 
+  <span class ="spacer"></span>  
+  <button mat-button color= "primary" [mat-dialog-close]="true">Ok</button>
+</mat-dialog-actions>-->

@@ -1,0 +1,88 @@
+<!--<mat-sidenav-container class="microsite-container">
+  <mat-sidenav mode="side" opened="true" class="sidenav" class="microsite-sidenav">
+   
+<mat-list>
+  <h3 mat-subheader>Folders</h3>
+  <mat-list-item [routerLink]="['/propostas']">
+    <mat-icon mat-list-icon>folder</mat-icon>Propostas
+   
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item *ngFor="let folder of folders">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <h4 mat-line>{{folder.name}}</h4>
+    <p mat-line> {{folder.updated | date}} </p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <h3 mat-subheader>Notes</h3>
+  <mat-list-item *ngFor="let note of notes">
+    <mat-icon mat-list-icon>note</mat-icon>
+    <h4 mat-line>{{note.name}}</h4>
+    <p mat-line> {{note.updated | date}} </p>
+  </mat-list-item>
+</mat-list>
+  </mat-sidenav>
+
+  <div class="microsite-sidenav-content">
+    <button type="button" mat-button (click)="sidenav.open()">
+      Open sidenav
+    </button>
+    <router-outlet></router-outlet>
+  </div>
+  
+
+</mat-sidenav-container>-->
+
+<mat-toolbar style="background-color: lightgray;">
+  <!--<mat-icon routerLink = "/" style="cursor:pointer;" color = "primary">home</mat-icon>-->
+  <span class="toolbar-spacer"></span>
+  <a mat-button (click) = "logout()">
+      <mat-icon color = "primary">exit_to_app</mat-icon>
+      <span>Sortir</span>
+  </a>
+</mat-toolbar>
+<div ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+  <mat-grid-list [cols]="columnNum" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px" >
+          
+    <mat-grid-tile>
+      
+          <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs" style ="cursor:pointer;"  [routerLink] = "['/microsite-editor']">
+            <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs">Microsite</p>
+         </div>
+       
+    </mat-grid-tile>    
+    <mat-grid-tile>
+      
+      <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  style ="cursor:pointer;" (click) = "activate('proposals')">
+        <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs">Propostes</p>
+     </div>
+   
+  </mat-grid-tile>   
+  <mat-grid-tile>
+      
+    <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  style ="cursor:pointer;" (click) = "activate('queries')">
+      <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs">Consultes</p>
+   </div>
+  
+  </mat-grid-tile>    
+  </mat-grid-list>
+  
+  <mat-card style ="margin:0 auto;"  [ngStyle.lg]="{'height.vh': 85, 'width.%': 100, 'margin-top.px': 20, 'margin-bottom.px': 20 }"  [ngStyle.xl]="{'height.vh': 85, 'width.%': 100, 'margin-top.px': 20, 'margin-bottom.px': 20}"  [ngStyle.md]="{'height.vh': 85}" [ngStyle.sm]="{'height.vh': 78}" [ngStyle.xs]="{'height.vh': 78}"  *ngIf= "queryMode">
+    <mat-list>
+      <h3 mat-subheader>Consultes</h3>
+      <mat-list-item *ngFor="let item of queryItems">
+        <mat-icon mat-list-icon [routerLink] = "['/editar-consulta', item._id]" style ="cursor:pointer;" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true" *ngIf ="(item.phase.number === 1 || item.phase.number === 4) && !item.closed">create</mat-icon>
+        <mat-icon mat-list-icon fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true" *ngIf ="item.closed">lock</mat-icon>
+        <h4 mat-line [ngStyle.xs]="{'font-size.px': 11}" (click) = "navigateToQuery(item)" style ="cursor:pointer;">{{item.title}}</h4> 
+        <p mat-line (click) = "navigateToQuery(item)" style ="cursor:pointer;"> Fase {{item.phase.number}}. {{item.phase.description}} </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </mat-card>
+  <proposals *ngIf= "proposalMode"></proposals>
+ </div>
+
+
+
+<!--<proposals *ngIf= "proposalMode"></proposals>
+<polls-editor></polls-editor>-->

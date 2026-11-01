@@ -1,0 +1,58 @@
+<!--<p mat-dialog-title ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between center">Crear proposta  
+    <span fxShow class ="spacer"></span> 
+    <button mat-icon-button [mat-dialog-close] = "true" style ="height:32px!important;width:32px!important;line-height:32px;">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;line-height:32px;">clear</mat-icon>
+    </button>
+  </p>-->
+  <mat-toolbar>
+    <mat-toolbar-row ngClass.xl = "third-toolbar-lg" ngClass.lg = "third-toolbar-lg" ngClass.md = "third-toolbar-tablet" ngClass.sm = "third-toolbar-tablet-sm" ngClass.xs = "third-toolbar-xs">
+    
+      <div ngClass.xl = "third-toolbar-content-lg" ngClass.lg = "third-toolbar-content-lg" ngClass.md = "third-toolbar-content-tablet" ngClass.sm = "third-toolbar-content-tablet-sm" ngClass.xs = "third-toolbar-content-xs" fxLayout="row" fxLayoutAlign="space-between">
+          <div >
+            <p>Editor de la consulta</p>
+            <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf ="!editInstructionsMode">Editar FAQS</p>
+            <p ngClass.xs =  "fase-name-xs" ngClass.xl =  "fase-name-lg"  ngClass.md =  "fase-name-tablet"  ngClass.sm =  "fase-name-tablet"  ngClass.lg = "fase-name-lg" *ngIf ="editInstructionsMode">Instruccions per votar</p>
+          </div>
+        <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-md" ngClass.sm= "back-button-sm" ngClass.xs= "back-button-xs" [routerLink] = "['/editar-consulta', queryId]" style ="cursor: pointer!important;"><  Tornar enrere</a>
+        </div>
+      </div> 
+        
+      
+      </mat-toolbar-row>
+    
+  </mat-toolbar>
+  <div ngClass.xs = "content-xs" style ="height:300px; padding-top: 100px;" fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false">
+    <p ngClass.xs = "text-xs">Editor no està disponible per als dispositius mòbils</p>
+  </div>
+  <div ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true"> 
+    
+    
+      <form  #f="ngForm" (ngSubmit)="safeInfo(f);">  
+         
+          <div fxLayout.xl="row" fxLayout.lg="row" ngClass.xl = "form-row-xl"  ngClass.lg = "form-row-xl" style ="width:100%;">
+              <div   style ="width:100%;" ngClass.md = "input-container-tablet" ngClass.sm = "input-container-tablet">
+                  <p ngClass.xl = "label-lg" ngClass.lg = "label-lg" ngClass.md = "label-tablet" ngClass.sm = "label-tablet-sm" ngClass.xs = "label-xs">Contingut</p>
+                  <div ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs">
+                    <ckeditor [(ngModel)]="info" [config]="{ link: {addTargetToExternalLinks: true}, language: 'ca' }" placeholder="Descripció de la proposta" name = "description" [editor]="Editor1" (ready)="onReady($event)" required></ckeditor>
+                  </div><!--  <textarea ngClass.xl = "textarea-long-lg" ngClass.lg = "textarea-long-lg" ngClass.md = "textarea-tablet" ngClass.sm = "textarea-tablet-sm"  ngClass.xs = "textarea-xs" placeholder="Descripció de la proposta" [(ngModel)]="proposal.description" name = "description" required></textarea>--> 
+              </div>
+          </div> 
+          
+          <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="!editInstructionsMode">
+              <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar FAQS </button> 
+          </div> 
+          <div fxLayout.xl="column" fxLayout.lg="column" fxLayout.md="column" fxLayout.sm="column" ngClass.xl = "form-row-bottom-xl" ngClass.lg = "form-row-bottom-xl" ngClass.md = "form-row-bottom-tablet" ngClass.sm = "form-row-bottom-tablet-sm" fxShow [fxShow.xs]="false"  [fxShow.md]="true"  [fxShow.sm]="true" [fxShow.xl]="true"  [fxShow.lg]="true" *ngIf ="editInstructionsMode">
+              <button [disabled]="!f.valid" ngClass.xl = "button-lg" ngClass.lg = "button-lg" ngClass.md = "button-tablet" ngClass.sm = "button-tablet-sm">Guardar Instruccions</button> 
+          </div>  
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="!editInstructionsMode">
+              <button [disabled]="!f.valid" ngClass.xs = "button-xs">Guardar FAQS </button>         
+          </div>   
+          <div fxLayout.xs="column" ngClass.xs = "form-row-bottom-xs"  fxShow [fxShow.xs]="true" [fxShow.xl]="false"  [fxShow.lg]="false" [fxShow.md]="false"  [fxShow.sm]="false" *ngIf ="editInstructionsMode">
+            <button [disabled]="!f.valid" ngClass.xs = "button-xs">Guardar Instruccions</button>         
+        </div>      
+      </form> 
+      
+      
+  </div>
+  

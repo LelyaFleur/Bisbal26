@@ -1,0 +1,26 @@
+<p mat-dialog-title ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">{{data.title}}  
+    <span fxShow class ="spacer"></span>
+   <!-- <button mat-icon-button [mat-dialog-close]="true">
+    <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+      <mat-icon style ="color:white;">
+        favorite
+        </mat-icon>
+    </button>-->
+    <button mat-icon-button [mat-dialog-close] = "false" style ="height:32px!important;width:32px!important;line-height:32px;">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;line-height:32px;">clear</mat-icon>
+    </button>
+</p>
+    
+<!--<button  [mat-dialog-close]="true" style = "background-color:#ffc107!important; color: black!important;">Ok</button>-->
+<div style ="margin-bottom: 100px;">
+  <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" [innerHTML]="data.text | safeHtml"></p>
+  
+</div>
+<mat-dialog-actions>
+    <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+        <button mat-raised-button (click)="onConfirmClick()" ngClass.xl = "button-xl" ngClass.lg = "button-lg" ngClass.md = "button-md" ngClass.sm = "button-sm" ngClass.xs = "button-xs">OK</button>
+        <button mat-raised-button mat-dialog-close  ngClass.xl = "button-xl" ngClass.lg = "button-lg" ngClass.md = "button-md" ngClass.sm = "button-sm" ngClass.xs = "button-xs">Cancelar</button>
+    </div>	
+</mat-dialog-actions>
+  
+

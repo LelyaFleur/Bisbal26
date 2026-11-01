@@ -1,0 +1,91 @@
+<mat-toolbar> 
+  <mat-toolbar-row ngClass.xl = "second-toolbar-lg" ngClass.lg = "second-toolbar-lg" ngClass.md = "second-toolbar-tablet" ngClass.sm = "second-toolbar-tablet-sm" ngClass.xs = "second-toolbar-xs">
+    <div ngClass.xl = "title-background-lg" ngClass.lg = "title-background-lg" ngClass.md = "title-background-tablet" ngClass.sm = "title-background-tablet"  ngClass.xs = "title-background-xs" fxLayout.xl="row" fxLayout.lg="row" fxLayout.md="row" fxLayout.sm="row" fxLayout.xs="column">
+      <div ngClass.xl = "second-toolbar-title-lg" ngClass.lg = "second-toolbar-title-lg"  ngClass.md = "second-toolbar-title-tablet"  ngClass.sm = "second-toolbar-title-tablet-sm" style ="line-height: 120%;" ngClass.xs = "second-toolbar-title-xs" >Pressupostos Participatius<br> 
+        <span  ngClass.xl = "second-toolbar-title-bald-lg"  ngClass.lg = "second-toolbar-title-bald-lg" ngClass.md = "second-toolbar-title-bald-tablet" ngClass.sm = "second-toolbar-title-bald-tablet-sm" ngClass.xs = "second-toolbar-title-bald-xs">de La Bisbal del Penedès 2026</span> 
+      </div>
+      <div ngClass.xl= "back-button-container-xl" ngClass.lg= "back-button-container-xl" ngClass.md= "back-button-container-md" ngClass.sm= "back-button-container-sm" ngClass.xs= "back-button-container-xs" fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true">
+          <a ngClass.xl= "back-button-xl" ngClass.lg= "back-button-xl" ngClass.md= "back-button-xl" ngClass.sm= "back-button-xl" ngClass.xs= "back-button-xs" (click) = "navigateBack()" style ="cursor: pointer!important;"><  Tornar enrere</a>
+      </div>
+    </div>
+  </mat-toolbar-row>  
+</mat-toolbar>
+<div [hidden] = "page?.type.type == 'phases' || page?.type.type == 'historic'">
+  <div  ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs" >
+    <div ngClass.xl = "content-container-lg" ngClass.lg = "content-container-lg" ngClass.md = "content-container-tablet" ngClass.sm = "content-container-tablet-sm" ngClass.xs = "content-container-xs">
+      <div [innerHTML]="page?.title | safe" ngClass.xl = "title-xl" ngClass.lg = "title-lg" ngClass.md = "title-md" ngClass.sm = "title-sm" ngClass.xs = "title-xs"></div>
+      <div [innerHTML]="page?.content | safe" class ="content"></div>
+ 
+    </div>
+  
+  </div>
+</div>
+
+ 
+ <!--xl -->
+
+  <div fxShow [fxShow.xs]="false" [fxShow.sm]="true" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true" [hidden] = "page?.type.type != 'phases'">
+    <div ngClass.xl = "title-container-lg" ngClass.lg = "title-container-lg" ngClass.md = "title-container-tablet" ngClass.sm = "title-container-tablet-sm" >
+      <div ngClass.xl = "title-fases-container-xl" ngClass.lg = "title-fases-container-xl" ngClass.md = "title-fases-container-tablet" ngClass.sm = "title-fases-container-tablet-sm"><p ngClass.xl = "title-xl" ngClass.lg = "title-lg" ngClass.md = "title-md" ngClass.sm = "title-sm" ngClass.xs = "title-xs">{{page?.title}}</p></div>
+     </div>
+     <div ngClass.xl = "fases-content-lg" ngClass.lg = "fases-content-lg" ngClass.md = "fases-content-tablet" ngClass.sm = "fases-content-tablet">
+      <div fxLayout="row" ngClass.xl = "fase-lg" ngClass.lg = "fase-lg" ngClass.md = "fase-tablet" ngClass.sm = "fase-tablet">
+        <div ngClass.xl = "fase-date-top-lg" ngClass.lg = "fase-date-top-lg" ngClass.md = "fase-date-top-tablet" ngClass.sm = "fase-date-top-tablet-sm"></div> 
+        <div ngClass.xl = "fase-name-top-xl" ngClass.lg = "fase-name-top-xl" ngClass.md = "fase-name-top-tablet" ngClass.sm = "fase-name-top-tablet"><p></p></div>
+        <div ngClass.xl = "fase-description-top-xl" ngClass.lg = "fase-description-top-xl" ngClass.md = "fase-description-top-tablet" ngClass.sm = "fase-description-top-tablet"><p></p></div>
+      </div>
+      <div fxLayout="row" ngClass.xl = "fase-lg" ngClass.lg = "fase-lg" ngClass.md = "fase-tablet" ngClass.sm = "fase-tablet" *ngFor = "let phase of microsite?.phases; index as i">
+        <div ngClass.xl = "fase-date-lg" ngClass.lg = "fase-date-lg" ngClass.md = "fase-date-tablet" ngClass.sm = "fase-date-tablet">{{phase.date}}</div> 
+        <img ngClass.xl = "fase-circle-xl" ngClass.lg = "fase-circle-xl" ngClass.md = "fase-circle-tablet" ngClass.sm = "fase-circle-tablet" src="assets/images/icons/SVG_Circle.svg" style ="margin-top: -5px;">
+               
+        <div ngClass.xl = "fase-name-xl" ngClass.lg = "fase-name-xl" ngClass.md = "fase-name-tablet" ngClass.sm = "fase-name-tablet-sm"><p><!--FASE {{i+1}} <br>{{phase.name}}-->{{phase.name}}</p></div>
+        <div ngClass.xl = "fase-description-lg" ngClass.lg = "fase-description-lg" ngClass.md = "fase-description-tablet" ngClass.sm = "fase-description-tablet-sm"><div class ="phase-description" style ="margin-top: -10px;" [innerHTML]="phase.description | safe"></div></div>
+      </div>
+    </div>
+   </div>
+  
+  <!--xs -->
+   <div fxShow [fxShow.xs]="true" [fxShow.sm]="false" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false" ngClass.xs = "content-xs" [hidden] = "page?.type.type != 'phases'">
+      <div ngClass.xs = "content-container-xs">
+          
+        <p ngClass.xs ="title-xs">{{page?.title}}</p>         
+       
+          <div *ngFor = "let phase of microsite?.phases; index as i" ngClass.xs ="content-fase-xs">
+            <p ngClass.xs = "fase-name-xs"><!--FASE {{i+1}} {{phase.name}}-->{{phase.name}}</p>
+            <p ngClass.xs = "fase-date-xs">{{phase.date}}</p> 
+            <div [innerHTML]="phase.description | safe" class = "phase-description"></div>
+          </div>
+          
+      </div> 
+ </div>
+
+ <!--Historial xl-->
+ <div fxShow [fxShow.xs]="false" [fxShow.sm]="false" [fxShow.md]="true" [fxShow.lg]="true" [fxShow.xl]="true" [hidden] = "page?.type.type != 'historic'">
+  <div ngClass.xl = "title-container-lg" ngClass.lg = "title-container-lg" ngClass.md = "title-container-tablet" ngClass.sm = "title-container-tablet-sm" >
+    <div ngClass.xl = "title-fases-container-xl" ngClass.lg = "title-fases-container-xl" ngClass.md = "title-fases-container-tablet" ngClass.sm = "title-fases-container-tablet-sm"><p ngClass.xl = "title-xl" ngClass.lg = "title-lg" ngClass.md = "title-md" ngClass.sm = "title-sm" ngClass.xs = "title-xs">{{page?.title}}</p></div>
+   </div>
+  <div ngClass.xl = "page-content-lg" ngClass.lg = "page-content-lg" ngClass.md = "page-content-tablet" ngClass.sm = "page-content-tablet">
+   
+    <div [innerHTML]="microsite?.historial.message | safe" ngClass.xl = "historial-text-xl" ngClass.lg = "historial-text-lg" ngClass.md = "historial-text-md"></div>
+    <div fxLayout="row" fxLayoutAlign ="space-between top" ngClass.xl = "historial-xl" ngClass.lg = "historial-lg" ngClass.md = "historial-md" *ngFor = "let record of microsite?.historial.points; index as i">
+      <div ngClass.xl = "historial-description-xl" ngClass.lg = "historial-description-lg" ngClass.md = "historial-description-md" ngClass.sm = "historial-description-sm" [innerHTML]="record.body | safe"></div>
+      <button mat-flat-button ngClass.xl = "historial-button-xl" ngClass.lg = "historial-button-lg" ngClass.md = "historial-button-md"  (click) = "navigateDocViewer(record.url)">{{record.button}}</button>
+     </div>
+  </div>
+ </div>
+
+
+ <!--Historial xs-->
+ <div fxShow [fxShow.xs]="true" [fxShow.sm]="true" [fxShow.md]="false" [fxShow.lg]="false" [fxShow.xl]="false" ngClass.sm = "content-tablet" ngClass.xs = "content-xs" [hidden] = "page?.type.type != 'historic'">
+  <div  ngClass.sm = "content-container-tablet-sm" ngClass.xs = "content-container-xs">
+    <p ngClass.sm ="title-sm" ngClass.xs ="title-xs">{{page?.title}}</p>
+    <div [innerHTML]="microsite?.historial.message | safe" ngClass.sm = "historial-text-sm" ngClass.xs = "historial-text-xs"></div>
+    <div fxLayout="column" *ngFor = "let record of microsite?.historial.points; index as i" ngClass.sm = "historial-sm" ngClass.xs = "historial-xs">
+      <div ngClass.sm = "historial-description-sm" ngClass.xs = "historial-description-xs" [innerHTML]="record.body | safe"></div>
+      <button mat-flat-button ngClass.sm = "historial-button-sm" ngClass.xs = "historial-button-xs" (click) = "navigateDocViewer(record.url)">{{record.button}}</button>
+     </div>
+  </div>
+ </div>
+
+
+

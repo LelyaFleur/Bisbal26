@@ -1,0 +1,53 @@
+
+ <p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">Resultats  
+  <span fxShow class ="spacer"></span>
+ <!-- <button mat-icon-button [mat-dialog-close]="true">
+  <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+    <mat-icon style ="color:white;">
+      favorite
+      </mat-icon>
+  </button>-->
+  <button mat-icon-button [mat-dialog-close]="true" style ="height:32px!important;width:32px!important;">
+    <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;margin-top:5px;">clear</mat-icon>
+  </button>
+</p>
+  
+    <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+      <p>Vots totals: <b>{{data.query.totalVotesProposal}}</b></p>
+        <p>Número de persones que han votat: <b>{{data.query.totalVotes}}</b></p>
+        <!--<p style = "font-size: 20px;">Vots no vàlids: <b>14</b></p>-->
+        <p>Percentatge de participació: <b>{{(data.query.totalVotes)/censusCount*100 | number}}%</b></p>
+        <p>Cens total: <b>{{censusCount}}</b></p>
+         <!-- <div *ngFor = "let proposal of data.query.proposals| orderby:['!votes']" style = "border:none;">
+                <div style="margin-top:20px;flex-wrap: wrap;">
+                  <p style ="margin-bottom:0px;">{{proposal.title}} &nbsp;<b>({{proposal.votes}}&nbsp;<span *ngIf ="proposal.votes <= 1">vot)</span><span *ngIf ="proposal.votes > 1">vots)</span> </b></p>
+               
+                </div>
+
+                <div  class="progress-bar-wrapper">
+                    <progress value="{{proposal.votes/data.query.totalVotes*100}}" max="100">
+                    </progress><span class="progress-value" style = "color:#111!important;"> {{proposal.votes/data.query.totalVotes*100 | number}}%</span>
+                </div>
+          </div>-->
+
+          <div *ngFor = "let proposal of data.query.proposals| orderby:['!votes']" style = "border:none;margin-top: 50px;">
+            <div style="margin-top:20px;flex-wrap: wrap;">
+              <p style ="margin-bottom:0px;" ngClass.xl = "proposal-title-xl" ngClass.lg = "proposal-title-lg" ngClass.md = "proposal-title-md" ngClass.sm = "proposal-title-sm" ngClass.xs = "proposal-title-xs">{{proposal.title}}</p>
+            <!--<span class="label label-primary results" style = "vertical-align: middle;margin-top: 5px;  background-color: #25408F;">{{answer.votes}}</span>-->
+            </div>
+
+            <div  class="progress-bar-wrapper">
+                <progress value="{{proposal.votes/data.query.totalVotes*100}}" max="100">
+                </progress>
+            </div>
+            <p style = "color:#111!important;" ngClass.xl = "results-xl" ngClass.lg = "results-lg" ngClass.md = "results-md" ngClass.sm = "results-sm" ngClass.xs = "results-xs">{{proposal.votes}}&nbsp;<span *ngIf ="proposal.votes <= 1">vot</span><span *ngIf ="proposal.votes > 1">vots</span>&nbsp;({{proposal.votes/data.query.totalVotes*100 | number}}%) </p>
+      </div>
+    </div>
+    
+
+
+  
+ <!-- <mat-dialog-actions>
+    <span class ="spacer"></span>
+    <button mat-raised-button style = "background-color:rgb(0,139,203)!important; color: white!important;" [mat-dialog-close]="true">Ok</button>
+  </mat-dialog-actions>-->

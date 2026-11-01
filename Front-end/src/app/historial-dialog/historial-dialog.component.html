@@ -1,0 +1,21 @@
+<h1 ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs">Configuració de botó</h1>
+<div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">  
+  <mat-form-field style ="width:500px!important;padding-top: 40px;">
+    <mat-label>Nom del botó</mat-label>
+    <input matInput [(ngModel)]="data.button">
+  </mat-form-field>
+  <div fxLayout.xl="row" fxLayout.lg="row" style ="width:100%;" >
+    <mat-form-field ngClass.xl = "select-xl" ngClass.lg = "select-lg" ngClass.md = "select-md" ngClass.sm = "select-sm" ngClass.xs = "select-xs">
+      <mat-label ngClass.xl = "text-lg" ngClass.lg = "text-lg" ngClass.md = "text-tablet" ngClass.sm = "text-tablet-sm" ngClass.xs = "text-xs">Urls</mat-label>      
+      <mat-select  [(value)]="data.url"  name ="url" (valueChange)="selectionChanged(data.url)">              
+        <mat-option *ngFor ="let url of urls" value="{{url}}">{{url}}</mat-option>              
+      </mat-select> 
+    </mat-form-field>
+  </div>
+</div>
+<mat-dialog-actions>
+    <div ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">
+        <button mat-button [mat-dialog-close]="data" cdkFocusInitial ngClass.xl = "button-xl" ngClass.lg = "button-lg" ngClass.md = "button-md" ngClass.sm = "button-sm" ngClass.xs = "button-xs">Ok</button>
+        <button mat-button (click)="onNoClick()" ngClass.xl = "button-xl" ngClass.lg = "button-lg" ngClass.md = "button-md" ngClass.sm = "button-sm" ngClass.xs = "button-xs">Cancel·lar</button>
+    </div>
+</mat-dialog-actions>

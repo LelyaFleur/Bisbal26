@@ -1,0 +1,45 @@
+<div ngClass.xl = "content-lg" ngClass.lg = "content-lg" ngClass.md = "content-tablet" ngClass.sm = "content-tablet" ngClass.xs = "content-xs">
+  
+
+  <mat-grid-list [cols]="2" rowHeight="{{rowHeight}}px" gutterSize = "{{gutterSize}}px" >
+          
+    <mat-grid-tile>
+      
+          <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs" style ="cursor:pointer;">
+            <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs" (click) = "importToWord()">Propostes &rarr; 'Word' <mat-icon style="cursor:pointer;">archive</mat-icon></p>
+         </div>
+       
+    </mat-grid-tile>    
+    <mat-grid-tile>
+      
+      <div ngClass.xl="container-xl" ngClass.lg ="container-xl" ngClass.md ="container-tablet" ngClass.sm ="container-tablet-sm" ngClass.xs ="container-xs"  style ="cursor:pointer;">
+        <p  ngClass.xl = "tile-text-xl" ngClass.lg = "tile-text-xl" ngClass.md = "tile-text-tablet" ngClass.sm = "tile-text-tablet-sm" ngClass.xs = "tile-text-xs"(click) = "openConfirmDialog()">Esborrar totes les propostes</p>
+     </div>
+   
+  </mat-grid-tile>  
+   
+  </mat-grid-list>
+
+
+
+
+ <!--<div class="button-row" fxShow [fxShow.xs]="true" [fxShow.md]="true" >   
+    <a mat-button  (click) = "importToWord()">Propostes &rarr; 'Word' <mat-icon style="cursor:pointer;">archive</mat-icon> </a> 
+    <a mat-button  (click) = "openConfirmDialog()">Esborrar totes les propostes'</a>        
+  </div>--> 
+  <mat-grid-list  [cols]="columnNum" rowHeight="300px" gutterSize ="25px" [ngStyle.sm]="{'min-height.vh': 75}" [ngStyle.md]="{'min-height.vh': 75}" ng-cloak>
+                  
+   <mat-grid-tile *ngFor="let item of proposalItems; let i = index" [style.background-color]="item.color" style ="cursor:pointer;">
+     <!--ng-style="item.file != '' && {'background-image':'url(item.file)'}" style ="height:100%!important;background-size: cover;"-->
+      <mat-grid-tile-header style ="color: black; background-color:whitesmoke; font-size: 18px!important;height: 72px;cursor:pointer; " (click) = "openDialog(item, i+1, true)" [style.background-color]="item.color">{{i+1}}. {{item.title}}</mat-grid-tile-header>
+       
+      <img [src]="item.file" style ="width: 90%; margin-top:45px!important;padding:20px;" *ngIf="item.file !== undefined;else no_image" (click) = "selectProposal(item, i+1)">
+     <ng-template #no_image>
+       <mat-icon style ="font-size:128px;color :grey;margin-right: 25%; margin-bottom: 25%;" (click) = "selectProposal(item, i)">image</mat-icon>
+     </ng-template>
+   </mat-grid-tile>   
+  </mat-grid-list>
+  <button mat-fab color="primary" *ngIf = "process === 'selection'" style ="font-size: 16px;">{{selectedProposals}}</button>
+</div>
+
+<!--</mat-card>-->

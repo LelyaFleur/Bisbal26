@@ -1,0 +1,67 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+div {
+font-family : 'Roboto';
+}
+
+p {
+font-family : 'Roboto';
+}
+
+progress {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  width: 78%;
+  height: 18px;
+  display: inline-block;
+  margin-top:12px;
+  margin-bottom: 15px;
+  /* Firefox */
+  border: none;
+  background: #FFF;
+  /*border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;*/
+}
+
+progress::-webkit-progress-bar {
+  background: #FFF;
+  /*box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;*/
+  border-radius: 0px;
+}
+
+progress::-webkit-progress-value {
+  /*background-color: #d9534f;*/
+  background-color: #3A892D;
+  border-radius: 0px;
+
+}
+
+progress::-moz-progress-bar {
+  /*background-color: #d9534f;*/
+  background-color:#3A892D;
+  border-radius: 0px;
+}
+
+.progress-value {
+  padding: 0px 3px;
+  line-height: 20px;
+  margin-left: 0px;
+  font-size: 16px; 
+  height: 16px;
+  margin-top: 12px;
+  float: right;
+}
+
+.progress-bar-wrapper{
+  display: block;
+
+}
+
+.mat-icon-button ::ng-deep .mat-button-focus-overlay {
+  display: none;
+}

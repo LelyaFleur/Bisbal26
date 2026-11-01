@@ -1,0 +1,50 @@
+<p ngClass.xl = "title-xl" ngClass.lg = "title-xl" ngClass.md = "title-tablet" ngClass.sm = "title-tablet-sm" ngClass.xs = "title-xs"  fxLayout="row" fxLayoutAlign="space-between">{{data.title}}  
+    <span fxShow class ="spacer"></span>
+   <!-- <button mat-icon-button [mat-dialog-close]="true">
+    <mat-icon  style ="font-size: 48px!important;margin-left: -24px; margin-top:-2px;">{{data.icon}}</mat-icon>
+      <mat-icon style ="color:white;">
+        favorite
+        </mat-icon>
+    </button>-->
+    <button mat-icon-button [mat-dialog-close]="true" style ="height:32px!important;width:32px!important;">
+      <mat-icon style ="font-size: 32px!important; height:32px!important;width:32px!important; margin-left:0px;margin-top:5px;">clear</mat-icon>
+    </button>
+</p>
+    
+<!--<button  [mat-dialog-close]="true" style = "background-color:#ffc107!important; color: black!important;">Ok</button>-->
+<div>
+  <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs" [innerHTML]="data.text | safeHtml"></p>
+ 
+  <div [hidden] = "!data.social">
+    <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">Ho vols compartir a les xarxes socials?</p>
+    <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">Acabo de fer la meva proposta als
+      #PressupostosParticipatius de la Bisbal del Penedès
+2026 aquí:
+       <b>https://participa.bisbalpenedes.com</b></p>
+    <p ngClass.xl = "content-xl" ngClass.lg = "content-xl" ngClass.md = "content-tablet" ngClass.sm = "content-tablet-sm" ngClass.xs = "content-xs">Compartir</p>
+    <div fxLayout="row" style ="margin-top:10px;" *ngIf = "!data.admin">
+      
+      <share-button button ="facebook" theme = "circles-dark"  url="https://participa.bisbalpenedes.com" description ="Acabo de fer la meva proposta als
+      #PressupostosParticipatius de la Bisbal del Penedès
+2026 aquí:
+      https://participa.bisbalpenedes.com"  title="{{data.title}}"></share-button>
+      <share-button button="twitter" theme = "circles-dark" url="https://participa.bisbalpenedes.com" description ="Acabo de fer la meva proposta als
+      #PressupostosParticipatius de la Bisbal del Penedès
+2026 aquí:
+        "></share-button>
+      <share-button button="whatsapp" theme = "circles-dark" url="https://participa.bisbalpenedes.com" description ="Acabo de fer la meva proposta als
+      #PressupostosParticipatius de la Bisbal del Penedès
+2026 aquí:"
+     ></share-button>
+  </div>
+  </div>
+  
+  
+</div>
+<!--<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>-->
+  <!-- Can optionally provide a result for the closing dialog. 
+  <span class ="spacer"></span>
+  
+</mat-dialog-actions>-->
+

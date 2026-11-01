@@ -1,0 +1,154 @@
+mat-grid-list {
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+
+mat-grid-tile {
+  background: whitesmoke;
+  
+}
+
+.content-xl{
+  padding-top: 40px;
+   min-height: 70vh!important;
+   width: 100%!important;
+   margin: 0 auto;
+ }
+ 
+ .content-lg{
+  padding-top: 40px;
+    min-height: 70vh!important;
+    width: 100%!important;
+    margin: 0 auto;
+ }
+
+ .content-tablet{
+  padding-top: 40px;
+  min-height: 70vh!important;
+   width: 100%!important;
+   margin: 0 auto;
+ }
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-toolbar-row {
+    min-height: 36px;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.check-proposal {
+  background-color: green;
+  cursor:pointer;
+}
+
+.uncheck-proposal {
+  background-color: whitesmoke;
+  cursor:pointer;
+}
+
+.mat-fab {
+top: auto;
+right: 20px;
+bottom: 50px;
+left: auto;
+position: fixed;
+}
+
+.fixed-header {
+  top: 60px;
+  position: fixed;
+  z-index:999;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+
+
+.container-xl {
+ 
+  background-color:#F3F3F3;
+  height: 123px!important;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  width:100%;
+}
+
+.container-tablet {
+  position: relative;
+  text-align: center;
+  background-color:#F3F3F3;
+  height: 338px!important;
+}  
+
+
+.container-tablet-sm {
+  position: relative;
+  text-align: center;
+  background-color:#F3F3F3;
+  height: 253px;
+}  
+
+.container-xs {
+  position: relative;
+  text-align: center;
+  background-color:#F3F3F3;
+  height : 217px!important;
+}  
+
+.tile-text-xl {
+ 
+  width: 78.45%!important;
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Gothic A1'!important;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.tile-text-lg {
+  width:346px!important;
+  margin:0px;
+  padding:0px;
+ 
+  text-align:center;
+}
+
+.tile-text-tablet {
+ 
+  width: 74%!important;
+  margin: 0 auto;
+  text-align:center;
+  font-weight: 300;
+  font-size: 25px;
+}
+
+.tile-text-tablet-sm {
+ 
+  width: 90%!important;
+  margin: 0 auto;
+  text-align:center;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.tile-text-xs {
+  width: 74%!important;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+
